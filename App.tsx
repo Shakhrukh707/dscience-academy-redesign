@@ -12,7 +12,9 @@ import {
   Cpu,
   CreditCard,
   Database,
+  Flame,
   Gamepad2,
+  Globe,
   GraduationCap,
   Layers,
   Laptop,
@@ -22,6 +24,7 @@ import {
   Palette,
   Plus,
   Rocket,
+  ShieldCheck,
   Sparkles,
   Star,
   Target,
@@ -1545,7 +1548,7 @@ export default function App() {
               initial={{ scale: 0.95, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 30, opacity: 0 }}
-              className="w-full max-w-5xl relative"
+              className="w-full max-w-3xl relative"
               onClick={e => e.stopPropagation()}
             >
               <button onClick={() => setShowPricingModal(false)} className="absolute -top-12 right-0 sm:-right-4 p-2 text-white hover:text-blue-300 transition-colors bg-white/10 hover:bg-white/20 rounded-full">
@@ -1557,88 +1560,128 @@ export default function App() {
                 <p className="text-blue-200 text-lg sm:text-xl font-medium max-w-2xl mx-auto">Data Science kursida o'qish uchun o'zingizga mos ta'lim shaklini tanlang.</p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 sm:gap-8 relative">
+              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 sm:gap-8">
                 {/* Kvota Card */}
-                <div className="relative group z-10 pt-4">
-                  <div className="absolute top-4 left-4 right-4 bg-blue-100 text-blue-600 font-black text-sm text-center py-2 rounded-t-[2.5rem] transition-all duration-300 transform translate-y-4 opacity-0 group-hover:-translate-y-8 group-hover:opacity-100 -z-10 shadow-lg shadow-blue-500/10">
-                    🔥 Eng mashhur
+                <div className="relative group z-10 pt-10 max-w-[380px] w-full mx-auto md:mx-0">
+                  {/* Hover banner - slides up from behind card */}
+                  <div className="absolute top-0 left-3 right-3 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-0">
+                    Eng mashhur
                   </div>
-                  
-                  <div className="bg-white rounded-[2.5rem] p-8 sm:p-10 border-4 border-blue-500 shadow-2xl shadow-blue-600/30 relative flex flex-col h-full dark:bg-[linear-gradient(180deg,#0F172A_0%,#020617_100%)] dark:border-blue-500 transition-transform duration-300 group-hover:scale-[1.02]">
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2">🎓 Kvota <span className="text-blue-600 dark:text-blue-400">(Davlat granti)</span></h3>
-                      <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Davlat granti doirasida bepul o'qish imkoniyati.</p>
+
+                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-10 flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
+                    {/* Icon + Title */}
+                    <div className="mb-5">
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        <h3 className="text-2xl font-black text-slate-900 dark:text-white">Kvota</h3>
+                      </div>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Davlat granti doirasida bepul o'qish imkoniyati.</p>
                     </div>
 
-                    <div className="text-center mb-8 pb-8 border-b border-slate-100 dark:border-slate-800">
-                      <div className="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400 mb-2 flex items-center justify-center gap-2"><Banknote className="w-8 h-8"/> 1.3M so'm</div>
-                      <p className="text-slate-600 dark:text-slate-300 font-bold">stipendiya + Noutbuk</p>
+                    {/* Price */}
+                    <div className="mb-6">
+                      <span className="text-5xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight">Bepul</span>
                     </div>
 
-                    <div className="flex-1 mb-10">
-                      <h4 className="font-bold text-slate-900 dark:text-white mb-5">Asosiy talablar (160 ta o'rin):</h4>
-                      <ul className="space-y-4">
-                        {['OTM 3-bosqich talabasi', 'IELTS 5.5-6.5 darajasi', "IQ test va IT ko'nikmalar", "Akademik qarzdorlik yo'qligi"].map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                            <span className="text-slate-600 dark:text-slate-400 text-sm sm:text-base font-medium">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <Button
+                    {/* CTA Button - solid dark pill */}
+                    <button
                       onClick={() => {
                         setShowPricingModal(false);
                         setAdmissionType('kvota');
                         setActiveCourseId('ds');
                       }}
-                      className="w-full py-5 sm:py-6 text-lg sm:text-xl !rounded-2xl shadow-xl shadow-blue-600/20 bg-blue-600 hover:bg-blue-700 text-white"
+                      className="w-full py-3.5 rounded-full bg-[#1C2B7F] text-white font-bold text-base transition-all duration-300 hover:bg-[#263399] hover:shadow-lg hover:shadow-blue-900/30 mb-8"
                     >
                       Tanlash
-                    </Button>
+                    </button>
+
+                    {/* Divider */}
+                    <div className="border-t border-gray-100 dark:border-slate-800 mb-6" />
+
+                    {/* Features list */}
+                    <div>
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Kvota afzalliklari:</h4>
+                      <ul className="space-y-3.5">
+                        <li className="flex items-start gap-3">
+                          <Globe className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Akademik mobillik</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Banknote className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Har oylik stipendiya – 1 320 000 so'm</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Utensils className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Bepul issiq ovqat</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Laptop className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Noutbuk bilan ta'minlash</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
                 {/* Kontrakt Card */}
-                <div className="relative group z-10 pt-4">
-                  <div className="absolute top-4 left-4 right-4 bg-[#f1eeff] text-[#7B5BFF] dark:bg-[#7B5BFF]/20 dark:text-[#A78BFA] font-black text-sm text-center py-2 rounded-t-[2.5rem] transition-all duration-300 transform translate-y-4 opacity-0 group-hover:-translate-y-8 group-hover:opacity-100 -z-10 shadow-lg">
-                    ✨ Barcha uchun
+                <div className="relative group z-10 pt-10 max-w-[380px] w-full mx-auto md:mx-0">
+                  {/* Hover banner - slides up from behind card */}
+                  <div className="absolute top-0 left-3 right-3 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-0">
+                    Barcha uchun
                   </div>
-                  
-                  <div className="bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 border border-slate-200 shadow-xl relative flex flex-col h-full dark:bg-[linear-gradient(180deg,#0B1120_0%,#020617_100%)] dark:border-slate-800 transition-all duration-300 group-hover:border-slate-300 dark:group-hover:border-slate-600 group-hover:shadow-2xl group-hover:scale-[1.02]">
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2">💳 Kontrakt asosida</h3>
-                      <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Barcha xohlovchilar uchun sinovlarsiz kafolatlangan ta'lim.</p>
+
+                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-10 flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
+                    {/* Icon + Title */}
+                    <div className="mb-5">
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <Flame className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                        <h3 className="text-2xl font-black text-slate-900 dark:text-white">Kontrakt</h3>
+                      </div>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Barcha xohlovchilar uchun sinovlarsiz kafolatlangan ta'lim.</p>
                     </div>
 
-                    <div className="text-center mb-8 pb-8 border-b border-slate-200 dark:border-slate-800">
-                      <div className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">🔄 Bo'lib to'lash</div>
-                      <p className="text-slate-600 dark:text-slate-400 font-bold">imkoniyati mavjud</p>
+                    {/* Price */}
+                    <div className="mb-6">
+                      <span className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">Bo'lib to'lash</span>
                     </div>
 
-                    <div className="flex-1 mb-10">
-                      <h4 className="font-bold text-slate-900 dark:text-white mb-5">Qulayliklari:</h4>
-                      <ul className="space-y-4">
-                        {['Barcha xohlovchilar uchun ochiq', 'IELTS yoki IQ test talab qilinmaydi', "O'qishga qabul kafolatlangan", "Moslashuvchan to'lov grafigi"].map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#7B5BFF] dark:text-[#A78BFA] shrink-0 mt-0.5" />
-                            <span className="text-slate-600 dark:text-slate-400 text-sm sm:text-base font-medium">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <Button
+                    {/* CTA Button - outline pill */}
+                    <button
                       onClick={() => {
                         setShowPricingModal(false);
                         setAdmissionType('kontrakt');
                         setActiveCourseId('ds');
                       }}
-                      className="w-full py-5 sm:py-6 text-lg sm:text-xl !rounded-2xl border-2 border-slate-200 bg-white text-slate-900 hover:border-blue-600 hover:bg-blue-600 hover:text-white dark:bg-slate-900 dark:border-slate-700 dark:text-white dark:hover:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300"
+                      className="w-full py-3.5 rounded-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 text-slate-900 dark:text-white font-bold text-base transition-all duration-300 hover:bg-[#1C2B7F] hover:border-[#1C2B7F] hover:text-white hover:shadow-lg hover:shadow-blue-900/30 mb-8"
                     >
                       Tanlash
-                    </Button>
+                    </button>
+
+                    {/* Divider */}
+                    <div className="border-t border-gray-100 dark:border-slate-800 mb-6" />
+
+                    {/* Features list */}
+                    <div>
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Qulayliklari:</h4>
+                      <ul className="space-y-3.5">
+                        <li className="flex items-start gap-3">
+                          <UserCheck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Barcha xohlovchilar uchun ochiq</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <ShieldCheck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">IELTS yoki IQ test talab qilinmaydi</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">O'qishga qabul kafolatlangan</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Clock className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Moslashuvchan to'lov grafigi</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
