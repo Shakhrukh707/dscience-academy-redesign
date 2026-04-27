@@ -439,6 +439,7 @@ export default function App() {
   const [isPageVisible, setIsPageVisible] = useState(false);
   const [lang, setLang] = useState<Language>('UZ');
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
+  const [showPricingModal, setShowPricingModal] = useState(false);
   const [admissionType, setAdmissionType] = useState<'kvota' | 'kontrakt' | null>(null);
   const [showRequirements, setShowRequirements] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -1014,7 +1015,13 @@ export default function App() {
                     viewport={{ once: true, amount: 0.12 }}
                     transition={{ duration: 0.8, delay: index * 0.06, ease: revealEase }}
                     whileHover={{ y: -10, scale: 1.01 }}
-                    onClick={() => setActiveCourseId(program.id)}
+                    onClick={() => {
+                      if (program.id === 'ds') {
+                        setShowPricingModal(true);
+                      } else {
+                        setActiveCourseId(program.id);
+                      }
+                    }}
                     className={`p-7 sm:p-10 md:p-14 rounded-[2.5rem] sm:rounded-[3rem] md:rounded-[4rem] flex flex-col justify-between min-h-[360px] sm:min-h-[420px] md:min-h-[500px] cursor-pointer transition-all relative overflow-hidden group ${
                       program.featured
                         ? 'md:col-span-8 bg-blue-600 text-white shadow-3xl shadow-blue-600/30 dark:bg-[linear-gradient(135deg,#2563EB_0%,#1D4ED8_40%,#312E81_100%)] dark:shadow-[0_34px_90px_-34px_rgba(37,99,235,0.65)]'
@@ -1401,55 +1408,19 @@ export default function App() {
                   </div>
 
                   <div className="lg:col-span-4 space-y-8 sm:space-y-10">
-                    {activeCourseId === 'ds' ? (
-                      <div className="space-y-6">
-                        <div className="space-y-4">
-                          <button
-                            onClick={() => setAdmissionType('kvota')}
-                            className={`w-full text-left p-5 sm:p-6 rounded-[2rem] border-2 transition-all duration-300 ${admissionType === 'kvota' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-900/20 dark:border-blue-500 shadow-xl shadow-blue-900/5' : 'border-slate-100 bg-slate-50 hover:border-slate-200 dark:bg-slate-900/40 dark:border-slate-800 dark:hover:border-slate-700'}`}
-                          >
-                            <div className="flex items-center justify-between mb-2">
-                              <h4 className={`text-lg sm:text-xl font-black ${admissionType === 'kvota' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-900 dark:text-white'}`}>🎓 Kvota (Grant)</h4>
-                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${admissionType === 'kvota' ? 'border-blue-600 bg-blue-600' : 'border-slate-300 dark:border-slate-600'}`}>
-                                {admissionType === 'kvota' && <div className="w-2 h-2 rounded-full bg-white" />}
-                              </div>
-                            </div>
-                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed">
-                              160 ta o'rin, Oylik stipendiya, Bepul noutbuk
-                            </p>
-                          </button>
+                    <div className="space-y-6">
+                      <h3 className="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-3 dark:text-white">
+                        <Cpu size={24} className="text-blue-600" /> {t.courses.modalLabels.tools}
+                      </h3>
 
-                          <button
-                            onClick={() => setAdmissionType('kontrakt')}
-                            className={`w-full text-left p-5 sm:p-6 rounded-[2rem] border-2 transition-all duration-300 ${admissionType === 'kontrakt' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-900/20 dark:border-blue-500 shadow-xl shadow-blue-900/5' : 'border-slate-100 bg-slate-50 hover:border-slate-200 dark:bg-slate-900/40 dark:border-slate-800 dark:hover:border-slate-700'}`}
-                          >
-                            <div className="flex items-center justify-between mb-2">
-                              <h4 className={`text-lg sm:text-xl font-black ${admissionType === 'kontrakt' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-900 dark:text-white'}`}>💳 Kontrakt asosida</h4>
-                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${admissionType === 'kontrakt' ? 'border-blue-600 bg-blue-600' : 'border-slate-300 dark:border-slate-600'}`}>
-                                {admissionType === 'kontrakt' && <div className="w-2 h-2 rounded-full bg-white" />}
-                              </div>
-                            </div>
-                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed">
-                              Barcha uchun ochiq, Bo'lib to'lash imkoniyati, Sinovlarsiz
-                            </p>
-                          </button>
-                        </div>
+                      <div className="flex flex-wrap gap-2">
+                        {activeCourseData.tools.map((tool, idx) => (
+                          <span key={idx} className="px-4 py-2 bg-slate-100 rounded-xl font-black text-[10px] text-slate-600 uppercase tracking-widest dark:bg-slate-900 dark:text-slate-300">
+                            {tool}
+                          </span>
+                        ))}
                       </div>
-                    ) : (
-                      <div className="space-y-6">
-                        <h3 className="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-3 dark:text-white">
-                          <Cpu size={24} className="text-blue-600" /> {t.courses.modalLabels.tools}
-                        </h3>
-
-                        <div className="flex flex-wrap gap-2">
-                          {activeCourseData.tools.map((tool, idx) => (
-                            <span key={idx} className="px-4 py-2 bg-slate-100 rounded-xl font-black text-[10px] text-slate-600 uppercase tracking-widest dark:bg-slate-900 dark:text-slate-300">
-                              {tool}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    </div>
 
                     <div className="p-6 sm:p-8 bg-slate-900 rounded-[1.8rem] sm:rounded-3xl text-white shadow-xl relative overflow-hidden">
                       <div className="absolute -top-6 -right-6 p-6 opacity-10">
@@ -1474,20 +1445,14 @@ export default function App() {
 
                 <div className="w-full md:w-auto flex flex-col items-center md:items-end gap-3">
                   <Button
-                    disabled={activeCourseId === 'ds' && !admissionType}
                     onClick={() => {
-                      if (activeCourseId === 'ds' && !admissionType) return;
                       setActiveCourseId(null);
                       setAdmissionType(null);
                       setTimeout(() => scrollTo('apply'), 250);
                     }}
-                    className={`w-full md:w-auto px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-xl !rounded-3xl transition-all ${activeCourseId === 'ds' && !admissionType ? '!bg-slate-200 !text-slate-400 dark:!bg-slate-800 dark:!text-slate-500 cursor-not-allowed shadow-none hover:!bg-slate-200 dark:hover:!bg-slate-800' : 'shadow-2xl shadow-blue-600/30'}`}
+                    className="w-full md:w-auto px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-xl !rounded-3xl shadow-2xl shadow-blue-600/30"
                   >
-                    {activeCourseId === 'ds' ? (
-                       admissionType === 'kvota' ? 'Kvotaga ariza topshirish' : 
-                       admissionType === 'kontrakt' ? 'Kontraktga yozilish' : 
-                       "Ta'lim shaklini tanlang"
-                    ) : t.courses.modalLabels.cta}
+                    {activeCourseId === 'ds' ? (admissionType === 'kvota' ? 'Kvotaga ariza topshirish' : 'Kontraktga yozilish') : t.courses.modalLabels.cta}
                   </Button>
                   {activeCourseId === 'ds' && admissionType === 'kvota' && (
                     <button 
@@ -1552,6 +1517,140 @@ export default function App() {
                     <li>Jamoa bilan ishlash qobiliyati;</li>
                     <li>Izlanuvchan va tirishqoq.</li>
                   </ul>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showPricingModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-slate-900/80 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setShowPricingModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 30, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 30, opacity: 0 }}
+              className="w-full max-w-5xl relative"
+              onClick={e => e.stopPropagation()}
+            >
+              <button onClick={() => setShowPricingModal(false)} className="absolute -top-12 right-0 sm:-right-4 p-2 text-white hover:text-blue-300 transition-colors bg-white/10 hover:bg-white/20 rounded-full">
+                <X size={24} />
+              </button>
+
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Ta'lim shaklini tanlang</h2>
+                <p className="text-blue-200 text-lg sm:text-xl font-medium max-w-2xl mx-auto">Data Science kursida o'qish uchun o'zingizga mos ta'lim shaklini tanlang.</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 sm:gap-8 relative">
+                {/* Kvota Card */}
+                <div className="bg-white rounded-[2.5rem] p-8 sm:p-10 border-4 border-blue-500 shadow-2xl shadow-blue-600/30 relative flex flex-col dark:bg-[linear-gradient(180deg,#0F172A_0%,#020617_100%)] dark:border-blue-500">
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white font-black text-xs sm:text-sm px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/40 whitespace-nowrap">
+                    Eng ommabop
+                  </div>
+                  
+                  <div className="text-center mb-8 mt-2">
+                    <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">🎓 Kvota <span className="text-blue-600 dark:text-blue-400">(Grant)</span></h3>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium">Davlat granti asosida ta'lim</p>
+                  </div>
+
+                  <div className="flex-1 space-y-6 mb-10">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 text-xl">💰</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Oylik stipendiya</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Har oy 1 320 000 so'm</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 text-xl">💻</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Bepul noutbuk</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">O'qish davomida foydalanish uchun</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 text-xl">🍲</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Issiq ovqat</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Har kuni bir mahallik bepul ovqat</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center mb-6">
+                     <span className="inline-block px-4 py-1.5 bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400 font-black text-sm rounded-full uppercase tracking-widest animate-pulse">
+                       Joylar soni: 160 ta
+                     </span>
+                  </div>
+
+                  <Button
+                    onClick={() => {
+                      setShowPricingModal(false);
+                      setAdmissionType('kvota');
+                      setActiveCourseId('ds');
+                    }}
+                    className="w-full py-5 sm:py-6 text-lg sm:text-xl !rounded-2xl shadow-xl shadow-blue-600/20"
+                  >
+                    Tanlash
+                  </Button>
+                </div>
+
+                {/* Kontrakt Card */}
+                <div className="bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col dark:bg-[linear-gradient(180deg,#0B1120_0%,#020617_100%)] dark:border-slate-800">
+                  <div className="text-center mb-8 mt-2">
+                    <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">💳 Kontrakt</h3>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium">Shartnoma asosida ta'lim</p>
+                  </div>
+
+                  <div className="flex-1 space-y-6 mb-10">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 text-xl">🎯</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Barcha uchun ochiq</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Hech qanday IELTS yoki IQ shart emas</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 text-xl">⚡</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Moslashuvchan grafik</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">O'zingizga qulay vaqtda o'qing</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 text-xl">💳</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Bo'lib to'lash</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Foizsiz va qulay to'lov rejasi imkoniyati</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center mb-6">
+                     <span className="inline-block px-4 py-1.5 opacity-0 font-black text-sm rounded-full">
+                       Hidden placeholder
+                     </span>
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setShowPricingModal(false);
+                      setAdmissionType('kontrakt');
+                      setActiveCourseId('ds');
+                    }}
+                    className="w-full py-5 sm:py-6 text-lg sm:text-xl !rounded-2xl"
+                  >
+                    Tanlash
+                  </Button>
                 </div>
               </div>
             </motion.div>
