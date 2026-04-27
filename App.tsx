@@ -263,7 +263,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick, badge }: { question:
             </span>
           )}
         </div>
-        <div className={`shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-50 transition-all duration-300 dark:bg-slate-900/50 ${isOpen ? 'rotate-45 bg-blue-600 text-white shadow-lg shadow-blue-600/30 dark:bg-blue-600' : 'text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 dark:text-slate-500 dark:group-hover:bg-slate-800'}`}>
+        <div className={`shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 bg-blue-600 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 dark:bg-slate-900/50 dark:text-slate-500 dark:group-hover:bg-slate-800'}`}>
           <Plus size={24} />
         </div>
       </button>
@@ -407,7 +407,7 @@ const FaqSection = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white">
-            Ko'p so'raladigan <span className="gradient-text">savollar</span>
+            Ko'p beriladigan <span className="gradient-text">savollar</span>
           </h2>
         </motion.div>
 
