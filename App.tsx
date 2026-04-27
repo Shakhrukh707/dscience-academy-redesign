@@ -12,8 +12,10 @@ import {
   Gamepad2,
   Layers,
   Menu,
+  Minus,
   Monitor,
   Palette,
+  Plus,
   Rocket,
   Sparkles,
   Star,
@@ -243,6 +245,194 @@ const AnimatedHeroBackground = () => {
 
 const revealEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const revealViewport = { once: true, amount: 0.18 };
+
+const AccordionItem = ({ question, answer, isOpen, onClick, badge }: { question: string, answer: React.ReactNode, isOpen: boolean, onClick: () => void, badge?: string }) => {
+  return (
+    <div className="border-b border-slate-200 dark:border-slate-800">
+      <button
+        onClick={onClick}
+        className="w-full flex items-center justify-between py-6 sm:py-8 text-left focus:outline-none group"
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 pr-4">
+          <span className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors dark:text-slate-100 dark:group-hover:text-blue-400">
+            {question}
+          </span>
+          {badge && (
+            <span className="shrink-0 inline-flex items-center rounded-full bg-blue-100/80 px-3 py-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+              {badge}
+            </span>
+          )}
+        </div>
+        <div className={`shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-50 transition-all duration-300 dark:bg-slate-900/50 ${isOpen ? 'rotate-45 bg-blue-600 text-white shadow-lg shadow-blue-600/30 dark:bg-blue-600' : 'text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 dark:text-slate-500 dark:group-hover:bg-slate-800'}`}>
+          <Plus size={24} />
+        </div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="pb-8 pr-12 sm:pr-16 text-base sm:text-lg text-slate-500 leading-relaxed font-medium dark:text-slate-400">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const FaqSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      question: "Data Science kursida o'qish tartibi qanday?",
+      answer: (
+        <div className="space-y-4">
+          <p>Data Science yo'nalishida ikki xil ta'lim shakli mavjud:</p>
+          <ul className="space-y-3 ml-2">
+            <li className="flex items-start gap-3">
+              <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+              <span><strong className="text-slate-700 dark:text-slate-300">Kvota asosida (160 ta o'rin):</strong> Davlat granti asosida mutlaqo bepul o'qish va maxsus imtiyozlarga ega bo'lish imkoniyati.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+              <span><strong className="text-slate-700 dark:text-slate-300">Kontrakt asosida:</strong> Kursda o'qishni xohlovchilar uchun sinovlarsiz, to'lov asosida ta'lim olish shakli.</span>
+            </li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      question: "Kvota asosida qabul qilinish uchun qanday talablar bor?",
+      badge: "Grant",
+      answer: (
+        <div className="space-y-6">
+          <p>Kvota asosida 160 ta o'rindan biriga ega bo'lish uchun nomzodlar quyidagi barcha talablarga javob berishi lozim:</p>
+          
+          <div>
+            <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Asosiy akademik talablar:</h4>
+            <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+              <li>Davlat oliy ta’lim muassasalari talabasi bo'lishi;</li>
+              <li>Joriy yil 2-bosqichni tugatib, 3-bosqichga o‘tgan bo'lishi;</li>
+              <li>Akademik qarzdorligi bo‘lmasligi;</li>
+              <li>Matematika va informatika fanlarini mukammal o‘zlashtirgan bo'lishi.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Texnik va til ko'nikmalari:</h4>
+            <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+              <li>Ingliz tilini bilish darajasi (IELTS 5.5-6.5);</li>
+              <li>Web, Android, IOS kabi dasturiy ta’minot yozish ko‘nikmalariga ega bo'lishi;</li>
+              <li>IQ test natijasi yuqori bo'lishi;</li>
+              <li>Xalqaro IT sertifikatga ega bo'lishi.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Faollik va shaxsiy sifatlar:</h4>
+            <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+              <li>OTM ijtimoiy hayotida faol ishtirok etuvchi (tavsiyanoma asosida);</li>
+              <li>Ilmiy faolligi yuqori (maqola, darslik, dasturiy ta’minot, ixtiro egasi);</li>
+              <li>Muloqotga kirisha oladigan va jamoa bilan ishlash qobiliyatiga ega bo'lishi;</li>
+              <li>Izlanuvchan va tirishqoq (qo‘yilgan muammoni yechish uchun ilmiy yondashadigan va boshlangan ishni oxiriga yetkazadigan).</li>
+            </ul>
+          </div>
+          
+          <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm mt-4 dark:bg-slate-900/40 dark:border-slate-800/80">
+            <span className="font-bold text-slate-700 dark:text-slate-300">Eslatma:</span> Kontrakt asosida o'qish uchun bu talablar shart emas.
+          </div>
+        </div>
+      )
+    },
+    {
+      question: "Kvota asosida o'qiydigan talabalarga qanday imtiyozlar beriladi?",
+      badge: "Imtiyozlar",
+      answer: (
+        <div className="space-y-6">
+          <p>Kvota doirasida qabul qilingan talabalar uchun quyidagi <strong className="text-blue-600 dark:text-blue-400">BONUS</strong> imkoniyatlar yaratilgan:</p>
+          
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+              <div className="text-3xl mt-0.5">💰</div>
+              <div>
+                <h4 className="font-bold text-slate-900 dark:text-slate-100">Stipendiya</h4>
+                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Har oy 1 320 000 so'm rag'batlantirish</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+              <div className="text-3xl mt-0.5">💻</div>
+              <div>
+                <h4 className="font-bold text-slate-900 dark:text-slate-100">Noutbuk</h4>
+                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">O'qish davomida foydalanish uchun zamonaviy noutbuk</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+              <div className="text-3xl mt-0.5">🍲</div>
+              <div>
+                <h4 className="font-bold text-slate-900 dark:text-slate-100">Issiq ovqat</h4>
+                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Har kuni bir mahallik bepul issiq tushlik</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+              <div className="text-3xl mt-0.5">🎓</div>
+              <div>
+                <h4 className="font-bold text-slate-900 dark:text-slate-100">Akademik mobillik</h4>
+                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Toshkentdagi yetakchi OTMlarda tajriba almashish</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  return (
+    <section className="py-20 sm:py-24 md:py-32 bg-[#F8FAFC] dark:bg-[#030712]">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={revealViewport}
+          transition={{ duration: 0.75, ease: revealEase }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white">
+            Ko'p so'raladigan <span className="gradient-text">savollar</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={revealViewport}
+          transition={{ duration: 0.8, delay: 0.1, ease: revealEase }}
+          className="mx-auto"
+        >
+          {faqs.map((faq, index) => (
+            <AccordionItem
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+              badge={faq.badge}
+              isOpen={openIndex === index}
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            />
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -1097,6 +1287,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <FaqSection />
       </main>
 
       <motion.footer
