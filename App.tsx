@@ -1316,9 +1316,9 @@ export default function App() {
             transition={{ duration: 0.7, delay: 0.12, ease: revealEase }}
             className="flex flex-wrap justify-center gap-x-8 gap-y-4 sm:gap-12 mb-8 sm:mb-12 text-slate-400 font-black uppercase text-[10px] sm:text-xs tracking-[0.28em] sm:tracking-[0.4em] dark:text-slate-500"
           >
-            <a href="#" className="hover:text-blue-600 transition-colors dark:hover:text-blue-300">Instagram</a>
-            <a href="#" className="hover:text-blue-600 transition-colors dark:hover:text-blue-300">Telegram</a>
-            <a href="#" className="hover:text-blue-600 transition-colors dark:hover:text-blue-300">YouTube</a>
+            <a href="https://www.instagram.com/muvm.uz?igsh=MW8wN2JhdGIzZ2V3aA==" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors dark:hover:text-blue-300">Instagram</a>
+            <a href="https://t.me/muvdscienceuz" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors dark:hover:text-blue-300">Telegram</a>
+            <a href="https://www.linkedin.com/company/muvmuz/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors dark:hover:text-blue-300">Linkedin</a>
           </motion.div>
 
           <motion.div
@@ -1328,7 +1328,7 @@ export default function App() {
             transition={{ duration: 0.7, delay: 0.16, ease: revealEase }}
             className="text-slate-300 font-bold uppercase text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-widest dark:text-slate-600"
           >
-            © 2026 DScience Academy. Barcha huquqlar himoyalangan.
+            © 2026 Tayyorlov o‘quv kurslari markazi. Barcha huquqlar himoyalangan.
           </motion.div>
         </div>
       </motion.footer>
