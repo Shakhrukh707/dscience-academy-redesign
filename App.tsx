@@ -1562,12 +1562,12 @@ export default function App() {
 
               <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 sm:gap-8 overflow-visible">
                 <div className="relative group pt-10 max-w-[380px] w-full mx-auto md:mx-0 overflow-visible">
-                  {/* Hover banner - peeks above card on hover */}
-                  <div className="absolute top-2 left-3 right-3 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 z-[1]">
+                  {/* Hover banner - slides up smoothly */}
+                  <div className="absolute top-10 left-3 right-3 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-sm text-center py-2.5 rounded-t-2xl z-[1] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 translate-y-0 group-hover:-translate-y-8 group-hover:opacity-100">
                     Eng mashhur
                   </div>
 
-                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-[2] flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-[2] flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-500 ease-out group-hover:shadow-xl group-hover:border-blue-300 dark:group-hover:border-blue-500">
                     {/* Icon + Title */}
                     <div className="mb-5">
                       <div className="flex items-center gap-2.5 mb-3">
@@ -1579,27 +1579,27 @@ export default function App() {
 
                     {/* Price */}
                     <div className="mb-6">
-                      <span className="text-5xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-tight">Bepul</span>
+                      <span className="text-[2.75rem] sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">Bepul</span>
                     </div>
 
                     {/* CTA Button - solid dark pill */}
-                    <button
-                      onClick={() => {
-                        setShowPricingModal(false);
-                        setAdmissionType('kvota');
-                        setActiveCourseId('ds');
-                      }}
-                      className="w-full py-3.5 rounded-full bg-[#1C2B7F] text-white font-bold text-base transition-all duration-300 hover:bg-[#263399] hover:shadow-lg hover:shadow-blue-900/30 mb-8"
-                    >
-                      Tanlash
-                    </button>
+                    <div className="mt-auto">
+                      <button
+                        onClick={() => {
+                          setShowPricingModal(false);
+                          setAdmissionType('kvota');
+                          setActiveCourseId('ds');
+                        }}
+                        className="w-full py-3.5 rounded-full bg-[#1C2B7F] text-white font-bold text-base transition-all duration-300 hover:bg-[#263399] hover:shadow-lg hover:shadow-blue-900/30 mb-8"
+                      >
+                        Tanlash
+                      </button>
 
-                    {/* Divider */}
-                    <div className="border-t border-gray-100 dark:border-slate-800 mb-6" />
+                      {/* Divider */}
+                      <div className="border-t border-gray-100 dark:border-slate-800 mb-6" />
 
-                    {/* Features list */}
-                    <div>
-                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Kvota afzalliklari:</h4>
+                      {/* Features list */}
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Afzalliklari:</h4>
                       <ul className="space-y-3.5">
                         <li className="flex items-start gap-3">
                           <Globe className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
@@ -1624,12 +1624,12 @@ export default function App() {
 
                 {/* Kontrakt Card */}
                 <div className="relative group pt-10 max-w-[380px] w-full mx-auto md:mx-0 overflow-visible">
-                  {/* Hover banner - peeks above card on hover */}
-                  <div className="absolute top-2 left-3 right-3 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 z-[1]">
+                  {/* Hover banner - slides up smoothly */}
+                  <div className="absolute top-10 left-3 right-3 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold text-sm text-center py-2.5 rounded-t-2xl z-[1] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 translate-y-0 group-hover:-translate-y-8 group-hover:opacity-100">
                     Barcha uchun
                   </div>
 
-                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-[2] flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-[2] flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-500 ease-out group-hover:shadow-xl group-hover:border-purple-300 dark:group-hover:border-purple-500">
                     {/* Icon + Title */}
                     <div className="mb-5">
                       <div className="flex items-center gap-2.5 mb-3">
@@ -1641,27 +1641,27 @@ export default function App() {
 
                     {/* Price */}
                     <div className="mb-6">
-                      <span className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">Bo'lib to'lash</span>
+                      <span className="text-[2.75rem] sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">Bo'lib to'lash</span>
                     </div>
 
                     {/* CTA Button - outline pill */}
-                    <button
-                      onClick={() => {
-                        setShowPricingModal(false);
-                        setAdmissionType('kontrakt');
-                        setActiveCourseId('ds');
-                      }}
-                      className="w-full py-3.5 rounded-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 text-slate-900 dark:text-white font-bold text-base transition-all duration-300 hover:bg-[#1C2B7F] hover:border-[#1C2B7F] hover:text-white hover:shadow-lg hover:shadow-blue-900/30 mb-8"
-                    >
-                      Tanlash
-                    </button>
+                    <div className="mt-auto">
+                      <button
+                        onClick={() => {
+                          setShowPricingModal(false);
+                          setAdmissionType('kontrakt');
+                          setActiveCourseId('ds');
+                        }}
+                        className="w-full py-3.5 rounded-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 text-slate-900 dark:text-white font-bold text-base transition-all duration-300 hover:bg-[#1C2B7F] hover:border-[#1C2B7F] hover:text-white hover:shadow-lg hover:shadow-blue-900/30 mb-8"
+                      >
+                        Tanlash
+                      </button>
 
-                    {/* Divider */}
-                    <div className="border-t border-gray-100 dark:border-slate-800 mb-6" />
+                      {/* Divider */}
+                      <div className="border-t border-gray-100 dark:border-slate-800 mb-6" />
 
-                    {/* Features list */}
-                    <div>
-                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Qulayliklari:</h4>
+                      {/* Features list */}
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-4">Afzalliklari:</h4>
                       <ul className="space-y-3.5">
                         <li className="flex items-start gap-3">
                           <UserCheck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
