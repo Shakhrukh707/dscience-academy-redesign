@@ -251,6 +251,7 @@ export default function App() {
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState(2);
   const t = translations[lang];
 
   useEffect(() => {
@@ -405,13 +406,24 @@ export default function App() {
             name: 'Madina Yoqubova',
             role: 'Направление Motion Design',
             avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
-            featured: true,
           },
           {
             quote: 'Здесь чувствуешь не просто уроки, а настоящую среду, где тебя ведут к профессии и сильному результату.',
             name: 'Javohir Hasanov',
             role: 'Направление GameDev',
             avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
+          },
+          {
+            quote: 'Менторы всегда на связи и помогают разобраться даже в самых сложных концепциях машинного обучения.',
+            name: 'Dildora Alimova',
+            role: 'Направление Data Science',
+            avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
+          },
+          {
+            quote: 'Курс Unreal Engine перевернул мое представление о создании игр. Теперь я уверенно разрабатываю собственные проекты.',
+            name: 'Timur Abdullaev',
+            role: 'Направление GameDev',
+            avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
           },
         ] satisfies TestimonialCard[],
       };
@@ -434,13 +446,24 @@ export default function App() {
             name: 'Madina Yoqubova',
             role: 'Motion Design Track',
             avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
-            featured: true,
           },
           {
             quote: 'It feels like a real professional environment where you are guided toward a career, not just a set of lessons.',
             name: 'Javohir Hasanov',
             role: 'GameDev Track',
             avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
+          },
+          {
+            quote: 'The mentors are always available and help break down even the most complex machine learning concepts.',
+            name: 'Dildora Alimova',
+            role: 'Data Science Track',
+            avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
+          },
+          {
+            quote: 'The Unreal Engine course changed how I view game creation. Now I confidently build my own projects.',
+            name: 'Timur Abdullaev',
+            role: 'GameDev Track',
+            avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
           },
         ] satisfies TestimonialCard[],
       };
@@ -462,13 +485,24 @@ export default function App() {
           name: 'Madina Yoqubova',
           role: "Motion Design yo'nalishi",
           avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
-          featured: true,
         },
         {
           quote: "Akademiyada oddiy dars emas, haqiqiy professional muhit bor. Senga kasb tomon aniq yo'l ko'rsatib boriladi.",
           name: 'Javohir Hasanov',
           role: "GameDev yo'nalishi",
           avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
+        },
+        {
+          quote: "Mentorlar doim aloqada va eng qiyin mashinani o'rganish tushunchalarini ham oson tushuntirib berishadi.",
+          name: 'Dildora Alimova',
+          role: "Data Science yo'nalishi",
+          avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
+        },
+        {
+          quote: "Unreal Engine kursi o'yin yaratishga bo'lgan qarashimni o'zgartirdi. Endi men o'z proyektlarimni ishonch bilan yaratyapman.",
+          name: 'Timur Abdullaev',
+          role: "GameDev yo'nalishi",
+          avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
         },
       ] satisfies TestimonialCard[],
     };
@@ -982,53 +1016,84 @@ export default function App() {
               </p>
             </motion.div>
 
-            <div className="grid gap-16 md:gap-10 lg:grid-cols-3 lg:items-end">
-              {testimonialsContent.items.map((item, index) => (
-                <motion.article
-                  key={`${item.name}-${index}`}
-                  initial={{ opacity: 0, y: 34, filter: 'blur(12px)' }}
-                  whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  viewport={{ once: true, amount: 0.18 }}
-                  transition={{ duration: 0.8, delay: index * 0.08, ease: revealEase }}
-                  className={`relative rounded-[2.2rem] px-6 pb-8 pt-20 sm:px-8 sm:pb-10 sm:pt-24 text-center shadow-[0_30px_80px_-38px_rgba(15,23,42,0.25)] ${
-                    item.featured
-                      ? 'bg-[linear-gradient(180deg,#2563EB_0%,#356DFF_100%)] text-white lg:-translate-y-5'
-                      : 'bg-white border border-slate-100 text-slate-900'
-                  }`}
+            <div className="relative w-full max-w-[100vw] overflow-hidden pt-8 pb-4">
+              <div className="mx-auto w-[85vw] sm:w-[400px] md:w-[460px]">
+                <div 
+                  className="flex items-stretch transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
                 >
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-                    <div className="flex h-28 w-28 items-center justify-center rounded-full border border-blue-100 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.35)] sm:h-32 sm:w-32">
-                      <div
-                        className={`flex h-[82%] w-[82%] items-center justify-center rounded-full bg-gradient-to-br ${item.avatarClass} text-slate-900 text-2xl sm:text-3xl font-black tracking-tight`}
-                      >
-                        {item.name.split(' ').map(part => part[0]).join('').slice(0, 2)}
+                  {testimonialsContent.items.map((item, index) => {
+                    const isActive = index === activeTestimonial;
+                    return (
+                      <div key={`${item.name}-${index}`} className="w-full shrink-0 px-3 transition-transform duration-700">
+                        <article 
+                          className={`relative h-full rounded-[2.2rem] px-6 pb-8 pt-20 sm:px-8 sm:pb-10 sm:pt-24 text-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                            isActive 
+                              ? 'bg-[linear-gradient(180deg,#2563EB_0%,#356DFF_100%)] text-white shadow-[0_30px_80px_-38px_rgba(37,99,235,0.5)] scale-100' 
+                              : 'bg-white border border-slate-100 text-slate-500 scale-90 opacity-60 dark:bg-slate-900/50 dark:border-slate-800'
+                          }`}
+                        >
+                          <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                            <div className={`flex h-28 w-28 items-center justify-center rounded-full border transition-colors duration-700 sm:h-32 sm:w-32 ${isActive ? 'border-blue-200/50 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.35)]' : 'border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-950'}`}>
+                              <div className={`flex h-[82%] w-[82%] items-center justify-center rounded-full bg-gradient-to-br ${item.avatarClass} text-slate-900 text-2xl sm:text-3xl font-black tracking-tight transition-all duration-700 ${isActive ? 'opacity-100' : 'opacity-60 saturate-50'}`}>
+                                {item.name.split(' ').map(part => part[0]).join('').slice(0, 2)}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className={`flex items-center justify-center gap-1 transition-colors duration-700 ${isActive ? 'text-yellow-400' : 'text-slate-300 dark:text-slate-700'}`}>
+                            {Array.from({ length: 5 }).map((_, starIndex) => (
+                              <Star key={starIndex} size={20} fill="currentColor" />
+                            ))}
+                          </div>
+
+                          <h3 className={`mt-6 text-2xl sm:text-[2rem] font-black tracking-tight transition-colors duration-700 ${isActive ? 'text-white' : 'text-slate-800 dark:text-slate-300'}`}>
+                            {item.name}
+                          </h3>
+
+                          <p className={`mt-2 text-sm sm:text-base font-medium transition-colors duration-700 ${isActive ? 'text-blue-100' : 'text-slate-400'}`}>
+                            {item.role}
+                          </p>
+
+                          <div className={`mt-5 text-6xl leading-none font-black transition-colors duration-700 ${isActive ? 'text-white/95' : 'text-slate-300 dark:text-slate-700'}`}>
+                            “
+                          </div>
+
+                          <p className={`mt-3 text-sm sm:text-base leading-8 font-medium transition-colors duration-700 ${isActive ? 'text-white/85' : 'text-slate-500 dark:text-slate-400'}`}>
+                            {item.quote}
+                          </p>
+                        </article>
                       </div>
-                    </div>
-                  </div>
+                    );
+                  })}
+                </div>
+              </div>
 
-                  <div className={`flex items-center justify-center gap-1 ${item.featured ? 'text-white' : 'text-blue-600'}`}>
-                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                      <Star key={starIndex} size={20} fill="currentColor" />
-                    ))}
-                  </div>
-
-                  <h3 className={`mt-6 text-2xl sm:text-[2rem] font-black tracking-tight ${item.featured ? 'text-white' : 'text-slate-900'}`}>
-                    {item.name}
-                  </h3>
-
-                  <p className={`mt-2 text-sm sm:text-base font-medium ${item.featured ? 'text-blue-100' : 'text-slate-400'}`}>
-                    {item.role}
-                  </p>
-
-                  <div className={`mt-5 text-6xl leading-none font-black ${item.featured ? 'text-white/95' : 'text-blue-600'}`}>
-                    “
-                  </div>
-
-                  <p className={`mt-3 text-sm sm:text-base leading-8 font-medium ${item.featured ? 'text-white/85' : 'text-slate-500'}`}>
-                    {item.quote}
-                  </p>
-                </motion.article>
-              ))}
+              <div className="mt-12 flex items-center justify-center gap-6">
+                <button 
+                  onClick={() => setActiveTestimonial(Math.max(0, activeTestimonial - 1))}
+                  disabled={activeTestimonial === 0}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30 disabled:hover:bg-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
+                >
+                  <ChevronRight size={24} className="rotate-180" />
+                </button>
+                <div className="flex gap-2.5">
+                  {testimonialsContent.items.map((_, idx) => (
+                    <button 
+                      key={idx}
+                      onClick={() => setActiveTestimonial(idx)}
+                      className={`h-2.5 rounded-full transition-all duration-500 ${idx === activeTestimonial ? 'w-8 bg-blue-600' : 'w-2.5 bg-slate-300 dark:bg-slate-700'}`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setActiveTestimonial(Math.min(testimonialsContent.items.length - 1, activeTestimonial + 1))}
+                  disabled={activeTestimonial === testimonialsContent.items.length - 1}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30 disabled:hover:bg-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </div>
             </div>
           </div>
         </section>
