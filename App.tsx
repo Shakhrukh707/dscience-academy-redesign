@@ -1027,27 +1027,27 @@ export default function App() {
                     return (
                       <div key={`${item.name}-${index}`} className="w-full shrink-0 px-3 transition-transform duration-700">
                         <article 
-                          className={`relative h-full rounded-[2.2rem] px-6 pb-8 pt-20 sm:px-8 sm:pb-10 sm:pt-24 text-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                          className={`relative h-full rounded-[2.2rem] px-6 pb-8 pt-20 sm:px-8 sm:pb-10 sm:pt-24 text-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-[0_30px_80px_-38px_rgba(15,23,42,0.15)] ${
                             isActive 
                               ? 'bg-[linear-gradient(180deg,#2563EB_0%,#356DFF_100%)] text-white shadow-[0_30px_80px_-38px_rgba(37,99,235,0.5)] scale-100' 
-                              : 'bg-white border border-slate-100 text-slate-500 scale-90 opacity-60 dark:bg-slate-900/50 dark:border-slate-800'
+                              : 'bg-white border border-slate-100 text-slate-900 scale-90 dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(2,6,23,0.98))] dark:border-slate-800'
                           }`}
                         >
                           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-                            <div className={`flex h-28 w-28 items-center justify-center rounded-full border transition-colors duration-700 sm:h-32 sm:w-32 ${isActive ? 'border-blue-200/50 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.35)]' : 'border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-950'}`}>
-                              <div className={`flex h-[82%] w-[82%] items-center justify-center rounded-full bg-gradient-to-br ${item.avatarClass} text-slate-900 text-2xl sm:text-3xl font-black tracking-tight transition-all duration-700 ${isActive ? 'opacity-100' : 'opacity-60 saturate-50'}`}>
+                            <div className={`flex h-28 w-28 items-center justify-center rounded-full border transition-colors duration-700 sm:h-32 sm:w-32 ${isActive ? 'border-blue-200/50 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.35)]' : 'border-blue-100 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.2)] dark:border-slate-700 dark:bg-slate-900'}`}>
+                              <div className={`flex h-[82%] w-[82%] items-center justify-center rounded-full bg-gradient-to-br ${item.avatarClass} text-slate-900 text-2xl sm:text-3xl font-black tracking-tight transition-all duration-700`}>
                                 {item.name.split(' ').map(part => part[0]).join('').slice(0, 2)}
                               </div>
                             </div>
                           </div>
 
-                          <div className={`flex items-center justify-center gap-1 transition-colors duration-700 ${isActive ? 'text-yellow-400' : 'text-slate-300 dark:text-slate-700'}`}>
+                          <div className={`flex items-center justify-center gap-1 transition-colors duration-700 ${isActive ? 'text-yellow-400' : 'text-blue-600 dark:text-blue-500'}`}>
                             {Array.from({ length: 5 }).map((_, starIndex) => (
                               <Star key={starIndex} size={20} fill="currentColor" />
                             ))}
                           </div>
 
-                          <h3 className={`mt-6 text-2xl sm:text-[2rem] font-black tracking-tight transition-colors duration-700 ${isActive ? 'text-white' : 'text-slate-800 dark:text-slate-300'}`}>
+                          <h3 className={`mt-6 text-2xl sm:text-[2rem] font-black tracking-tight transition-colors duration-700 ${isActive ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
                             {item.name}
                           </h3>
 
@@ -1055,7 +1055,7 @@ export default function App() {
                             {item.role}
                           </p>
 
-                          <div className={`mt-5 text-6xl leading-none font-black transition-colors duration-700 ${isActive ? 'text-white/95' : 'text-slate-300 dark:text-slate-700'}`}>
+                          <div className={`mt-5 text-6xl leading-none font-black transition-colors duration-700 ${isActive ? 'text-white/95' : 'text-blue-600 dark:text-blue-500'}`}>
                             “
                           </div>
 
