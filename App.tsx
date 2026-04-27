@@ -578,9 +578,9 @@ export default function App() {
 
   const navItems = [
     { label: t.header.courses, onClick: () => scrollTo('courses') },
-    { label: 'E-campus', onClick: () => {} },
-    { label: 'Platforma', onClick: () => {} },
-    { label: 'Kutubxona', onClick: () => {} },
+    { label: 'E-campus', onClick: () => window.open('https://dscience.uz/e-campus', '_blank') },
+    { label: 'Platforma', onClick: () => window.open('https://lmsf.dscience.uz/login', '_blank') },
+    { label: 'Kutubxona', onClick: () => window.open('https://dscience.uz/login', '_blank') },
   ];
 
   return (
