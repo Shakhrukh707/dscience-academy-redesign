@@ -439,7 +439,7 @@ export default function App() {
   const [isPageVisible, setIsPageVisible] = useState(false);
   const [lang, setLang] = useState<Language>('UZ');
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
-  const [admissionType, setAdmissionType] = useState<'kvota' | 'kontrakt'>('kvota');
+  const [admissionType, setAdmissionType] = useState<'kvota' | 'kontrakt' | null>(null);
   const [showRequirements, setShowRequirements] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1342,7 +1342,7 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4 md:p-8"
-            onClick={() => setActiveCourseId(null)}
+            onClick={() => { setActiveCourseId(null); setAdmissionType(null); }}
           >
             <motion.div
               initial={{ scale: 0.9, y: 40, opacity: 0 }}
@@ -1352,7 +1352,7 @@ export default function App() {
               onClick={e => e.stopPropagation()}
             >
               <div className={`p-6 sm:p-8 md:p-12 bg-gradient-to-br ${activeCourse.color} text-white relative`}>
-                <button onClick={() => setActiveCourseId(null)} className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 p-2.5 sm:p-3 bg-white/10 hover:bg-white/20 rounded-2xl transition-all">
+                <button onClick={() => { setActiveCourseId(null); setAdmissionType(null); }} className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 p-2.5 sm:p-3 bg-white/10 hover:bg-white/20 rounded-2xl transition-all">
                   <X size={24} />
                 </button>
 
@@ -1403,68 +1403,37 @@ export default function App() {
                   <div className="lg:col-span-4 space-y-8 sm:space-y-10">
                     {activeCourseId === 'ds' ? (
                       <div className="space-y-6">
-                        <div className="flex bg-slate-100 p-1.5 rounded-2xl dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative z-10">
-                          <button 
+                        <div className="space-y-4">
+                          <button
                             onClick={() => setAdmissionType('kvota')}
-                            className={`flex-1 py-3.5 text-xs sm:text-sm font-black uppercase tracking-widest rounded-xl transition-all duration-300 ${admissionType === 'kvota' ? 'bg-white text-blue-600 shadow-md shadow-blue-900/5 dark:bg-slate-800 dark:text-blue-400' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
+                            className={`w-full text-left p-5 sm:p-6 rounded-[2rem] border-2 transition-all duration-300 ${admissionType === 'kvota' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-900/20 dark:border-blue-500 shadow-xl shadow-blue-900/5' : 'border-slate-100 bg-slate-50 hover:border-slate-200 dark:bg-slate-900/40 dark:border-slate-800 dark:hover:border-slate-700'}`}
                           >
-                            🎓 Kvota (Grant)
+                            <div className="flex items-center justify-between mb-2">
+                              <h4 className={`text-lg sm:text-xl font-black ${admissionType === 'kvota' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-900 dark:text-white'}`}>🎓 Kvota (Grant)</h4>
+                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${admissionType === 'kvota' ? 'border-blue-600 bg-blue-600' : 'border-slate-300 dark:border-slate-600'}`}>
+                                {admissionType === 'kvota' && <div className="w-2 h-2 rounded-full bg-white" />}
+                              </div>
+                            </div>
+                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed">
+                              160 ta o'rin, Oylik stipendiya, Bepul noutbuk
+                            </p>
                           </button>
-                          <button 
+
+                          <button
                             onClick={() => setAdmissionType('kontrakt')}
-                            className={`flex-1 py-3.5 text-xs sm:text-sm font-black uppercase tracking-widest rounded-xl transition-all duration-300 ${admissionType === 'kontrakt' ? 'bg-white text-blue-600 shadow-md shadow-blue-900/5 dark:bg-slate-800 dark:text-blue-400' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
+                            className={`w-full text-left p-5 sm:p-6 rounded-[2rem] border-2 transition-all duration-300 ${admissionType === 'kontrakt' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-900/20 dark:border-blue-500 shadow-xl shadow-blue-900/5' : 'border-slate-100 bg-slate-50 hover:border-slate-200 dark:bg-slate-900/40 dark:border-slate-800 dark:hover:border-slate-700'}`}
                           >
-                            💳 Kontrakt
+                            <div className="flex items-center justify-between mb-2">
+                              <h4 className={`text-lg sm:text-xl font-black ${admissionType === 'kontrakt' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-900 dark:text-white'}`}>💳 Kontrakt asosida</h4>
+                              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${admissionType === 'kontrakt' ? 'border-blue-600 bg-blue-600' : 'border-slate-300 dark:border-slate-600'}`}>
+                                {admissionType === 'kontrakt' && <div className="w-2 h-2 rounded-full bg-white" />}
+                              </div>
+                            </div>
+                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed">
+                              Barcha uchun ochiq, Bo'lib to'lash imkoniyati, Sinovlarsiz
+                            </p>
                           </button>
                         </div>
-
-                        <AnimatePresence mode="wait">
-                          {admissionType === 'kvota' ? (
-                            <motion.div
-                              key="kvota"
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -10 }}
-                              transition={{ duration: 0.2 }}
-                              className="space-y-3"
-                            >
-                              <div className="p-4 sm:p-5 bg-blue-50/70 rounded-2xl border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30 flex items-start gap-4">
-                                <div className="text-2xl mt-0.5">💰</div>
-                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Stipendiya</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Har oy 1 320 000 so'm</p></div>
-                              </div>
-                              <div className="p-4 sm:p-5 bg-blue-50/70 rounded-2xl border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30 flex items-start gap-4">
-                                <div className="text-2xl mt-0.5">💻</div>
-                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Noutbuk</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">O'qish davomida foydalanish</p></div>
-                              </div>
-                              <div className="p-4 sm:p-5 bg-blue-50/70 rounded-2xl border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30 flex items-start gap-4">
-                                <div className="text-2xl mt-0.5">🍲</div>
-                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Issiq ovqat</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Har kuni bir mahallik</p></div>
-                              </div>
-                            </motion.div>
-                          ) : (
-                            <motion.div
-                              key="kontrakt"
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -10 }}
-                              transition={{ duration: 0.2 }}
-                              className="space-y-3"
-                            >
-                              <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-100 dark:bg-slate-900/40 dark:border-slate-800 flex items-start gap-4">
-                                <div className="text-2xl mt-0.5">⚡</div>
-                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Moslashuvchan grafik</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">O'zingizga qulay vaqtda</p></div>
-                              </div>
-                              <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-100 dark:bg-slate-900/40 dark:border-slate-800 flex items-start gap-4">
-                                <div className="text-2xl mt-0.5">💳</div>
-                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Bo'lib to'lash</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Foizsiz to'lov rejasi</p></div>
-                              </div>
-                              <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-100 dark:bg-slate-900/40 dark:border-slate-800 flex items-start gap-4">
-                                <div className="text-2xl mt-0.5">🎯</div>
-                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Sinovlarsiz</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Hech qanday IELTS/IQ shart emas</p></div>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
                       </div>
                     ) : (
                       <div className="space-y-6">
@@ -1505,13 +1474,20 @@ export default function App() {
 
                 <div className="w-full md:w-auto flex flex-col items-center md:items-end gap-3">
                   <Button
+                    disabled={activeCourseId === 'ds' && !admissionType}
                     onClick={() => {
+                      if (activeCourseId === 'ds' && !admissionType) return;
                       setActiveCourseId(null);
+                      setAdmissionType(null);
                       setTimeout(() => scrollTo('apply'), 250);
                     }}
-                    className="w-full md:w-auto px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-xl !rounded-3xl shadow-2xl shadow-blue-600/30"
+                    className={`w-full md:w-auto px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-xl !rounded-3xl transition-all ${activeCourseId === 'ds' && !admissionType ? '!bg-slate-200 !text-slate-400 dark:!bg-slate-800 dark:!text-slate-500 cursor-not-allowed shadow-none hover:!bg-slate-200 dark:hover:!bg-slate-800' : 'shadow-2xl shadow-blue-600/30'}`}
                   >
-                    {activeCourseId === 'ds' ? (admissionType === 'kvota' ? 'Kvotaga ariza topshirish' : 'Kontraktga yozilish') : t.courses.modalLabels.cta}
+                    {activeCourseId === 'ds' ? (
+                       admissionType === 'kvota' ? 'Kvotaga ariza topshirish' : 
+                       admissionType === 'kontrakt' ? 'Kontraktga yozilish' : 
+                       "Ta'lim shaklini tanlang"
+                    ) : t.courses.modalLabels.cta}
                   </Button>
                   {activeCourseId === 'ds' && admissionType === 'kvota' && (
                     <button 
