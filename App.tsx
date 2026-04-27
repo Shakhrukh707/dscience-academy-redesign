@@ -439,6 +439,8 @@ export default function App() {
   const [isPageVisible, setIsPageVisible] = useState(false);
   const [lang, setLang] = useState<Language>('UZ');
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
+  const [admissionType, setAdmissionType] = useState<'kvota' | 'kontrakt'>('kvota');
+  const [showRequirements, setShowRequirements] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(2);
@@ -1399,19 +1401,86 @@ export default function App() {
                   </div>
 
                   <div className="lg:col-span-4 space-y-8 sm:space-y-10">
-                    <div className="space-y-6">
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-3 dark:text-white">
-                        <Cpu size={24} className="text-blue-600" /> {t.courses.modalLabels.tools}
-                      </h3>
+                    {activeCourseId === 'ds' ? (
+                      <div className="space-y-6">
+                        <div className="flex bg-slate-100 p-1.5 rounded-2xl dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative z-10">
+                          <button 
+                            onClick={() => setAdmissionType('kvota')}
+                            className={`flex-1 py-3.5 text-xs sm:text-sm font-black uppercase tracking-widest rounded-xl transition-all duration-300 ${admissionType === 'kvota' ? 'bg-white text-blue-600 shadow-md shadow-blue-900/5 dark:bg-slate-800 dark:text-blue-400' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
+                          >
+                            🎓 Kvota (Grant)
+                          </button>
+                          <button 
+                            onClick={() => setAdmissionType('kontrakt')}
+                            className={`flex-1 py-3.5 text-xs sm:text-sm font-black uppercase tracking-widest rounded-xl transition-all duration-300 ${admissionType === 'kontrakt' ? 'bg-white text-blue-600 shadow-md shadow-blue-900/5 dark:bg-slate-800 dark:text-blue-400' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
+                          >
+                            💳 Kontrakt
+                          </button>
+                        </div>
 
-                      <div className="flex flex-wrap gap-2">
-                        {activeCourseData.tools.map((tool, idx) => (
-                          <span key={idx} className="px-4 py-2 bg-slate-100 rounded-xl font-black text-[10px] text-slate-600 uppercase tracking-widest dark:bg-slate-900 dark:text-slate-300">
-                            {tool}
-                          </span>
-                        ))}
+                        <AnimatePresence mode="wait">
+                          {admissionType === 'kvota' ? (
+                            <motion.div
+                              key="kvota"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.2 }}
+                              className="space-y-3"
+                            >
+                              <div className="p-4 sm:p-5 bg-blue-50/70 rounded-2xl border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30 flex items-start gap-4">
+                                <div className="text-2xl mt-0.5">💰</div>
+                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Stipendiya</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Har oy 1 320 000 so'm</p></div>
+                              </div>
+                              <div className="p-4 sm:p-5 bg-blue-50/70 rounded-2xl border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30 flex items-start gap-4">
+                                <div className="text-2xl mt-0.5">💻</div>
+                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Noutbuk</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">O'qish davomida foydalanish</p></div>
+                              </div>
+                              <div className="p-4 sm:p-5 bg-blue-50/70 rounded-2xl border border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30 flex items-start gap-4">
+                                <div className="text-2xl mt-0.5">🍲</div>
+                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Issiq ovqat</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Har kuni bir mahallik</p></div>
+                              </div>
+                            </motion.div>
+                          ) : (
+                            <motion.div
+                              key="kontrakt"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.2 }}
+                              className="space-y-3"
+                            >
+                              <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-100 dark:bg-slate-900/40 dark:border-slate-800 flex items-start gap-4">
+                                <div className="text-2xl mt-0.5">⚡</div>
+                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Moslashuvchan grafik</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">O'zingizga qulay vaqtda</p></div>
+                              </div>
+                              <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-100 dark:bg-slate-900/40 dark:border-slate-800 flex items-start gap-4">
+                                <div className="text-2xl mt-0.5">💳</div>
+                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Bo'lib to'lash</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Foizsiz to'lov rejasi</p></div>
+                              </div>
+                              <div className="p-4 sm:p-5 bg-slate-50 rounded-2xl border border-slate-100 dark:bg-slate-900/40 dark:border-slate-800 flex items-start gap-4">
+                                <div className="text-2xl mt-0.5">🎯</div>
+                                <div><h4 className="font-bold text-slate-900 dark:text-white text-sm">Sinovlarsiz</h4><p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Hech qanday IELTS/IQ shart emas</p></div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
-                    </div>
+                    ) : (
+                      <div className="space-y-6">
+                        <h3 className="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-3 dark:text-white">
+                          <Cpu size={24} className="text-blue-600" /> {t.courses.modalLabels.tools}
+                        </h3>
+
+                        <div className="flex flex-wrap gap-2">
+                          {activeCourseData.tools.map((tool, idx) => (
+                            <span key={idx} className="px-4 py-2 bg-slate-100 rounded-xl font-black text-[10px] text-slate-600 uppercase tracking-widest dark:bg-slate-900 dark:text-slate-300">
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="p-6 sm:p-8 bg-slate-900 rounded-[1.8rem] sm:rounded-3xl text-white shadow-xl relative overflow-hidden">
                       <div className="absolute -top-6 -right-6 p-6 opacity-10">
@@ -1427,18 +1496,87 @@ export default function App() {
               <div className="p-5 sm:p-8 md:p-12 border-t border-slate-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-900/60">
                 <div className="flex items-center gap-4">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
-                  <span className="text-slate-400 font-black text-[10px] uppercase tracking-widest dark:text-slate-400">{t.courses.modalLabels.spots}</span>
+                  {activeCourseId === 'ds' && admissionType === 'kvota' ? (
+                    <span className="font-black text-[11px] sm:text-sm uppercase tracking-widest text-orange-600 dark:text-orange-500">Joylar soni: 160 ta</span>
+                  ) : (
+                    <span className="text-slate-400 font-black text-[10px] uppercase tracking-widest dark:text-slate-400">{t.courses.modalLabels.spots}</span>
+                  )}
                 </div>
 
-                <Button
-                  onClick={() => {
-                    setActiveCourseId(null);
-                    setTimeout(() => scrollTo('apply'), 250);
-                  }}
-                  className="w-full md:w-auto px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-xl !rounded-3xl shadow-2xl shadow-blue-600/30"
-                >
-                  {t.courses.modalLabels.cta}
-                </Button>
+                <div className="w-full md:w-auto flex flex-col items-center md:items-end gap-3">
+                  <Button
+                    onClick={() => {
+                      setActiveCourseId(null);
+                      setTimeout(() => scrollTo('apply'), 250);
+                    }}
+                    className="w-full md:w-auto px-8 sm:px-16 py-5 sm:py-6 text-base sm:text-xl !rounded-3xl shadow-2xl shadow-blue-600/30"
+                  >
+                    {activeCourseId === 'ds' ? (admissionType === 'kvota' ? 'Kvotaga ariza topshirish' : 'Kontraktga yozilish') : t.courses.modalLabels.cta}
+                  </Button>
+                  {activeCourseId === 'ds' && admissionType === 'kvota' && (
+                    <button 
+                      onClick={() => setShowRequirements(true)} 
+                      className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 decoration-blue-600/30 hover:decoration-blue-600 transition-all dark:text-blue-400 dark:hover:text-blue-300"
+                    >
+                      Talablarni ko'rish
+                    </button>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showRequirements && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[150] bg-slate-900/80 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4"
+            onClick={() => setShowRequirements(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              className="bg-white rounded-3xl w-full max-w-lg p-6 sm:p-8 relative shadow-3xl dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
+              onClick={e => e.stopPropagation()}
+            >
+              <button onClick={() => setShowRequirements(false)} className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors bg-slate-100 dark:bg-slate-800 rounded-full">
+                <X size={20} />
+              </button>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-6 pr-8">Kvota talablari</h3>
+              
+              <div className="space-y-5 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                <div>
+                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">📚</span> Asosiy akademik talablar:</h4>
+                  <ul className="space-y-1 ml-7 text-sm text-slate-500 dark:text-slate-400 list-disc">
+                    <li>Davlat OTM talabasi bo'lishi;</li>
+                    <li>2-bosqichni tugatib, 3-bosqichga o‘tgan bo'lishi;</li>
+                    <li>Akademik qarzdorligi bo‘lmasligi;</li>
+                    <li>Matematika va informatikani mukammal bilishi.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">💻</span> Texnik va til ko'nikmalari:</h4>
+                  <ul className="space-y-1 ml-7 text-sm text-slate-500 dark:text-slate-400 list-disc">
+                    <li>IELTS 5.5-6.5;</li>
+                    <li>Dasturiy ta’minot yozish ko‘nikmalari;</li>
+                    <li>IQ test natijasi yuqori bo'lishi;</li>
+                    <li>Xalqaro IT sertifikatga ega bo'lishi.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">🌟</span> Faollik va shaxsiy sifatlar:</h4>
+                  <ul className="space-y-1 ml-7 text-sm text-slate-500 dark:text-slate-400 list-disc">
+                    <li>OTM ijtimoiy hayotida faol ishtirok etuvchi;</li>
+                    <li>Ilmiy faolligi yuqori;</li>
+                    <li>Jamoa bilan ishlash qobiliyati;</li>
+                    <li>Izlanuvchan va tirishqoq.</li>
+                  </ul>
+                </div>
               </div>
             </motion.div>
           </motion.div>
