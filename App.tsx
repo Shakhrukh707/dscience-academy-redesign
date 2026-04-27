@@ -17,8 +17,6 @@ import {
   Rocket,
   Sparkles,
   Star,
-  Sun,
-  Moon,
   Target,
   Terminal,
   X,
@@ -253,28 +251,7 @@ export default function App() {
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    }
-    return 'light';
-  });
   const t = translations[lang];
-
-  const toggleTheme = () => {
-    const isDark = theme === 'dark';
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.colorScheme = 'light';
-      localStorage.theme = 'light';
-      setTheme('light');
-    } else {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.colorScheme = 'dark';
-      localStorage.theme = 'dark';
-      setTheme('dark');
-    }
-  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -615,13 +592,6 @@ export default function App() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-xl text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all dark:text-slate-300 dark:hover:text-amber-400 dark:hover:bg-slate-800"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
             <div className="hidden md:flex bg-slate-100 rounded-2xl p-1 border border-slate-200 dark:bg-slate-950/75 dark:border-slate-700/70 dark:shadow-[0_18px_38px_-24px_rgba(0,0,0,0.8)]">
               {(['UZ', 'RU', 'EN'] as Language[]).map(option => (
                 <button
