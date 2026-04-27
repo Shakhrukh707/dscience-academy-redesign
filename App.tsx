@@ -3,14 +3,18 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import {
   ArrowUpRight,
   Award,
+  Banknote,
   Brain,
   Box,
   ChevronRight,
   Clock,
   Cpu,
+  CreditCard,
   Database,
   Gamepad2,
+  GraduationCap,
   Layers,
+  Laptop,
   Menu,
   Minus,
   Monitor,
@@ -21,6 +25,9 @@ import {
   Star,
   Target,
   Terminal,
+  Trophy,
+  UserCheck,
+  Utensils,
   X,
   Zap,
 } from 'lucide-react';
@@ -1557,27 +1564,44 @@ export default function App() {
                   </div>
                   
                   <div className="text-center mb-8 mt-2">
-                    <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">🎓 Kvota <span className="text-blue-600 dark:text-blue-400">(Grant)</span></h3>
+                    <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2 flex items-center justify-center gap-3">
+                      <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" /> Kvota <span className="text-blue-600 dark:text-blue-400">(Grant)</span>
+                    </h3>
                     <p className="text-slate-500 dark:text-slate-400 font-medium">Davlat granti asosida ta'lim</p>
                   </div>
 
                   <div className="flex-1 space-y-6 mb-10">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 text-xl">💰</div>
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                        <Trophy size={20} />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Konkurs asosida</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">Qabul faqat tanlov va suhbat asosida</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                        <Banknote size={20} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-slate-900 dark:text-white">Oylik stipendiya</h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400">Har oy 1 320 000 so'm</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 text-xl">💻</div>
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                        <Laptop size={20} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-slate-900 dark:text-white">Bepul noutbuk</h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400">O'qish davomida foydalanish uchun</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 text-xl">🍲</div>
+                      <div className="w-10 h-10 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                        <Utensils size={20} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-slate-900 dark:text-white">Issiq ovqat</h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400">Har kuni bir mahallik bepul ovqat</p>
@@ -1606,27 +1630,35 @@ export default function App() {
                 {/* Kontrakt Card */}
                 <div className="bg-slate-50 rounded-[2.5rem] p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col dark:bg-[linear-gradient(180deg,#0B1120_0%,#020617_100%)] dark:border-slate-800">
                   <div className="text-center mb-8 mt-2">
-                    <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">💳 Kontrakt</h3>
+                    <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2 flex items-center justify-center gap-3">
+                      <CreditCard className="w-8 h-8 text-slate-600 dark:text-slate-400" /> Kontrakt
+                    </h3>
                     <p className="text-slate-500 dark:text-slate-400 font-medium">Shartnoma asosida ta'lim</p>
                   </div>
 
                   <div className="flex-1 space-y-6 mb-10">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 text-xl">🎯</div>
+                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
+                        <UserCheck size={20} />
+                      </div>
                       <div>
-                        <h4 className="font-bold text-slate-900 dark:text-white">Barcha uchun ochiq</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-white">Konkurssiz qabul</h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400">Hech qanday IELTS yoki IQ shart emas</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 text-xl">⚡</div>
+                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
+                        <Clock size={20} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-slate-900 dark:text-white">Moslashuvchan grafik</h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400">O'zingizga qulay vaqtda o'qing</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 text-xl">💳</div>
+                      <div className="w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
+                        <CreditCard size={20} />
+                      </div>
                       <div>
                         <h4 className="font-bold text-slate-900 dark:text-white">Bo'lib to'lash</h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400">Foizsiz va qulay to'lov rejasi imkoniyati</p>
