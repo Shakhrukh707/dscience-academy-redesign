@@ -1016,7 +1016,7 @@ export default function App() {
               </p>
             </motion.div>
 
-            <div className="relative w-full max-w-[100vw] overflow-hidden pt-8 pb-4">
+            <div className="relative w-full max-w-[100vw] overflow-hidden pt-20 pb-16">
               <div className="mx-auto w-[85vw] sm:w-[400px] md:w-[460px]">
                 <div 
                   className="flex items-stretch transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
