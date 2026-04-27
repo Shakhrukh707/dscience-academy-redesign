@@ -1560,15 +1560,14 @@ export default function App() {
                 <p className="text-blue-200 text-lg sm:text-xl font-medium max-w-2xl mx-auto">Data Science kursida o'qish uchun o'zingizga mos ta'lim shaklini tanlang.</p>
               </div>
 
-              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 sm:gap-8">
-                {/* Kvota Card */}
-                <div className="relative group z-10 pt-10 max-w-[380px] w-full mx-auto md:mx-0">
-                  {/* Hover banner - slides up from behind card */}
-                  <div className="absolute top-0 left-3 right-3 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-0">
+              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 sm:gap-8 overflow-visible">
+                <div className="relative group pt-10 max-w-[380px] w-full mx-auto md:mx-0 overflow-visible">
+                  {/* Hover banner - peeks above card on hover */}
+                  <div className="absolute top-2 left-3 right-3 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 z-[1]">
                     Eng mashhur
                   </div>
 
-                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-10 flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-[2] flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
                     {/* Icon + Title */}
                     <div className="mb-5">
                       <div className="flex items-center gap-2.5 mb-3">
@@ -1624,13 +1623,13 @@ export default function App() {
                 </div>
 
                 {/* Kontrakt Card */}
-                <div className="relative group z-10 pt-10 max-w-[380px] w-full mx-auto md:mx-0">
-                  {/* Hover banner - slides up from behind card */}
-                  <div className="absolute top-0 left-3 right-3 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-0">
+                <div className="relative group pt-10 max-w-[380px] w-full mx-auto md:mx-0 overflow-visible">
+                  {/* Hover banner - peeks above card on hover */}
+                  <div className="absolute top-2 left-3 right-3 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold text-sm text-center py-2.5 rounded-t-2xl transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 z-[1]">
                     Barcha uchun
                   </div>
 
-                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-10 flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="bg-white rounded-3xl px-7 py-8 sm:px-8 sm:py-10 border border-gray-200 shadow-md relative z-[2] flex flex-col h-full dark:bg-slate-900 dark:border-slate-700 transition-all duration-300 group-hover:shadow-xl">
                     {/* Icon + Title */}
                     <div className="mb-5">
                       <div className="flex items-center gap-2.5 mb-3">
