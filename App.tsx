@@ -1464,6 +1464,10 @@ export default function App() {
                 <div className="w-full md:w-auto flex flex-col items-center md:items-end gap-3">
                   <Button
                     onClick={() => {
+                      if (activeCourseId === 'ds' && admissionType === 'kvota') {
+                        window.location.href = 'https://dscience.uz/qabul/2026';
+                        return;
+                      }
                       setActiveCourseId(null);
                       setAdmissionType(null);
                       setTimeout(() => scrollTo('apply'), 250);
