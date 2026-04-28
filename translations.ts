@@ -3,7 +3,7 @@ import { TranslationSet, Language } from './types';
 
 export const translations: Record<Language, TranslationSet> = {
   RU: {
-    header: { courses: "Курсы", why: "Почему мы", how: "Обучение", apply: "Подать заявку", login: "Войти", logout: "Выйти" },
+    header: { courses: "Курсы", why: "Почему мы", how: "Обучение", apply: "Личный кабинет", login: "Войти", logout: "Выйти" },
     hero: { title: "Стань специалистом в Data Science и IT", subtitle: "Практическое обучение, сертификат и карьерный рост в топовых компаниях.", cta: "Начать обучение" },
     why: { title: "Почему выбирают нас?", subtitle: "Мы даём не просто уроки, а среду, практику и понятный путь к сильному результату.", practice: "Реальные проекты и практика", practiceDesc: "Не только теория. Во время обучения студенты участвуют в престижных хакатонах, собирают готовое портфолио и выходят с реальными результатами.", mentors: "Сильные тьюторы", mentorsDesc: "Занятия ведут практикующие специалисты с международным опытом, участием в крупных проектах и активной работой в IT-индустрии.", infrastructure: "Современная инфраструктура", infrastructureDesc: "Комфортные аудитории, мощные компьютеры и профессиональная среда, созданная для обучения, роста и нетворкинга.", career: "Помощь в карьере", careerDesc: "Лучшим выпускникам помогаем с поиском работы, составлением сильного резюме и прохождением собеседований в компаниях-партнёрах." },
     courses: {
@@ -70,7 +70,7 @@ export const translations: Record<Language, TranslationSet> = {
     }
   },
   UZ: {
-    header: { courses: "Kurslar", why: "Nega biz", how: "O'qitish", apply: "Ariza topshirish", login: "Kirish", logout: "Chiqish" },
+    header: { courses: "Kurslar", why: "Nega biz", how: "O'qitish", apply: "Shaxsiy kabinet", login: "Kirish", logout: "Chiqish" },
     hero: { title: "Data Science va IT mutaxassisi bo'ling", subtitle: "Amaliy ta'lim, sertifikat va yetakchi kompaniyalarda martaba o'sishi.", cta: "O'qishni boshlash" },
     why: { title: "Nima uchun biz?", subtitle: "Biz o'quvchini shunchaki kursga emas, real tajriba, kuchli muhit va karyera startiga olib chiqamiz.", practice: "Real loyihalar va amaliyot", practiceDesc: "Faqat quruq teoriya emas. O'quvchilarimiz o'qish davomidayoq nufuzli xakatonlarda qatnashib, tayyor portfolio va real natijalar bilan chiqishadi.", mentors: "Kuchli tyutorlar", mentorsDesc: "Darslar xalqaro tajribaga ega, yirik loyihalarda qatnashgan va IT-sanoatida faol ishlayotgan amaliyotchi mutaxassislar tomonidan olib boriladi.", infrastructure: "Zamonaviy infratuzilma", infrastructureDesc: "Qulay darsxonalari, kuchli kompyuterlar va o'qish hamda netvorking uchun yaratilgan haqiqiy professional muhit.", career: "Karyerada yordam", careerDesc: "Eng yaxshi bitiruvchilarga ish topishda, professional rezyume tuzishda va hamkor kompaniyalarda suhbatdan o'tishda amaliy yordam beramiz." },
     courses: {
@@ -137,7 +137,7 @@ export const translations: Record<Language, TranslationSet> = {
     }
   },
   EN: {
-    header: { courses: "Courses", why: "Why Us", how: "Learning", apply: "Apply Now", login: "Login", logout: "Logout" },
+    header: { courses: "Courses", why: "Why Us", how: "Learning", apply: "Student Portal", login: "Login", logout: "Logout" },
     hero: { title: "Become a Specialist in Data Science & IT", subtitle: "Hands-on training, certification, and career growth in top companies.", cta: "Start Learning" },
     why: { title: "Why choose us?", subtitle: "We do more than teach courses. We build a practical environment that leads students toward real outcomes and confident career growth.", practice: "Real projects and practice", practiceDesc: "Not just dry theory. Our students join respected hackathons during the program and graduate with a ready portfolio and visible results.", mentors: "Strong tutors", mentorsDesc: "Classes are led by practicing specialists with international exposure, major project experience, and active roles inside the IT industry.", infrastructure: "Modern infrastructure", infrastructureDesc: "Comfortable classrooms, powerful computers, and a professional environment created for focused study and meaningful networking.", career: "Career support", careerDesc: "We help top graduates with job search, resume building, and interview preparation with partner companies." },
     courses: {

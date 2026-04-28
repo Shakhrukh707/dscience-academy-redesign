@@ -31,6 +31,7 @@ import {
   Target,
   Terminal,
   Trophy,
+  User,
   UserCheck,
   Utensils,
   X,
@@ -847,7 +848,8 @@ export default function App() {
               ))}
             </div>
 
-            <Button className="py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap" onClick={() => scrollTo('courses')}>
+            <Button variant="outline" className="py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap flex items-center gap-2" onClick={() => window.open('https://dscience.uz/login', '_blank')}>
+              <User size={14} />
               {t.header.apply}
             </Button>
 
@@ -919,7 +921,8 @@ export default function App() {
                 ))}
               </div>
 
-              <Button className="w-full mt-4 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] !rounded-2xl" onClick={() => { scrollTo('courses'); setMobileMenuOpen(false); }}>
+              <Button variant="outline" className="w-full mt-4 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] !rounded-2xl flex items-center justify-center gap-2" onClick={() => { window.open('https://dscience.uz/login', '_blank'); setMobileMenuOpen(false); }}>
+                <User size={18} />
                 {t.header.apply}
               </Button>
             </motion.div>
