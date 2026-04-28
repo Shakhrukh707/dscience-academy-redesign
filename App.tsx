@@ -1447,16 +1447,18 @@ export default function App() {
 
               <div className="p-5 sm:p-8 md:p-12 border-t border-slate-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-900/60">
                 <div className="flex items-center gap-4">
-                  <button 
-                    onClick={() => {
-                      setActiveCourseId(null);
-                      setAdmissionType(null);
-                      setShowPricingModal(true);
-                    }}
-                    className="flex items-center gap-2 px-6 py-3.5 text-slate-500 hover:text-blue-600 font-bold transition-all bg-white border border-slate-200 rounded-2xl hover:border-blue-200 hover:bg-blue-50 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-800/80 dark:text-slate-400"
-                  >
-                    <ArrowLeft size={18} /> Orqaga
-                  </button>
+                  {activeCourseId === 'ds' && (
+                    <button 
+                      onClick={() => {
+                        setActiveCourseId(null);
+                        setAdmissionType(null);
+                        setShowPricingModal(true);
+                      }}
+                      className="flex items-center gap-2 px-6 py-3.5 text-slate-500 hover:text-blue-600 font-bold transition-all bg-white border border-slate-200 rounded-2xl hover:border-blue-200 hover:bg-blue-50 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-800/80 dark:text-slate-400"
+                    >
+                      <ArrowLeft size={18} /> Orqaga
+                    </button>
+                  )}
                 </div>
 
                 <div className="w-full md:w-auto flex flex-col items-center md:items-end gap-3">
