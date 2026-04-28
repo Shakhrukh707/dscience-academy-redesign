@@ -847,7 +847,7 @@ export default function App() {
               ))}
             </div>
 
-            <Button className="py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap" onClick={() => scrollTo('apply')}>
+            <Button className="py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap" onClick={() => scrollTo('courses')}>
               {t.header.apply}
             </Button>
 
@@ -919,7 +919,7 @@ export default function App() {
                 ))}
               </div>
 
-              <Button className="w-full mt-4 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] !rounded-2xl" onClick={() => { scrollTo('apply'); setMobileMenuOpen(false); }}>
+              <Button className="w-full mt-4 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] !rounded-2xl" onClick={() => { scrollTo('courses'); setMobileMenuOpen(false); }}>
                 {t.header.apply}
               </Button>
             </motion.div>
@@ -975,7 +975,7 @@ export default function App() {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6"
             >
-              <Button className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 text-lg sm:text-xl !rounded-3xl shadow-2xl shadow-blue-600/30" onClick={() => scrollTo('apply')}>
+              <Button className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 text-lg sm:text-xl !rounded-3xl shadow-2xl shadow-blue-600/30" onClick={() => scrollTo('courses')}>
                 {t.hero.cta} <ChevronRight size={24} />
               </Button>
 
