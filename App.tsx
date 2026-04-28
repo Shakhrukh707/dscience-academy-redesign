@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import {
+  ArrowLeft,
   ArrowUpRight,
   Award,
   Banknote,
@@ -1426,18 +1427,18 @@ export default function App() {
 
                       <div className="flex flex-wrap gap-2">
                         {activeCourseData.tools.map((tool, idx) => (
-                          <span key={idx} className="px-4 py-2 bg-slate-100 rounded-xl font-black text-[10px] text-slate-600 uppercase tracking-widest dark:bg-slate-900 dark:text-slate-300">
+                          <span key={idx} className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg font-bold text-[10px] text-slate-500 uppercase tracking-widest dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400">
                             {tool}
                           </span>
                         ))}
                       </div>
                     </div>
 
-                    <div className="p-6 sm:p-8 bg-slate-900 rounded-[1.8rem] sm:rounded-3xl text-white shadow-xl relative overflow-hidden">
-                      <div className="absolute -top-6 -right-6 p-6 opacity-10">
+                    <div className="p-6 sm:p-8 bg-blue-50/50 border border-blue-100 rounded-[1.8rem] sm:rounded-3xl text-slate-900 shadow-sm relative overflow-hidden dark:bg-slate-900/50 dark:border-slate-800 dark:text-white">
+                      <div className="absolute -top-6 -right-6 p-6 opacity-5 text-blue-600">
                         <Target size={120} />
                       </div>
-                      <h3 className="text-sm font-black text-blue-400 uppercase tracking-widest mb-4">{t.courses.modalLabels.result}</h3>
+                      <h3 className="text-sm font-black text-blue-600 uppercase tracking-widest mb-4 dark:text-blue-400">{t.courses.modalLabels.result}</h3>
                       <p className="font-bold text-base sm:text-lg leading-relaxed relative z-10">{activeCourseData.result}</p>
                     </div>
                   </div>
@@ -1446,12 +1447,16 @@ export default function App() {
 
               <div className="p-5 sm:p-8 md:p-12 border-t border-slate-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-900/60">
                 <div className="flex items-center gap-4">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
-                  {activeCourseId === 'ds' && admissionType === 'kvota' ? (
-                    <span className="font-black text-[11px] sm:text-sm uppercase tracking-widest text-orange-600 dark:text-orange-500">Joylar soni: 160 ta</span>
-                  ) : (
-                    <span className="text-slate-400 font-black text-[10px] uppercase tracking-widest dark:text-slate-400">{t.courses.modalLabels.spots}</span>
-                  )}
+                  <button 
+                    onClick={() => {
+                      setActiveCourseId(null);
+                      setAdmissionType(null);
+                      setShowPricingModal(true);
+                    }}
+                    className="flex items-center gap-2 px-6 py-3.5 text-slate-500 hover:text-blue-600 font-bold transition-all bg-white border border-slate-200 rounded-2xl hover:border-blue-200 hover:bg-blue-50 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-800/80 dark:text-slate-400"
+                  >
+                    <ArrowLeft size={18} /> Orqaga
+                  </button>
                 </div>
 
                 <div className="w-full md:w-auto flex flex-col items-center md:items-end gap-3">
@@ -1465,14 +1470,6 @@ export default function App() {
                   >
                     {activeCourseId === 'ds' ? (admissionType === 'kvota' ? 'Kvotaga ariza topshirish' : 'Kontraktga yozilish') : t.courses.modalLabels.cta}
                   </Button>
-                  {activeCourseId === 'ds' && admissionType === 'kvota' && (
-                    <button 
-                      onClick={() => setShowRequirements(true)} 
-                      className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-bold underline underline-offset-4 decoration-blue-600/30 hover:decoration-blue-600 transition-all dark:text-blue-400 dark:hover:text-blue-300"
-                    >
-                      Talablarni ko'rish
-                    </button>
-                  )}
                 </div>
               </div>
             </motion.div>
