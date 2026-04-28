@@ -1544,14 +1544,14 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[120] bg-slate-900/80 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-[120] bg-slate-900/80 backdrop-blur-xl overflow-y-auto flex justify-center items-start sm:items-center p-4 sm:p-6"
             onClick={() => setShowPricingModal(false)}
           >
             <motion.div
               initial={{ scale: 0.95, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 30, opacity: 0 }}
-              className="w-full max-w-3xl relative"
+              className="w-full max-w-3xl relative my-12"
               onClick={e => e.stopPropagation()}
             >
               <button onClick={() => setShowPricingModal(false)} className="absolute -top-12 right-0 sm:-right-4 p-2 text-white hover:text-blue-300 transition-colors bg-white/10 hover:bg-white/20 rounded-full">
