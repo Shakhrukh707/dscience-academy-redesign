@@ -824,7 +824,7 @@ export default function App() {
                 key={item.label}
                 type="button"
                 onClick={item.onClick}
-                className="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors whitespace-nowrap dark:text-slate-300/90 dark:hover:text-blue-200"
+                className="text-xs font-black uppercase tracking-widest text-slate-500 hover:text-blue-600 transition-colors whitespace-nowrap dark:text-slate-300/90 dark:hover:text-blue-200"
               >
                 {item.label}
               </button>
@@ -840,7 +840,7 @@ export default function App() {
                   className={`px-3 py-1.5 rounded-xl text-[10px] font-black transition-all ${
                     lang === option
                       ? 'bg-white text-blue-600 shadow-sm dark:bg-slate-800/95 dark:text-blue-200 dark:shadow-[0_12px_26px_-18px_rgba(59,130,246,0.75)]'
-                      : 'text-slate-400 dark:text-slate-500'
+                      : 'text-slate-500 dark:text-slate-500'
                   }`}
                 >
                   {option}
