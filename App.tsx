@@ -954,7 +954,7 @@ export default function App() {
                     className="block will-change-transform"
                   >
                     {line.split(' ').map((word, wordIndex) => (
-                      <span key={`${lineIndex}-${wordIndex}`} className={word.match(/Data|Science|IT/) ? 'gradient-text' : ''}>
+                      <span key={`${lineIndex}-${wordIndex}`} className={word.match(/Data|Science|AI/) ? 'gradient-text' : ''}>
                         {word}{' '}
                       </span>
                     ))}
