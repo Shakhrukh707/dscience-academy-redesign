@@ -123,7 +123,7 @@ const galleryItems = [
     title: "O'zbekiston 24 reportaji",
     desc: "Akademiyamizning faoliyati va yutuqlari haqida maxsus lavha.",
     url: "/media/video.mp4",
-    span: "md:col-span-2 md:row-span-4 sm:col-span-2 sm:row-span-4",
+    span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
   },
   {
     id: 2,
@@ -163,7 +163,7 @@ const galleryItems = [
     title: "O'quv jarayoni",
     desc: "Zamonaviy auditoriyalarda amaliy darslar.",
     url: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
-    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+    span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
   }
 ];
 

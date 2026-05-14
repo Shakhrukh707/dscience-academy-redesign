@@ -304,9 +304,9 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
     const [isDragging, setIsDragging] = useState(false);
 
     return (
-        <section className="py-24 sm:py-32 px-4 sm:px-6 md:px-8 bg-white dark:bg-[#030712]">
+        <section className="py-32 sm:py-48 md:py-64 px-4 sm:px-6 md:px-8 bg-white dark:bg-[#030712] overflow-visible">
         <div className="container mx-auto max-w-7xl">
-            <div className="mb-16 text-center">
+            <div className="mb-20 sm:mb-28 text-center">
                 <motion.h2
                     className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white"
                     initial={{ opacity: 0, y: 20 }}
@@ -338,58 +338,38 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                     />
                 ) : (
                     <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 auto-rows-[100px] sm:auto-rows-[120px]"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={{
-                            hidden: { opacity: 0 },
-                            visible: {
-                                opacity: 1,
-                                transition: { staggerChildren: 0.1 }
-                            }
-                        }}
+                        className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8 sm:gap-12 mt-20 sm:mt-32"
+                        style={{ gridAutoRows: 'minmax(280px, auto)' }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
                     >
                         {items.map((item, index) => (
-                            <motion.div
-                                key={item.id}
-                                layoutId={`media-${item.id}`}
-                                className={`relative overflow-hidden rounded-[2rem] cursor-pointer ${item.span} shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl hover:shadow-blue-900/10`}
-                                onClick={() => !isDragging && setSelectedItem(item)}
-                                variants={{
-                                    hidden: { y: 50, scale: 0.9, opacity: 0 },
-                                    visible: {
-                                        y: 0,
-                                        scale: 1,
-                                        opacity: 1,
-                                        transition: {
-                                            type: "spring",
-                                            stiffness: 350,
-                                            damping: 25,
-                                            delay: index * 0.05
+                                <motion.div
+                                    key={item.id}
+                                    layoutId={`media-${item.id}`}
+                                    className={`relative overflow-hidden rounded-[2rem] cursor-pointer ${item.span} shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-all hover:shadow-2xl hover:shadow-blue-900/10`}
+                                    onClick={() => !isDragging && setSelectedItem(item)}
+                                    whileHover={{ scale: 1.02, y: -5 }}
+                                    drag
+                                    dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                                    dragElastic={1}
+                                    onDragStart={() => setIsDragging(true)}
+                                    onDragEnd={(e, info) => {
+                                        setIsDragging(false);
+                                        const moveDistance = info.offset.x + info.offset.y;
+                                        if (Math.abs(moveDistance) > 50) {
+                                            const newItems = [...items];
+                                            const draggedItem = newItems[index];
+                                            const targetIndex = moveDistance > 0 ?
+                                                Math.min(index + 1, items.length - 1) :
+                                                Math.max(index - 1, 0);
+                                            newItems.splice(index, 1);
+                                            newItems.splice(targetIndex, 0, draggedItem);
+                                            setItems(newItems);
                                         }
-                                    }
-                                }}
-                                whileHover={{ scale: 1.02, y: -5 }}
-                                drag
-                                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                                dragElastic={1}
-                                onDragStart={() => setIsDragging(true)}
-                                onDragEnd={(e, info) => {
-                                    setIsDragging(false);
-                                    const moveDistance = info.offset.x + info.offset.y;
-                                    if (Math.abs(moveDistance) > 50) {
-                                        const newItems = [...items];
-                                        const draggedItem = newItems[index];
-                                        const targetIndex = moveDistance > 0 ?
-                                            Math.min(index + 1, items.length - 1) :
-                                            Math.max(index - 1, 0);
-                                        newItems.splice(index, 1);
-                                        newItems.splice(targetIndex, 0, draggedItem);
-                                        setItems(newItems);
-                                    }
-                                }}
-                            >
+                                    }}
+                                >
                                 <MediaItem
                                     item={item}
                                     className="absolute inset-0 w-full h-full"
