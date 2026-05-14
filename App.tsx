@@ -415,7 +415,7 @@ const FaqSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
           whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          viewport={revealViewport}
+          viewport={{ once: true }}
           transition={{ duration: 0.75, ease: revealEase }}
           className="text-center mb-12 sm:mb-16"
         >
@@ -427,7 +427,7 @@ const FaqSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={revealViewport}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1, ease: revealEase }}
           className="mx-auto"
         >
@@ -442,6 +442,144 @@ const FaqSection = () => {
             />
           ))}
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const SocialProofSection = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  return (
+    <section className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC] dark:bg-slate-950">
+      <div className="container mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 sm:mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-tight">
+            Talabalarimiz yutuqlari va <br className="hidden sm:block" />
+            <span className="gradient-text">OAV biz haqimizda</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Card 1: Video */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="group relative rounded-[2rem] overflow-hidden aspect-[4/3] sm:aspect-square md:aspect-[4/5] lg:aspect-[3/4] cursor-pointer shadow-2xl shadow-blue-900/10"
+            onClick={() => setIsVideoModalOpen(true)}
+          >
+            <img 
+              src="/media/video-preview.jpg" 
+              alt="Video report" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-slate-900/40 transition-opacity group-hover:opacity-30" />
+            
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
+              </div>
+            </div>
+
+            <div className="absolute bottom-8 left-8 right-8 text-white">
+              <p className="text-xl font-black leading-tight drop-shadow-lg">
+                O'zbekiston 24: Akademiyamiz haqida lavha
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Hackathon */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-900/10"
+          >
+            <div className="h-48 sm:h-64 overflow-hidden">
+              <img 
+                src="/media/hackathon.jpg" 
+                alt="Hackathon winners" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            <div className="p-8">
+              <h3 className="text-xl font-black text-slate-900 dark:text-white leading-tight">
+                Anti-Corruption Hackathon 2025 g'oliblari
+              </h3>
+              <p className="mt-3 text-slate-500 dark:text-slate-400 text-sm font-medium">
+                Talabalarimiz nufuzli musobaqada yuqori o'rinlarni egallashdi.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Summit */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-900/10"
+          >
+            <div className="h-48 sm:h-64 overflow-hidden">
+              <img 
+                src="/media/summit.jpg" 
+                alt="Tech Summit" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            <div className="p-8">
+              <h3 className="text-xl font-black text-slate-900 dark:text-white leading-tight">
+                Tech Horizon xalqaro sammitidagi ishtirokimiz
+              </h3>
+              <p className="mt-3 text-slate-500 dark:text-slate-400 text-sm font-medium">
+                Global texnologik tadbirlarda faol ishtirok etib kelmoqdamiz.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Mock Modal */}
+        <AnimatePresence>
+          {isVideoModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[200] bg-slate-900/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
+              onClick={() => setIsVideoModalOpen(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden relative"
+                onClick={e => e.stopPropagation()}
+              >
+                <button 
+                  onClick={() => setIsVideoModalOpen(false)}
+                  className="absolute top-4 right-4 z-10 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+                >
+                  <X size={24} />
+                </button>
+                <div className="w-full h-full flex items-center justify-center text-white text-xl font-bold">
+                  <div className="text-center">
+                    <Zap className="w-16 h-16 text-blue-500 mx-auto mb-4 animate-pulse" />
+                    <p>Video pleyer yuklanmoqda...</p>
+                    <p className="text-sm text-slate-500 mt-2">(Bu yerda dscience.uz videosi bo'ladi)</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
@@ -1313,6 +1451,7 @@ export default function App() {
         </section>
 
         <FaqSection />
+        <SocialProofSection />
       </main>
 
       <motion.footer
