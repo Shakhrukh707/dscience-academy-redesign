@@ -49,8 +49,15 @@ const MediaSection = () => {
     <div className="py-16 bg-white dark:bg-slate-950">
       <InteractiveBentoGallery 
         mediaItems={academyMediaItems}
-        title="Talabalarimiz yutuqlari va OAV biz haqimizda"
-        description="Bizning akademiyamiz hayotidan yorqin lahzalar va yutuqlar"
+        title={
+          <div className="flex flex-col items-center justify-center">
+            <span className="text-slate-900 dark:text-white">Talabalarimiz yutuqlari va</span>
+            <span className="gradient-text pb-1">
+              OAV biz haqimizda
+            </span>
+          </div>
+        }
+        description="Bizning kursimiz hayotidan yorqin lahzalar va yutuqlar"
       />
     </div>
   );

@@ -111,7 +111,11 @@ const GalleryModal = ({
             >
                 <MediaItem item={selectedItem} className="w-full h-full object-contain" showControls={true} />
                 
-                <div className="absolute top-0 left-0 right-0 p-8 pt-12 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none">
+                <div className={`absolute left-0 right-0 p-8 pointer-events-none ${
+                    selectedItem.type === 'video' 
+                        ? 'top-0 pt-12 bg-gradient-to-b from-black/80 via-black/40 to-transparent' 
+                        : 'bottom-0 pb-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent'
+                }`}>
                     <h3 className="text-white text-2xl md:text-3xl font-black tracking-tight mb-2">
                         {selectedItem.title}
                     </h3>
@@ -140,7 +144,7 @@ const GalleryModal = ({
 
 interface InteractiveBentoGalleryProps {
     mediaItems: MediaItemType[];
-    title: string;
+    title: React.ReactNode;
     description: string;
 }
 
@@ -152,7 +156,7 @@ export const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = (
             <div className="container mx-auto max-w-7xl">
                 <div className="mb-16 text-center">
                     <motion.h2
-                        className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[0.95]"
+                        className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-tight"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
