@@ -5,8 +5,8 @@ const academyMediaItems: MediaItemType[] = [
   {
     id: 1,
     type: "video",
-    title: "O'zbekiston 24: DScience haqida",
-    desc: "Markaziy telekanalda akademiyamizning ta'lim jarayonlari yoritildi.",
+    title: "Kursimiz haqida",
+    desc: "Kursimizning ta'lim jarayonlari yoritildi.",
     url: "/media/video.mp4", 
     span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
   },
@@ -37,8 +37,8 @@ const academyMediaItems: MediaItemType[] = [
   {
     id: 5,
     type: "image",
-    title: "Xalqaro hamkorlik",
-    desc: "Chet ellik mutaxassislar bilan tajriba almashinuvi.",
+    title: "Tech Horizon Sammiti",
+    desc: "Global texnologik tadbirlarda faol ishtirok etib kelmoqdamiz.",
     url: "/media/summit2.jpg", 
     span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
   }

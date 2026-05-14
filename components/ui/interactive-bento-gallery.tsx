@@ -111,7 +111,7 @@ const GalleryModal = ({
             >
                 <MediaItem item={selectedItem} className="w-full h-full object-contain" showControls={true} />
                 
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
+                <div className="absolute top-0 left-0 right-0 p-8 pt-12 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none">
                     <h3 className="text-white text-2xl md:text-3xl font-black tracking-tight mb-2">
                         {selectedItem.title}
                     </h3>
