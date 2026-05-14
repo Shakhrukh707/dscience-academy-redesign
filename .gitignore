@@ -26,5 +26,3 @@ dist-ssr
 .vercel
 backups
 tmp-*.jpg
-
-public/media/video.mp4
