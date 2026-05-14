@@ -39,7 +39,7 @@ import {
 } from 'lucide-react';
 import { translations } from './translations';
 import { Language } from './types';
-import InteractiveBentoGallery from './components/ui/interactive-bento-gallery';
+import MediaSection from './components/MediaSection';
 
 type CourseId = 'ds' | 'anim' | '3d' | 'game' | 'vfx' | 'fx' | 'unreal' | 'c4d';
 
@@ -116,48 +116,7 @@ const BrandIcon = ({ size = 'sm' }: { size?: 'sm' | 'lg' }) => {
   );
 };
 
-const galleryItems = [
-  {
-    id: 1,
-    type: "video",
-    title: "O'zbekiston 24 reportaji",
-    desc: "Akademiyamizning faoliyati va yutuqlari haqida maxsus lavha.",
-    url: "/media/video.mp4",
-    span: "md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2",
-  },
-  {
-    id: 2,
-    type: "image",
-    title: "Hackathon 2025",
-    desc: "Anti-Corruption Hackathon musobaqasidagi g'alaba lahzalari.",
-    url: "/media/hackathon.jpg",
-    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-  },
-  {
-    id: 3,
-    type: "image",
-    title: "Tech Horizon Sammiti",
-    desc: "Xalqaro texnologik sammitda akademiyamiz delegatsiyasi.",
-    url: "/media/summit.jpg",
-    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-  },
-  {
-    id: 4,
-    type: "image",
-    title: "Innavotsion yechimlar",
-    desc: "Talabalarimizning loyihalari va ishlanmalari.",
-    url: "/media/hackathon2.jpg",
-    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-  },
-  {
-    id: 5,
-    type: "image",
-    title: "Xalqaro hamkorlik",
-    desc: "Chet ellik mutaxassislar bilan tajriba almashinuvi.",
-    url: "/media/summit2.jpg",
-    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
-  }
-];
+
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const words = ["O'rganing", 'Yarating', "O'sing"];
@@ -1359,11 +1318,7 @@ export default function App() {
         </section>
 
         <FaqSection />
-        <InteractiveBentoGallery 
-          mediaItems={galleryItems}
-          title={<>Talabalarimiz yutuqlari va <span className="gradient-text">OAV biz haqimizda</span></>}
-          description=""
-        />
+        <MediaSection />
       </main>
 
       <motion.footer
