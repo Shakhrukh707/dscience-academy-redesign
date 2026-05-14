@@ -123,7 +123,7 @@ const galleryItems = [
     title: "O'zbekiston 24 reportaji",
     desc: "Akademiyamizning faoliyati va yutuqlari haqida maxsus lavha.",
     url: "/media/video.mp4",
-    span: "md:col-span-2 md:row-span-4 sm:col-span-2 sm:row-span-3",
+    span: "md:col-span-2 md:row-span-4 sm:col-span-2 sm:row-span-4",
   },
   {
     id: 2,
@@ -144,17 +144,25 @@ const galleryItems = [
   {
     id: 4,
     type: "image",
-    title: "O'quv jarayoni",
-    desc: "Zamonaviy auditoriyalarda amaliy darslar.",
-    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
+    title: "Innavotsion yechimlar",
+    desc: "Talabalarimizning loyihalari va ishlanmalari.",
+    url: "/media/hackathon2.jpg",
     span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
   },
   {
     id: 5,
     type: "image",
-    title: "Jamoaviy ish",
-    desc: "Talabalarning real loyihalar ustidagi hamkorligi.",
-    url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    title: "Xalqaro hamkorlik",
+    desc: "Chet ellik mutaxassislar bilan tajriba almashinuvi.",
+    url: "/media/summit2.jpg",
+    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 6,
+    type: "image",
+    title: "O'quv jarayoni",
+    desc: "Zamonaviy auditoriyalarda amaliy darslar.",
+    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
     span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
   }
 ];
@@ -1361,8 +1369,8 @@ export default function App() {
         <FaqSection />
         <InteractiveBentoGallery 
           mediaItems={galleryItems}
-          title="Talabalarimiz yutuqlari va OAV biz haqimizda"
-          description="Akademiyamiz hayoti, yutuqlari va nufuzli tadbirlardagi ishtirokimizdan lavhalar"
+          title={<>Talabalarimiz yutuqlari va <span className="gradient-text">OAV biz haqimizda</span></>}
+          description=""
         />
       </main>
 

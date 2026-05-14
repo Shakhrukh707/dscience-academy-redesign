@@ -14,7 +14,7 @@ export interface MediaItemType {
     span: string;
 }
 // MediaItem component renders either a video or image based on item.type
-const MediaItem = ({ item, className, onClick }: { item: MediaItemType, className?: string, onClick?: () => void }) => {
+const MediaItem = ({ item, className, onClick, showControls = false }: { item: MediaItemType, className?: string, onClick?: () => void, showControls?: boolean }) => {
     const videoRef = useRef<HTMLVideoElement>(null); // Reference for video element
     const [isInView, setIsInView] = useState(false); // To track if video is in the viewport
     const [isBuffering, setIsBuffering] = useState(true);  // To track if video is buffering
@@ -97,8 +97,9 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
                     className="w-full h-full object-cover"
                     onClick={onClick}
                     playsInline
-                    muted
-                    loop
+                    muted={!showControls}
+                    controls={showControls}
+                    loop={!showControls}
                     preload="auto"
                     style={{
                         opacity: isBuffering ? 0.8 : 1,
@@ -165,7 +166,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     stiffness: 400,
                     damping: 30
                 }}
-                className="relative w-full max-w-6xl aspect-video rounded-3xl overflow-hidden shadow-2xl z-10 bg-black"
+                className="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl z-10 bg-black"
             >
                 {/* Main Content */}
                 <div className="h-full flex flex-col">
@@ -193,7 +194,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                     transition: { duration: 0.15 }
                                 }}
                             >
-                                <MediaItem item={selectedItem} className="w-full h-full object-contain" onClick={onClose} />
+                                <MediaItem item={selectedItem} className="w-full h-full object-contain" onClick={onClose} showControls={true} />
                                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12 
                                               bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
                                     <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-black tracking-tight">
@@ -307,22 +308,24 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
         <div className="container mx-auto max-w-7xl">
             <div className="mb-16 text-center">
                 <motion.h2
-                    className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-tight"
+                    className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
                     {title}
                 </motion.h2>
-                <motion.p
-                    className="mt-6 text-lg sm:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                >
-                    {description}
-                </motion.p>
+                {description && (
+                    <motion.p
+                        className="mt-6 text-lg sm:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        {description}
+                    </motion.p>
+                )}
             </div>
             <AnimatePresence mode="wait">
                 {selectedItem ? (
@@ -393,20 +396,18 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                     onClick={() => !isDragging && setSelectedItem(item)}
                                 />
                                 <motion.div
-                                    className="absolute inset-0 flex flex-col justify-end p-6"
+                                    className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none z-10"
                                     initial={{ opacity: 0 }}
                                     whileHover={{ opacity: 1 }}
-                                    transition={{ duration: 0.2 }}
+                                    transition={{ duration: 0.3 }}
                                 >
-                                    <div className="absolute inset-0 flex flex-col justify-end p-6">
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
-                                        <h3 className="relative text-white text-base sm:text-lg font-black tracking-tight line-clamp-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="relative text-white/70 text-xs sm:text-sm mt-1 line-clamp-2 font-medium">
-                                            {item.desc}
-                                        </p>
-                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                                    <h3 className="relative text-white text-base sm:text-lg font-black tracking-tight line-clamp-1">
+                                        {item.title}
+                                    </h3>
+                                    <p className="relative text-white/70 text-xs sm:text-sm mt-1 line-clamp-2 font-medium">
+                                        {item.desc}
+                                    </p>
                                 </motion.div>
                             </motion.div>
                         ))}
