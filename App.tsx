@@ -569,13 +569,12 @@ const SocialProofSection = () => {
                 >
                   <X size={24} />
                 </button>
-                <div className="w-full h-full flex items-center justify-center text-white text-xl font-bold">
-                  <div className="text-center">
-                    <Zap className="w-16 h-16 text-blue-500 mx-auto mb-4 animate-pulse" />
-                    <p>Video pleyer yuklanmoqda...</p>
-                    <p className="text-sm text-slate-500 mt-2">(Bu yerda dscience.uz videosi bo'ladi)</p>
-                  </div>
-                </div>
+                <video 
+                  src="/media/video.mp4" 
+                  controls 
+                  autoPlay 
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
             </motion.div>
           )}
