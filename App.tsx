@@ -39,6 +39,7 @@ import {
 } from 'lucide-react';
 import { translations } from './translations';
 import { Language } from './types';
+import InteractiveBentoGallery from './components/ui/interactive-bento-gallery';
 
 type CourseId = 'ds' | 'anim' | '3d' | 'game' | 'vfx' | 'fx' | 'unreal' | 'c4d';
 
@@ -99,8 +100,8 @@ const BrandIcon = ({ size = 'sm' }: { size?: 'sm' | 'lg' }) => {
 
   if (sourceIndex >= sources.length) {
     return (
-      <div className={`${fallbackClass} bg-blue-600 flex items-center justify-center text-white font-black shrink-0`}>
-        D
+      <div className={`${fallbackClass} flex items-center justify-center bg-blue-600 font-black text-white`}>
+        DS
       </div>
     );
   }
@@ -108,12 +109,55 @@ const BrandIcon = ({ size = 'sm' }: { size?: 'sm' | 'lg' }) => {
   return (
     <img
       src={sources[sourceIndex]}
-      alt="DScience logo"
-      className={`${imageClass} object-contain object-left shrink-0`}
-      onError={() => setSourceIndex(current => current + 1)}
+      alt="DScience Academy"
+      className={`${imageClass} object-contain select-none`}
+      onError={() => setSourceIndex(prev => prev + 1)}
     />
   );
 };
+
+const galleryItems = [
+  {
+    id: 1,
+    type: "video",
+    title: "O'zbekiston 24 reportaji",
+    desc: "Akademiyamizning faoliyati va yutuqlari haqida maxsus lavha.",
+    url: "/media/video.mp4",
+    span: "md:col-span-2 md:row-span-4 sm:col-span-2 sm:row-span-3",
+  },
+  {
+    id: 2,
+    type: "image",
+    title: "Hackathon 2025",
+    desc: "Anti-Corruption Hackathon musobaqasidagi g'alaba lahzalari.",
+    url: "/media/hackathon.jpg",
+    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 3,
+    type: "image",
+    title: "Tech Horizon Sammiti",
+    desc: "Xalqaro texnologik sammitda akademiyamiz delegatsiyasi.",
+    url: "/media/summit.jpg",
+    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 4,
+    type: "image",
+    title: "O'quv jarayoni",
+    desc: "Zamonaviy auditoriyalarda amaliy darslar.",
+    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
+    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 5,
+    type: "image",
+    title: "Jamoaviy ish",
+    desc: "Talabalarning real loyihalar ustidagi hamkorligi.",
+    url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  }
+];
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const words = ["O'rganing", 'Yarating', "O'sing"];
@@ -447,142 +491,7 @@ const FaqSection = () => {
   );
 };
 
-const SocialProofSection = () => {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
-  return (
-    <section className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC] dark:bg-slate-950">
-      <div className="container mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 sm:mb-20"
-        >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-tight">
-            Talabalarimiz yutuqlari va <br className="hidden sm:block" />
-            <span className="gradient-text">OAV biz haqimizda</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1: Video */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="group relative rounded-[2rem] overflow-hidden aspect-[4/3] sm:aspect-square md:aspect-[4/5] lg:aspect-[3/4] cursor-pointer shadow-2xl shadow-blue-900/10"
-            onClick={() => setIsVideoModalOpen(true)}
-          >
-            <img 
-              src="/media/video-preview.jpg" 
-              alt="Video report" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-slate-900/40 transition-opacity group-hover:opacity-30" />
-            
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
-              </div>
-            </div>
-
-            <div className="absolute bottom-8 left-8 right-8 text-white">
-              <p className="text-xl font-black leading-tight drop-shadow-lg">
-                O'zbekiston 24: Akademiyamiz haqida lavha
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Card 2: Hackathon */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-900/10"
-          >
-            <div className="h-48 sm:h-64 overflow-hidden">
-              <img 
-                src="/media/hackathon.jpg" 
-                alt="Hackathon winners" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </div>
-            <div className="p-8">
-              <h3 className="text-xl font-black text-slate-900 dark:text-white leading-tight">
-                Anti-Corruption Hackathon 2025 g'oliblari
-              </h3>
-              <p className="mt-3 text-slate-500 dark:text-slate-400 text-sm font-medium">
-                Talabalarimiz nufuzli musobaqada yuqori o'rinlarni egallashdi.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Card 3: Summit */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-900/10"
-          >
-            <div className="h-48 sm:h-64 overflow-hidden">
-              <img 
-                src="/media/summit.jpg" 
-                alt="Tech Summit" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </div>
-            <div className="p-8">
-              <h3 className="text-xl font-black text-slate-900 dark:text-white leading-tight">
-                Tech Horizon xalqaro sammitidagi ishtirokimiz
-              </h3>
-              <p className="mt-3 text-slate-500 dark:text-slate-400 text-sm font-medium">
-                Global texnologik tadbirlarda faol ishtirok etib kelmoqdamiz.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Mock Modal */}
-        <AnimatePresence>
-          {isVideoModalOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[200] bg-slate-900/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
-              onClick={() => setIsVideoModalOpen(false)}
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden relative"
-                onClick={e => e.stopPropagation()}
-              >
-                <button 
-                  onClick={() => setIsVideoModalOpen(false)}
-                  className="absolute top-4 right-4 z-10 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
-                >
-                  <X size={24} />
-                </button>
-                <video 
-                  src="/media/video.mp4" 
-                  controls 
-                  autoPlay 
-                  className="w-full h-full object-contain"
-                />
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </section>
-  );
-};
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -1450,7 +1359,11 @@ export default function App() {
         </section>
 
         <FaqSection />
-        <SocialProofSection />
+        <InteractiveBentoGallery 
+          mediaItems={galleryItems}
+          title="Talabalarimiz yutuqlari va OAV biz haqimizda"
+          description="Akademiyamiz hayoti, yutuqlari va nufuzli tadbirlardagi ishtirokimizdan lavhalar"
+        />
       </main>
 
       <motion.footer
