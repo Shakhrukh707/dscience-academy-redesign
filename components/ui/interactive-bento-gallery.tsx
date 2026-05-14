@@ -304,11 +304,11 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
     const [isDragging, setIsDragging] = useState(false);
 
     return (
-        <section className="py-32 sm:py-48 md:py-64 px-4 sm:px-6 md:px-8 bg-white dark:bg-[#030712] overflow-visible">
+        <section className="pt-48 pb-32 sm:pt-64 sm:pb-48 md:pt-80 md:pb-64 px-4 sm:px-6 md:px-8 bg-white dark:bg-[#030712] overflow-visible">
         <div className="container mx-auto max-w-7xl">
-            <div className="mb-20 sm:mb-28 text-center">
+            <div className="mb-32 sm:mb-48 md:mb-64 text-center">
                 <motion.h2
-                    className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white"
+                    className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

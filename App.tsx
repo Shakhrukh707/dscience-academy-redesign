@@ -131,7 +131,7 @@ const galleryItems = [
     title: "Hackathon 2025",
     desc: "Anti-Corruption Hackathon musobaqasidagi g'alaba lahzalari.",
     url: "/media/hackathon.jpg",
-    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
   },
   {
     id: 3,
@@ -139,7 +139,7 @@ const galleryItems = [
     title: "Tech Horizon Sammiti",
     desc: "Xalqaro texnologik sammitda akademiyamiz delegatsiyasi.",
     url: "/media/summit.jpg",
-    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
   },
   {
     id: 4,
@@ -147,7 +147,7 @@ const galleryItems = [
     title: "Innavotsion yechimlar",
     desc: "Talabalarimizning loyihalari va ishlanmalari.",
     url: "/media/hackathon2.jpg",
-    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
+    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
   },
   {
     id: 5,
@@ -155,15 +155,7 @@ const galleryItems = [
     title: "Xalqaro hamkorlik",
     desc: "Chet ellik mutaxassislar bilan tajriba almashinuvi.",
     url: "/media/summit2.jpg",
-    span: "md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2",
-  },
-  {
-    id: 6,
-    type: "image",
-    title: "O'quv jarayoni",
-    desc: "Zamonaviy auditoriyalarda amaliy darslar.",
-    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
-    span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
+    span: "md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1",
   }
 ];
 
