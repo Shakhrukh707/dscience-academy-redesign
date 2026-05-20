@@ -263,7 +263,7 @@ const AnimatedHeroBackground = () => {
 const revealEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const revealViewport = { once: true, amount: 0.18 };
 
-const AccordionItem = ({ question, answer, isOpen, onClick, badge }: { question: string, answer: React.ReactNode, isOpen: boolean, onClick: () => void, badge?: string }) => {
+const AccordionItem: React.FC<{ question: string, answer: React.ReactNode, isOpen: boolean, onClick: () => void, badge?: string }> = ({ question, answer, isOpen, onClick, badge }) => {
   return (
     <div className="border-b border-slate-200 dark:border-slate-800">
       <button
