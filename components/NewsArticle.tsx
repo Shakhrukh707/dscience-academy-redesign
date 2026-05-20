@@ -31,17 +31,9 @@ export default function NewsArticle() {
   }
 
   return (
-    <article className="min-h-screen bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] text-slate-900 dark:text-slate-100 pt-24 sm:pt-32 pb-20">
+    <article className="min-h-screen bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] text-slate-900 dark:text-slate-100 pt-32 sm:pt-40 pb-20">
       <div className="container mx-auto px-4 max-w-4xl">
         
-        {/* Navigation */}
-        <button 
-          onClick={() => navigate('/news')}
-          className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-12"
-        >
-          <ArrowLeft size={16} /> Yangiliklarga qaytish
-        </button>
-
         {/* Header */}
         <header className="mb-12 text-center max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-slate-900 dark:text-white">

@@ -6,39 +6,34 @@ import { mockNews } from '../data/mockNews';
 
 export default function NewsList() {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] dark:text-slate-100 pt-24 sm:pt-32 pb-20">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] dark:text-slate-100 pt-32 sm:pt-40 pb-20">
       <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         
-        {/* Navigation */}
-        <button 
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-12"
-        >
-          <ArrowLeft size={16} /> Bosh sahifaga qaytish
-        </button>
-
         {/* Header */}
         <div className="flex flex-col md:flex-row items-baseline justify-between mb-8 sm:mb-12 border-b border-slate-200 dark:border-slate-800 pb-6">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-4 md:mb-0 text-slate-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-4 md:mb-0 gradient-text">
             Yangiliklar
           </h1>
           <p className="text-sm sm:text-base font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400">
-            Akademiya hayoti
+            Markaz hayoti
           </p>
         </div>
 
-        {/* Search / Filter (Visual only for now) */}
-        <div className="flex items-center gap-3 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800 text-slate-400">
+        {/* Search / Filter */}
+        <div className="flex items-center gap-3 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800 text-slate-400 focus-within:text-blue-600 transition-colors">
           <Search size={20} />
           <input 
             type="text" 
             placeholder="YANGILIKLARNI QIDIRISH" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 w-full uppercase tracking-widest text-sm font-medium"
           />
         </div>
@@ -51,8 +46,15 @@ export default function NewsList() {
 
         {/* News List */}
         <div className="flex flex-col">
-          {mockNews.map((news, index) => (
-            <motion.div
+          {mockNews.filter(news => news.title.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 ? (
+            <div className="py-12 text-center text-slate-500 font-medium">
+              Hech narsa topilmadi...
+            </div>
+          ) : (
+            mockNews
+              .filter(news => news.title.toLowerCase().includes(searchQuery.toLowerCase()))
+              .map((news, index) => (
+                <motion.div
               key={news.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -109,7 +111,7 @@ export default function NewsList() {
                 <ArrowUpRight size={32} strokeWidth={2} />
               </div>
             </motion.div>
-          ))}
+          )))}
         </div>
 
       </div>
