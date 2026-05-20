@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import NewsList from './components/NewsList';
 import NewsArticle from './components/NewsArticle';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { Language } from './types';
 
 export default function App() {
@@ -14,9 +15,10 @@ export default function App() {
       <Navbar lang={lang} setLang={setLang} />
       <Routes>
         <Route path="/" element={<Home lang={lang} />} />
-        <Route path="/news" element={<NewsList />} />
-        <Route path="/news/:id" element={<NewsArticle />} />
+        <Route path="/news" element={<NewsList lang={lang} />} />
+        <Route path="/news/:id" element={<NewsArticle lang={lang} />} />
       </Routes>
+      <Footer lang={lang} />
     </Router>
   );
 }

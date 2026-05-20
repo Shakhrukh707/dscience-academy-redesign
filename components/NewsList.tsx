@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Search, ArrowLeft } from 'lucide-react';
+import { ArrowUpRight, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { mockNews } from '../data/mockNews';
+import { Language } from '../types';
 
-export default function NewsList() {
+export default function NewsList({ lang }: { lang: Language }) {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = React.useState('');
 
@@ -18,11 +19,11 @@ export default function NewsList() {
         
         {/* Header */}
         <div className="flex flex-col md:flex-row items-baseline justify-between mb-8 sm:mb-12 border-b border-slate-200 dark:border-slate-800 pb-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-4 md:mb-0 gradient-text">
-            Yangiliklar
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-4 md:mb-0 gradient-text pb-2">
+            {lang === 'UZ' ? 'Yangiliklar' : lang === 'RU' ? 'Новости' : 'News'}
           </h1>
           <p className="text-sm sm:text-base font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400">
-            Markaz hayoti
+            {lang === 'UZ' ? 'Markaz hayoti' : lang === 'RU' ? 'Жизнь центра' : 'Center Life'}
           </p>
         </div>
 
@@ -31,7 +32,7 @@ export default function NewsList() {
           <Search size={20} />
           <input 
             type="text" 
-            placeholder="YANGILIKLARNI QIDIRISH" 
+            placeholder={lang === 'UZ' ? 'YANGILIKLARNI QIDIRISH' : lang === 'RU' ? 'ПОИСК НОВОСТЕЙ' : 'SEARCH NEWS'} 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 w-full uppercase tracking-widest text-sm font-medium"
@@ -40,19 +41,19 @@ export default function NewsList() {
 
         <div className="mb-12">
           <span className="bg-blue-600 text-white px-6 py-3 text-xs font-bold tracking-widest uppercase rounded-full shadow-lg shadow-blue-600/30">
-            Barcha yangiliklar
+            {lang === 'UZ' ? 'Barcha yangiliklar' : lang === 'RU' ? 'Все новости' : 'All news'}
           </span>
         </div>
 
         {/* News List */}
         <div className="flex flex-col">
-          {mockNews.filter(news => news.title.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 ? (
+          {mockNews.filter(news => news.title[lang].toLowerCase().includes(searchQuery.toLowerCase())).length === 0 ? (
             <div className="py-12 text-center text-slate-500 font-medium">
-              Hech narsa topilmadi...
+              {lang === 'UZ' ? 'Hech narsa topilmadi...' : lang === 'RU' ? 'Ничего не найдено...' : 'Nothing found...'}
             </div>
           ) : (
             mockNews
-              .filter(news => news.title.toLowerCase().includes(searchQuery.toLowerCase()))
+              .filter(news => news.title[lang].toLowerCase().includes(searchQuery.toLowerCase()))
               .map((news, index) => (
                 <motion.div
               key={news.id}
@@ -65,13 +66,13 @@ export default function NewsList() {
               {/* Date Block */}
               <div className="flex flex-col items-center justify-center shrink-0 w-16 sm:w-20 lg:w-24 border-r border-slate-200 dark:border-slate-800/50 pr-4 sm:pr-6 md:pr-0 md:border-r-0 md:pb-0">
                 <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400">
-                  {news.date.weekday}
+                  {news.date.weekday[lang]}
                 </span>
                 <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-none my-1 text-slate-900 dark:text-white">
                   {news.date.day}
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400 mt-1">
-                  {news.date.month}
+                  {news.date.month[lang]}
                 </span>
               </div>
 
@@ -79,7 +80,7 @@ export default function NewsList() {
               <div className="w-full md:w-[280px] lg:w-[320px] aspect-video overflow-hidden shrink-0 relative bg-slate-100 dark:bg-slate-900 rounded-2xl">
                 <motion.img
                   src={news.image}
-                  alt={news.title}
+                  alt={news.title[lang]}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -87,11 +88,11 @@ export default function NewsList() {
               {/* Content Block */}
               <div className="flex flex-col justify-center flex-1 pr-8">
                 <h2 className="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-3 transition-colors text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                  {news.title}
+                  {news.title[lang]}
                 </h2>
                 
                 <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed line-clamp-2 mb-6 font-medium">
-                  {news.excerpt}
+                  {news.summary[lang]}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-auto">

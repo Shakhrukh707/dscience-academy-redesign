@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Twitter, Instagram, Facebook } from 'lucide-react';
+import { Twitter, Instagram, Facebook } from 'lucide-react';
 import { mockNews } from '../data/mockNews';
+import { Language } from '../types';
 
-export default function NewsArticle() {
+export default function NewsArticle({ lang }: { lang: Language }) {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
@@ -18,12 +19,14 @@ export default function NewsArticle() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#030712] text-slate-900 dark:text-white">
         <div className="text-center">
-          <h1 className="text-4xl font-black mb-4">Maqola topilmadi</h1>
+          <h1 className="text-4xl font-black mb-4">
+            {lang === 'UZ' ? 'Maqola topilmadi' : lang === 'RU' ? 'Статья не найдена' : 'Article not found'}
+          </h1>
           <button 
             onClick={() => navigate('/news')}
             className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm hover:underline"
           >
-            Yangiliklarga qaytish
+            {lang === 'UZ' ? 'Yangiliklarga qaytish' : lang === 'RU' ? 'Вернуться к новостям' : 'Back to news'}
           </button>
         </div>
       </div>
@@ -37,12 +40,14 @@ export default function NewsArticle() {
         {/* Header */}
         <header className="mb-12 text-center max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-slate-900 dark:text-white">
-            {article.title}
+            {article.title[lang]}
           </h1>
           <div className="flex flex-col items-center justify-center gap-1 text-sm font-bold tracking-wide">
-            <span className="text-slate-900 dark:text-slate-200">Muallif: {article.author}</span>
+            <span className="text-slate-900 dark:text-slate-200">
+              {lang === 'UZ' ? 'Muallif' : lang === 'RU' ? 'Автор' : 'Author'}: {article.author}
+            </span>
             <span className="text-slate-500 dark:text-slate-400 font-medium text-xs tracking-widest uppercase">
-              {article.readTime} | {article.date.full}
+              {article.readTime[lang]} | {article.date.full[lang]}
             </span>
           </div>
         </header>
@@ -51,7 +56,7 @@ export default function NewsArticle() {
         <div className="w-full aspect-[21/9] sm:aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-slate-900 rounded-[2rem] shadow-2xl mb-16 relative">
           <img 
             src={article.image} 
-            alt={article.title} 
+            alt={article.title[lang]} 
             className="w-full h-full object-cover"
           />
         </div>
@@ -75,19 +80,19 @@ export default function NewsArticle() {
           {/* Text Content */}
           <div className="flex-1">
             <p className="text-xl sm:text-2xl font-bold leading-snug mb-8 text-slate-800 dark:text-slate-200">
-              {article.excerpt}
+              {article.excerpt[lang]}
             </p>
 
             {article.content.map((paragraph, idx) => (
               <React.Fragment key={idx}>
                 <p className="mb-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed font-medium">
-                  {paragraph}
+                  {paragraph[lang]}
                 </p>
                 
                 {/* Insert quote in the middle of content */}
                 {idx === 0 && article.quote && (
                   <blockquote className="my-10 pl-6 border-l-4 border-blue-600 dark:border-blue-500 bg-white dark:bg-slate-900/60 py-6 pr-6 italic font-bold text-xl sm:text-2xl text-slate-900 dark:text-white rounded-r-2xl shadow-sm">
-                    "{article.quote}"
+                    "{article.quote[lang]}"
                   </blockquote>
                 )}
               </React.Fragment>
