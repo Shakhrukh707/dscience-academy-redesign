@@ -302,115 +302,307 @@ const AccordionItem = ({ question, answer, isOpen, onClick, badge }: { question:
   );
 };
 
-const FaqSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "Data Science kursida o'qish tartibi qanday?",
-      answer: (
-        <div className="space-y-4">
-          <p>Data Science yo'nalishida ikki xil ta'lim shakli mavjud:</p>
-          <ul className="space-y-3 ml-2">
-            <li className="flex items-start gap-3">
-              <span className="text-blue-600 font-black mt-1 text-xl">•</span>
-              <span><strong className="text-slate-700 dark:text-slate-300">Kvota asosida (160 ta o'rin):</strong> Davlat granti asosida mutlaqo bepul o'qish va maxsus imtiyozlarga ega bo'lish imkoniyati.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-600 font-black mt-1 text-xl">•</span>
-              <span><strong className="text-slate-700 dark:text-slate-300">Kontrakt asosida:</strong> Kursda o'qishni xohlovchilar uchun sinovlarsiz, to'lov asosida ta'lim olish shakli.</span>
-            </li>
+const faqDataUZ = [
+  {
+    question: "Data Science kursida o'qish tartibi qanday?",
+    answer: (
+      <div className="space-y-4">
+        <p>Data Science yo'nalishida ikki xil ta'lim shakli mavjud:</p>
+        <ul className="space-y-3 ml-2">
+          <li className="flex items-start gap-3">
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+            <span><strong className="text-slate-700 dark:text-slate-300">Kvota asosida (160 ta o'rin):</strong> Davlat granti asosida mutlaqo bepul o'qish va maxsus imtiyozlarga ega bo'lish imkoniyati.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+            <span><strong className="text-slate-700 dark:text-slate-300">Kontrakt asosida:</strong> Kursda o'qishni xohlovchilar uchun sinovlarsiz, to'lov asosida ta'lim olish shakli.</span>
+          </li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    question: "Kvota asosida qabul qilinish uchun qanday talablar bor?",
+    badge: "Grant",
+    answer: (
+      <div className="space-y-6">
+        <p>Kvota asosida 160 ta o'rindan biriga ega bo'lish uchun nomzodlar quyidagi barcha talablarga javob berishi lozim:</p>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Asosiy akademik talablar:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Davlat oliy ta’lim muassasalari talabasi bo'lishi;</li>
+            <li>Joriy yil 2-bosqichni tugatib, 3-bosqichga o‘tgan bo'lishi;</li>
+            <li>Akademik qarzdorligi bo‘lmasligi;</li>
+            <li>Matematika va informatika fanlarini mukammal o‘zlashtirgan bo'lishi.</li>
           </ul>
         </div>
-      )
-    },
-    {
-      question: "Kvota asosida qabul qilinish uchun qanday talablar bor?",
-      badge: "Grant",
-      answer: (
-        <div className="space-y-6">
-          <p>Kvota asosida 160 ta o'rindan biriga ega bo'lish uchun nomzodlar quyidagi barcha talablarga javob berishi lozim:</p>
-          
-          <div>
-            <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Asosiy akademik talablar:</h4>
-            <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
-              <li>Davlat oliy ta’lim muassasalari talabasi bo'lishi;</li>
-              <li>Joriy yil 2-bosqichni tugatib, 3-bosqichga o‘tgan bo'lishi;</li>
-              <li>Akademik qarzdorligi bo‘lmasligi;</li>
-              <li>Matematika va informatika fanlarini mukammal o‘zlashtirgan bo'lishi.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Texnik va til ko'nikmalari:</h4>
-            <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
-              <li>Ingliz tilini bilish darajasi (IELTS 5.5-6.5);</li>
-              <li>Web, Android, IOS kabi dasturiy ta’minot yozish ko‘nikmalariga ega bo'lishi;</li>
-              <li>IQ test natijasi yuqori bo'lishi;</li>
-              <li>Xalqaro IT sertifikatga ega bo'lishi.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Faollik va shaxsiy sifatlar:</h4>
-            <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
-              <li>OTM ijtimoiy hayotida faol ishtirok etuvchi (tavsiyanoma asosida);</li>
-              <li>Ilmiy faolligi yuqori (maqola, darslik, dasturiy ta’minot, ixtiro egasi);</li>
-              <li>Muloqotga kirisha oladigan va jamoa bilan ishlash qobiliyatiga ega bo'lishi;</li>
-              <li>Izlanuvchan va tirishqoq (qo‘yilgan muammoni yechish uchun ilmiy yondashadigan va boshlangan ishni oxiriga yetkazadigan).</li>
-            </ul>
-          </div>
-          
-          <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm mt-4 dark:bg-slate-900/40 dark:border-slate-800/80">
-            <span className="font-bold text-slate-700 dark:text-slate-300">Eslatma:</span> Kontrakt asosida o'qish uchun bu talablar shart emas.
-          </div>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Texnik va til ko'nikmalari:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Ingliz tilini bilish darajasi (IELTS 5.5-6.5);</li>
+            <li>Web, Android, IOS kabi dasturiy ta’minot yozish ko‘nikmalariga ega bo'lishi;</li>
+            <li>IQ test natijasi yuqori bo'lishi;</li>
+            <li>Xalqaro IT sertifikatga ega bo'lishi.</li>
+          </ul>
         </div>
-      )
-    },
-    {
-      question: "Kvota asosida o'qiydigan talabalarga qanday imtiyozlar beriladi?",
-      badge: "Imtiyozlar",
-      answer: (
-        <div className="space-y-6">
-          <p>Kvota doirasida qabul qilingan talabalar uchun quyidagi <strong className="text-blue-600 dark:text-blue-400">BONUS</strong> imkoniyatlar yaratilgan:</p>
-          
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-              <div className="text-3xl mt-0.5">💰</div>
-              <div>
-                <h4 className="font-bold text-slate-900 dark:text-slate-100">Stipendiya</h4>
-                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Har oy 1 320 000 so'm rag'batlantirish</p>
-              </div>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Faollik va shaxsiy sifatlar:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>OTM ijtimoiy hayotida faol ishtirok etuvchi (tavsiyanoma asosida);</li>
+            <li>Ilmiy faolligi yuqori (maqola, darslik, dasturiy ta’minot, ixtiro egasi);</li>
+            <li>Muloqotga kirisha oladigan va jamoa bilan ishlash qobiliyatiga ega bo'lishi;</li>
+            <li>Izlanuvchan va tirishqoq (qo‘yilgan muammoni yechish uchun ilmiy yondashadigan va boshlangan ishni oxiriga yetkazadigan).</li>
+          </ul>
+        </div>
+        <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm mt-4 dark:bg-slate-900/40 dark:border-slate-800/80">
+          <span className="font-bold text-slate-700 dark:text-slate-300">Eslatma:</span> Kontrakt asosida o'qish uchun bu talablar shart emas.
+        </div>
+      </div>
+    )
+  },
+  {
+    question: "Kvota asosida o'qiydigan talabalarga qanday imtiyozlar beriladi?",
+    badge: "Imtiyozlar",
+    answer: (
+      <div className="space-y-6">
+        <p>Kvota doirasida qabul qilingan talabalar uchun quyidagi <strong className="text-blue-600 dark:text-blue-400">BONUS</strong> imkoniyatlar yaratilgan:</p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">💰</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Stipendiya</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Har oy 1 320 000 so'm rag'batlantirish</p>
             </div>
-            
-            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-              <div className="text-3xl mt-0.5">💻</div>
-              <div>
-                <h4 className="font-bold text-slate-900 dark:text-slate-100">Noutbuk</h4>
-                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">O'qish davomida foydalanish uchun zamonaviy noutbuk</p>
-              </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">💻</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Noutbuk</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">O'qish davomida foydalanish uchun zamonaviy noutbuk</p>
             </div>
-
-            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-              <div className="text-3xl mt-0.5">🍲</div>
-              <div>
-                <h4 className="font-bold text-slate-900 dark:text-slate-100">Issiq ovqat</h4>
-                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Har kuni bir mahallik bepul issiq tushlik</p>
-              </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">🍲</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Issiq ovqat</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Har kuni bir mahallik bepul issiq tushlik</p>
             </div>
-
-            <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-              <div className="text-3xl mt-0.5">🎓</div>
-              <div>
-                <h4 className="font-bold text-slate-900 dark:text-slate-100">Akademik mobillik</h4>
-                <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Toshkentdagi yetakchi OTMlarda tajriba almashish</p>
-              </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">🎓</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Akademik mobillik</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Toshkentdagi yetakchi OTMlarda tajriba almashish</p>
             </div>
           </div>
         </div>
-      )
-    }
-  ];
+      </div>
+    )
+  }
+];
+
+const faqDataRU = [
+  {
+    question: "Какой порядок обучения на курсе Data Science?",
+    answer: (
+      <div className="space-y-4">
+        <p>По направлению Data Science существует две формы обучения:</p>
+        <ul className="space-y-3 ml-2">
+          <li className="flex items-start gap-3">
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+            <span><strong className="text-slate-700 dark:text-slate-300">По квоте (160 мест):</strong> Возможность бесплатного обучения по государственному гранту с особыми привилегиями.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+            <span><strong className="text-slate-700 dark:text-slate-300">По контракту:</strong> Форма платного обучения без вступительных испытаний для всех желающих.</span>
+          </li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    question: "Какие требования для поступления по квоте?",
+    badge: "Грант",
+    answer: (
+      <div className="space-y-6">
+        <p>Чтобы получить одно из 160 квотных мест, кандидаты должны соответствовать всем следующим требованиям:</p>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Основные академические требования:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Быть студентом государственного вуза;</li>
+            <li>Окончить 2-й курс и перейти на 3-й в текущем году;</li>
+            <li>Не иметь академических задолженностей;</li>
+            <li>В совершенстве владеть математикой и информатикой.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Технические и языковые навыки:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Уровень английского языка (IELTS 5.5-6.5);</li>
+            <li>Навыки разработки ПО (Web, Android, iOS);</li>
+            <li>Высокий результат теста IQ;</li>
+            <li>Наличие международного IT-сертификата.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Активность и личные качества:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Активное участие в социальной жизни вуза (на основе рекомендаций);</li>
+            <li>Высокая научная активность (автор статей, учебников, ПО, изобретений);</li>
+            <li>Коммуникабельность и умение работать в команде;</li>
+            <li>Любознательность и усердие (научный подход к решению проблем и доведение дела до конца).</li>
+          </ul>
+        </div>
+        <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm mt-4 dark:bg-slate-900/40 dark:border-slate-800/80">
+          <span className="font-bold text-slate-700 dark:text-slate-300">Примечание:</span> Для обучения по контракту эти требования не обязательны.
+        </div>
+      </div>
+    )
+  },
+  {
+    question: "Какие льготы предоставляются студентам по квоте?",
+    badge: "Льготы",
+    answer: (
+      <div className="space-y-6">
+        <p>Для студентов, поступивших по квоте, предусмотрены следующие <strong className="text-blue-600 dark:text-blue-400">БОНУСЫ</strong>:</p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">💰</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Стипендия</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Ежемесячное поощрение 1 320 000 сумов</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">💻</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Ноутбук</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Современный ноутбук для использования во время учебы</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">🍲</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Горячее питание</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Бесплатный горячий обед каждый день</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">🎓</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Академическая мобильность</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Обмен опытом в ведущих вузах Ташкента</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+];
+
+const faqDataEN = [
+  {
+    question: "What is the study process for the Data Science course?",
+    answer: (
+      <div className="space-y-4">
+        <p>There are two forms of study in the Data Science track:</p>
+        <ul className="space-y-3 ml-2">
+          <li className="flex items-start gap-3">
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+            <span><strong className="text-slate-700 dark:text-slate-300">Quota-based (160 seats):</strong> Opportunity to study completely free of charge under a state grant with special privileges.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
+            <span><strong className="text-slate-700 dark:text-slate-300">Contract-based:</strong> Paid form of study without entrance exams for everyone interested.</span>
+          </li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    question: "What are the requirements for quota-based admission?",
+    badge: "Grant",
+    answer: (
+      <div className="space-y-6">
+        <p>To secure one of the 160 quota seats, candidates must meet all the following requirements:</p>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Core academic requirements:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Be a student of a state higher education institution;</li>
+            <li>Have completed the 2nd year and moved to the 3rd year this current year;</li>
+            <li>Have no academic debts;</li>
+            <li>Have excellent knowledge of mathematics and computer science.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Technical and language skills:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>English proficiency level (IELTS 5.5-6.5);</li>
+            <li>Software development skills (Web, Android, iOS);</li>
+            <li>High IQ test score;</li>
+            <li>International IT certificate.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Activity and personal qualities:</h4>
+          <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
+            <li>Active participation in the university's social life (based on recommendations);</li>
+            <li>High scientific activity (author of articles, textbooks, software, inventions);</li>
+            <li>Strong communication and teamwork skills;</li>
+            <li>Inquisitive and diligent (scientific approach to problem-solving and seeing things through).</li>
+          </ul>
+        </div>
+        <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm mt-4 dark:bg-slate-900/40 dark:border-slate-800/80">
+          <span className="font-bold text-slate-700 dark:text-slate-300">Note:</span> These requirements are not mandatory for contract-based study.
+        </div>
+      </div>
+    )
+  },
+  {
+    question: "What benefits are provided for quota students?",
+    badge: "Benefits",
+    answer: (
+      <div className="space-y-6">
+        <p>The following <strong className="text-blue-600 dark:text-blue-400">BONUS</strong> opportunities are created for students admitted under the quota:</p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">💰</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Scholarship</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Monthly incentive of 1,320,000 UZS</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">💻</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Laptop</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Modern laptop for use during studies</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">🍲</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Hot meals</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Free daily hot lunch</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
+            <div className="text-3xl mt-0.5">🎓</div>
+            <div>
+              <h4 className="font-bold text-slate-900 dark:text-slate-100">Academic mobility</h4>
+              <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Experience exchange in leading universities of Tashkent</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+];
+
+const FaqSection = ({ t, lang }: { t: any, lang: string }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const faqs = lang === 'UZ' ? faqDataUZ : lang === 'RU' ? faqDataRU : faqDataEN;
 
   return (
     <section className="py-20 sm:py-24 md:py-32 bg-[#F8FAFC] dark:bg-[#030712]">
@@ -423,7 +615,7 @@ const FaqSection = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white">
-            Ko'p beriladigan <span className="gradient-text">savollar</span>
+            {t.faq.title.split(' ').slice(0, -1).join(' ')} <span className="gradient-text">{t.faq.title.split(' ').slice(-1)}</span>
           </h2>
         </motion.div>
 
@@ -449,7 +641,6 @@ const FaqSection = () => {
     </section>
   );
 };
-
 
 
 export default function App() {
@@ -1317,8 +1508,8 @@ export default function App() {
           </div>
         </section>
 
-        <FaqSection />
-        <MediaSection />
+        <FaqSection t={t} lang={lang} />
+        <MediaSection t={t} />
       </main>
 
       <motion.footer

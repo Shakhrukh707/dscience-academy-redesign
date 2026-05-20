@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 export type Language = 'RU' | 'UZ' | 'EN';
 
 export interface CourseDetail {
@@ -216,5 +218,18 @@ export interface TranslationSet {
     welcomeMsg: string;
     adminNav: string;
     noLogs: string;
+  };
+  faq: {
+    title: string;
+    items: {
+      question: string;
+      answer: React.ReactNode;
+      badge?: string;
+    }[];
+  };
+  gallery: {
+    titleTop: string;
+    titleBottom: string;
+    description: string;
   };
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { InteractiveBentoGallery, MediaItemType } from './ui/interactive-bento-gallery';
+import { TranslationSet } from '../types';
 
 const academyMediaItems: MediaItemType[] = [
   {
@@ -44,20 +45,20 @@ const academyMediaItems: MediaItemType[] = [
   }
 ];
 
-const MediaSection = () => {
+const MediaSection = ({ t }: { t: TranslationSet }) => {
   return (
     <div className="py-16 bg-white dark:bg-slate-950">
       <InteractiveBentoGallery 
         mediaItems={academyMediaItems}
         title={
           <div className="flex flex-col items-center justify-center">
-            <span className="text-slate-900 dark:text-white">Talabalarimiz yutuqlari va</span>
+            <span className="text-slate-900 dark:text-white">{t.gallery.titleTop}</span>
             <span className="gradient-text pb-1">
-              OAV biz haqimizda
+              {t.gallery.titleBottom}
             </span>
           </div>
         }
-        description="Bizning kursimiz hayotidan yorqin lahzalar va yutuqlar"
+        description={t.gallery.description}
       />
     </div>
   );
