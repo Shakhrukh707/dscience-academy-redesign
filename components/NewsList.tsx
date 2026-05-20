@@ -61,14 +61,14 @@ export default function NewsList() {
               className="group flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 py-8 sm:py-10 border-b border-slate-200 dark:border-slate-800 cursor-pointer relative"
             >
               {/* Date Block */}
-              <div className="flex md:flex-col items-center md:items-start gap-2 md:gap-0 shrink-0 md:w-20 lg:w-24">
-                <span className="text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400">
-                  {news.date.day} {news.date.month}
+              <div className="flex flex-col items-center justify-center shrink-0 w-16 sm:w-20 lg:w-24 border-r border-slate-200 dark:border-slate-800/50 pr-4 sm:pr-6 md:pr-0 md:border-r-0 md:pb-0">
+                <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400">
+                  {news.date.weekday}
                 </span>
-                <span className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none mt-1 text-slate-900 dark:text-white">
+                <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-none my-1 text-slate-900 dark:text-white">
                   {news.date.day}
                 </span>
-                <span className="text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400 mt-1 hidden md:block">
+                <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-400 mt-1">
                   {news.date.month}
                 </span>
               </div>

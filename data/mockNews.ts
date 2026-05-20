@@ -5,6 +5,7 @@ export interface NewsItem {
     day: string;
     month: string;
     full: string;
+    weekday: string;
   };
   image: string;
   categories: string[];
@@ -22,7 +23,8 @@ export const mockNews: NewsItem[] = [
     date: {
       day: "12",
       month: "MAY",
-      full: "May 12, 2026"
+      full: "May 12, 2026",
+      weekday: "SESH"
     },
     image: "/media/hackathon.jpg",
     categories: ["AWARDS", "EDUCATION", "TECH"],
@@ -42,7 +44,8 @@ export const mockNews: NewsItem[] = [
     date: {
       day: "03",
       month: "MAY",
-      full: "May 03, 2026"
+      full: "May 03, 2026",
+      weekday: "YAK"
     },
     image: "/media/summit.jpg",
     categories: ["GRANTS", "OPPORTUNITY"],
@@ -62,7 +65,8 @@ export const mockNews: NewsItem[] = [
     date: {
       day: "28",
       month: "APR",
-      full: "April 28, 2026"
+      full: "April 28, 2026",
+      weekday: "PAY"
     },
     image: "/media/summit2.jpg",
     categories: ["GAMEDEV", "HACKATHON"],
