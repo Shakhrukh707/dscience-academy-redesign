@@ -16,14 +16,14 @@ export default function NewsArticle() {
 
   if (!article) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white text-slate-900">
+      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#030712] text-slate-900 dark:text-white">
         <div className="text-center">
-          <h1 className="text-4xl font-black mb-4">Article Not Found</h1>
+          <h1 className="text-4xl font-black mb-4">Maqola topilmadi</h1>
           <button 
             onClick={() => navigate('/news')}
-            className="text-blue-600 font-bold uppercase tracking-widest text-sm hover:underline"
+            className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm hover:underline"
           >
-            Return to News
+            Yangiliklarga qaytish
           </button>
         </div>
       </div>
@@ -31,32 +31,32 @@ export default function NewsArticle() {
   }
 
   return (
-    <article className="min-h-screen bg-white text-slate-900 pt-24 sm:pt-32 pb-20">
+    <article className="min-h-screen bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] text-slate-900 dark:text-slate-100 pt-24 sm:pt-32 pb-20">
       <div className="container mx-auto px-4 max-w-4xl">
         
         {/* Navigation */}
         <button 
           onClick={() => navigate('/news')}
-          className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-slate-400 hover:text-slate-800 transition-colors mb-12"
+          className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-12"
         >
-          <ArrowLeft size={16} /> Back to News
+          <ArrowLeft size={16} /> Yangiliklarga qaytish
         </button>
 
         {/* Header */}
         <header className="mb-12 text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-slate-900 dark:text-white">
             {article.title}
           </h1>
           <div className="flex flex-col items-center justify-center gap-1 text-sm font-bold tracking-wide">
-            <span className="text-slate-900">by {article.author}</span>
-            <span className="text-slate-400 font-medium text-xs tracking-widest uppercase">
+            <span className="text-slate-900 dark:text-slate-200">Muallif: {article.author}</span>
+            <span className="text-slate-500 dark:text-slate-400 font-medium text-xs tracking-widest uppercase">
               {article.readTime} | {article.date.full}
             </span>
           </div>
         </header>
 
         {/* Hero Image */}
-        <div className="w-full aspect-[21/9] sm:aspect-[16/9] overflow-hidden bg-slate-100 mb-16 relative">
+        <div className="w-full aspect-[21/9] sm:aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-slate-900 rounded-[2rem] shadow-2xl mb-16 relative">
           <img 
             src={article.image} 
             alt={article.title} 
@@ -69,32 +69,32 @@ export default function NewsArticle() {
           
           {/* Social Share (Desktop left sidebar, mobile top row) */}
           <div className="flex md:flex-col gap-4 shrink-0 md:sticky top-32 h-fit">
-            <button className="w-10 h-10 border border-slate-200 flex items-center justify-center rounded-sm hover:bg-slate-50 transition-colors">
-              <Twitter size={16} />
+            <button className="w-10 h-10 border border-slate-200 dark:border-slate-800 flex items-center justify-center rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
+              <Twitter size={18} />
             </button>
-            <button className="w-10 h-10 border border-slate-200 flex items-center justify-center rounded-sm hover:bg-slate-50 transition-colors">
-              <Instagram size={16} />
+            <button className="w-10 h-10 border border-slate-200 dark:border-slate-800 flex items-center justify-center rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
+              <Instagram size={18} />
             </button>
-            <button className="w-10 h-10 border border-slate-200 flex items-center justify-center rounded-sm hover:bg-slate-50 transition-colors">
-              <Facebook size={16} />
+            <button className="w-10 h-10 border border-slate-200 dark:border-slate-800 flex items-center justify-center rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">
+              <Facebook size={18} />
             </button>
           </div>
 
           {/* Text Content */}
-          <div className="prose prose-lg prose-slate dark:prose-invert max-w-none flex-1 font-serif leading-relaxed">
-            <p className="text-xl sm:text-2xl font-bold leading-snug mb-8 font-sans">
+          <div className="flex-1">
+            <p className="text-xl sm:text-2xl font-bold leading-snug mb-8 text-slate-800 dark:text-slate-200">
               {article.excerpt}
             </p>
 
             {article.content.map((paragraph, idx) => (
               <React.Fragment key={idx}>
-                <p className="mb-6 text-slate-700 text-lg">
+                <p className="mb-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed font-medium">
                   {paragraph}
                 </p>
                 
                 {/* Insert quote in the middle of content */}
                 {idx === 0 && article.quote && (
-                  <blockquote className="my-10 pl-6 border-l-4 border-slate-900 bg-slate-50 py-6 pr-6 italic font-bold text-xl sm:text-2xl text-slate-900 font-sans shadow-sm">
+                  <blockquote className="my-10 pl-6 border-l-4 border-blue-600 dark:border-blue-500 bg-white dark:bg-slate-900/60 py-6 pr-6 italic font-bold text-xl sm:text-2xl text-slate-900 dark:text-white rounded-r-2xl shadow-sm">
                     "{article.quote}"
                   </blockquote>
                 )}
