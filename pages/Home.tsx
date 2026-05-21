@@ -1331,7 +1331,7 @@ export default function Home({ lang }: { lang: Language }) {
                           </p>
 
                           <div className={`mt-5 text-6xl leading-none font-black transition-colors duration-700 ${isActive ? 'text-white/95' : 'text-blue-600 dark:text-blue-500'}`}>
-                            вЂњ
+                            "
                           </div>
 
                           <p className={`mt-3 text-sm sm:text-base leading-8 font-medium transition-colors duration-700 ${isActive ? 'text-white/85' : 'text-slate-500 dark:text-slate-400'}`}>
@@ -1681,7 +1681,7 @@ export default function Home({ lang }: { lang: Language }) {
                         </li>
                         <li className="flex items-start gap-3">
                           <Banknote className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
-                          <span className="text-slate-600 dark:text-slate-400 text-sm">Har oylik stipendiya вЂ“ 1 320 000 so'm</span>
+                          <span className="text-slate-600 dark:text-slate-400 text-sm">Har oylik stipendiya – 1 320 000 so'm</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <Utensils className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
