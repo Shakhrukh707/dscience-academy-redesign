@@ -1213,7 +1213,7 @@ export default function Home({ lang }: { lang: Language }) {
           </div>
         </section>
 
-        <section id="why" className="pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC]">
+        <section id="why" className="pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC]">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
