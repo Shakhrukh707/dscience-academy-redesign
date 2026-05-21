@@ -78,6 +78,7 @@ export interface TranslationSet {
     apply: string;
     login: string;
     logout: string;
+    projects: string;
   };
   hero: {
     title: string;

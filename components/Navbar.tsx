@@ -87,6 +87,7 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
 
   const navItems = [
     { label: lang === 'UZ' ? 'Yangiliklar' : lang === 'RU' ? 'Новости' : 'News', onClick: () => handleNavClick('/news') },
+    { label: t.header.projects, onClick: () => handleNavClick('/projects') },
     { label: t.header.courses, onClick: () => handleNavClick('/', 'courses') },
     { label: 'E-campus', onClick: () => window.open('https://dscience.uz/e-campus', '_blank') },
     { label: lang === 'UZ' ? 'Platforma' : lang === 'RU' ? 'Платформа' : 'Platform', onClick: () => window.open('https://lmsf.dscience.uz/login', '_blank') },

@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import {
@@ -40,6 +40,7 @@ import {
 } from 'lucide-react';
 import { translations } from '../translations';
 import { Language } from '../types';
+import { mockProjects } from '../data/mockProjects';
 import MediaSection from '../components/MediaSection';
 
 type CourseId = 'ds' | 'anim' | '3d' | 'game' | 'vfx' | 'fx' | 'unreal' | 'c4d';
@@ -548,6 +549,88 @@ const faqDataEN = [
     )
   }
 ];
+
+const ProjectsSection = ({ lang }: { lang: string }) => {
+  const navigate = useNavigate();
+  // Take top 3 projects
+  const featuredProjects = mockProjects.slice(0, 3);
+  
+  return (
+    <section className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_40%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
+      <div className="container mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 32, filter: 'blur(12px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={revealViewport}
+          transition={{ duration: 0.85, ease: revealEase }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 sm:mb-20"
+        >
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 shadow-[0_18px_40px_-28px_rgba(37,99,235,0.4)] dark:bg-blue-900/30 dark:border-blue-800/50 dark:text-blue-400">
+              <Sparkles size={14} />
+              Portfolio
+            </div>
+            <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1]">
+              {lang === 'UZ' ? 'Talabalarimiz ' : lang === 'RU' ? 'Работы наших ' : 'Our Students\' '}
+              <span className="gradient-text">{lang === 'UZ' ? 'ishlari' : lang === 'RU' ? 'студентов' : 'Work'}</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-slate-500 dark:text-slate-400 text-base sm:text-lg font-medium leading-relaxed">
+              {lang === 'UZ' ? "Bizning o'quvchilar tomonidan real muammolarni hal qilish uchun yaratilgan innovatsion loyihalar va startaplar." : lang === 'RU' ? "Инновационные проекты и стартапы, созданные нашими учениками для решения реальных проблем." : "Innovative projects and startups created by our students to solve real-world problems."}
+            </p>
+          </div>
+          <button 
+            onClick={() => { window.scrollTo(0,0); navigate('/projects'); }}
+            className="group flex items-center gap-3 shrink-0 rounded-2xl bg-white dark:bg-slate-900 px-6 py-4 text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white shadow-xl shadow-slate-200/50 dark:shadow-none hover:shadow-blue-500/20 transition-all border border-slate-100 dark:border-slate-800"
+          >
+            {lang === 'UZ' ? 'Barcha loyihalar' : lang === 'RU' ? 'Все проекты' : 'All projects'}
+            <ArrowUpRight size={18} className="text-blue-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </button>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {featuredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={revealViewport}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: revealEase }}
+              onClick={() => { window.scrollTo(0,0); navigate(`/projects/${project.id}`); }}
+              className="group cursor-pointer rounded-[2rem] bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-blue-500/30 flex flex-col h-full relative overflow-hidden"
+            >
+              <div className="w-full aspect-[4/3] rounded-2xl bg-slate-100 dark:bg-slate-800 overflow-hidden mb-6 relative">
+                <div className="absolute top-4 left-4 z-10 flex gap-2">
+                  <span className="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-blue-600 dark:text-blue-400 rounded-full text-[10px] font-black tracking-widest uppercase shadow-sm">
+                    {project.course}
+                  </span>
+                </div>
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 font-medium line-clamp-3 mb-6 flex-1">
+                {project.excerpt[lang as Language]}
+              </p>
+              <div className="mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4 flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  {project.author}
+                </span>
+                <span className="text-blue-600 dark:text-blue-500">
+                  <ArrowUpRight size={20} strokeWidth={2.5} />
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const FaqSection = ({ t, lang }: { t: any, lang: string }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -1332,6 +1415,7 @@ export default function Home({ lang }: { lang: Language }) {
           </div>
         </section>
 
+        <ProjectsSection lang={lang} />
         <FaqSection t={t} lang={lang} />
         <MediaSection t={t} />
       </main>
