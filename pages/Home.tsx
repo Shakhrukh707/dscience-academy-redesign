@@ -261,11 +261,11 @@ const faqDataUZ = [
         <p>Data Science yo'nalishida ikki xil ta'lim shakli mavjud:</p>
         <ul className="space-y-3 ml-2">
           <li className="flex items-start gap-3">
-            <span className="text-blue-600 font-black mt-1 text-xl">вЂў</span>
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
             <span><strong className="text-slate-700 dark:text-slate-300">Kvota asosida (160 ta o'rin):</strong> Davlat granti asosida mutlaqo bepul o'qish va maxsus imtiyozlarga ega bo'lish imkoniyati.</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-blue-600 font-black mt-1 text-xl">вЂў</span>
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
             <span><strong className="text-slate-700 dark:text-slate-300">Kontrakt asosida:</strong> Kursda o'qishni xohlovchilar uchun sinovlarsiz, to'lov asosida ta'lim olish shakli.</span>
           </li>
         </ul>
@@ -279,30 +279,30 @@ const faqDataUZ = [
       <div className="space-y-6">
         <p>Kvota asosida 160 ta o'rindan biriga ega bo'lish uchun nomzodlar quyidagi barcha talablarga javob berishi lozim:</p>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџ“љ</span> Asosiy akademik talablar:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Asosiy akademik talablar:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
-            <li>Davlat oliy taвЂ™lim muassasalari talabasi bo'lishi;</li>
-            <li>Joriy yil 2-bosqichni tugatib, 3-bosqichga oвЂtgan bo'lishi;</li>
-            <li>Akademik qarzdorligi boвЂlmasligi;</li>
-            <li>Matematika va informatika fanlarini mukammal oвЂzlashtirgan bo'lishi.</li>
+            <li>Davlat oliy ta'lim muassasalari talabasi bo'lishi;</li>
+            <li>Joriy yil 2-bosqichni tugatib, 3-bosqichga o'tgan bo'lishi;</li>
+            <li>Akademik qarzdorligi bo'lmasligi;</li>
+            <li>Matematika va informatika fanlarini mukammal o'zlashtirgan bo'lishi.</li>
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџ’»</span> Texnik va til ko'nikmalari:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Texnik va til ko'nikmalari:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>Ingliz tilini bilish darajasi (IELTS 5.5-6.5);</li>
-            <li>Web, Android, IOS kabi dasturiy taвЂ™minot yozish koвЂnikmalariga ega bo'lishi;</li>
+            <li>Web, Android, IOS kabi dasturiy ta'minot yozish ko'nikmalariga ega bo'lishi;</li>
             <li>IQ test natijasi yuqori bo'lishi;</li>
             <li>Xalqaro IT sertifikatga ega bo'lishi.</li>
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџЊџ</span> Faollik va shaxsiy sifatlar:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Faollik va shaxsiy sifatlar:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>OTM ijtimoiy hayotida faol ishtirok etuvchi (tavsiyanoma asosida);</li>
-            <li>Ilmiy faolligi yuqori (maqola, darslik, dasturiy taвЂ™minot, ixtiro egasi);</li>
+            <li>Ilmiy faolligi yuqori (maqola, darslik, dasturiy ta'minot, ixtiro egasi);</li>
             <li>Muloqotga kirisha oladigan va jamoa bilan ishlash qobiliyatiga ega bo'lishi;</li>
-            <li>Izlanuvchan va tirishqoq (qoвЂyilgan muammoni yechish uchun ilmiy yondashadigan va boshlangan ishni oxiriga yetkazadigan).</li>
+            <li>Izlanuvchan va tirishqoq (qo'yilgan muammoni yechish uchun ilmiy yondashadigan va boshlangan ishni oxiriga yetkazadigan).</li>
           </ul>
         </div>
         <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm mt-4 dark:bg-slate-900/40 dark:border-slate-800/80">
@@ -326,7 +326,7 @@ const faqDataUZ = [
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-            <div className="text-3xl mt-0.5">рџ’»</div>
+            <div className="text-3xl mt-0.5">💻</div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-slate-100">Noutbuk</h4>
               <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">O'qish davomida foydalanish uchun zamonaviy noutbuk</p>
@@ -340,7 +340,7 @@ const faqDataUZ = [
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-            <div className="text-3xl mt-0.5">рџЋ“</div>
+            <div className="text-3xl mt-0.5">🎓</div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-slate-100">Akademik mobillik</h4>
               <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Toshkentdagi yetakchi OTMlarda tajriba almashish</p>
@@ -360,11 +360,11 @@ const faqDataRU = [
         <p>РџРѕ РЅР°РїСЂР°РІР»РµРЅРёСЋ Data Science СЃСѓС‰РµСЃС‚РІСѓРµС‚ РґРІРµ С„РѕСЂРјС‹ РѕР±СѓС‡РµРЅРёСЏ:</p>
         <ul className="space-y-3 ml-2">
           <li className="flex items-start gap-3">
-            <span className="text-blue-600 font-black mt-1 text-xl">вЂў</span>
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
             <span><strong className="text-slate-700 dark:text-slate-300">РџРѕ РєРІРѕС‚Рµ (160 РјРµСЃС‚):</strong> Р’РѕР·РјРѕР¶РЅРѕСЃС‚СЊ Р±РµСЃРїР»Р°С‚РЅРѕРіРѕ РѕР±СѓС‡РµРЅРёСЏ РїРѕ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРјСѓ РіСЂР°РЅС‚Сѓ СЃ РѕСЃРѕР±С‹РјРё РїСЂРёРІРёР»РµРіРёСЏРјРё.</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-blue-600 font-black mt-1 text-xl">вЂў</span>
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
             <span><strong className="text-slate-700 dark:text-slate-300">РџРѕ РєРѕРЅС‚СЂР°РєС‚Сѓ:</strong> Р¤РѕСЂРјР° РїР»Р°С‚РЅРѕРіРѕ РѕР±СѓС‡РµРЅРёСЏ Р±РµР· РІСЃС‚СѓРїРёС‚РµР»СЊРЅС‹С… РёСЃРїС‹С‚Р°РЅРёР№ РґР»СЏ РІСЃРµС… Р¶РµР»Р°СЋС‰РёС….</span>
           </li>
         </ul>
@@ -378,7 +378,7 @@ const faqDataRU = [
       <div className="space-y-6">
         <p>Р§С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ РѕРґРЅРѕ РёР· 160 РєРІРѕС‚РЅС‹С… РјРµСЃС‚, РєР°РЅРґРёРґР°С‚С‹ РґРѕР»Р¶РЅС‹ СЃРѕРѕС‚РІРµС‚СЃС‚РІРѕРІР°С‚СЊ РІСЃРµРј СЃР»РµРґСѓСЋС‰РёРј С‚СЂРµР±РѕРІР°РЅРёСЏРј:</p>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџ“љ</span> РћСЃРЅРѕРІРЅС‹Рµ Р°РєР°РґРµРјРёС‡РµСЃРєРёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> РћСЃРЅРѕРІРЅС‹Рµ Р°РєР°РґРµРјРёС‡РµСЃРєРёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>Р‘С‹С‚СЊ СЃС‚СѓРґРµРЅС‚РѕРј РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРіРѕ РІСѓР·Р°;</li>
             <li>РћРєРѕРЅС‡РёС‚СЊ 2-Р№ РєСѓСЂСЃ Рё РїРµСЂРµР№С‚Рё РЅР° 3-Р№ РІ С‚РµРєСѓС‰РµРј РіРѕРґСѓ;</li>
@@ -387,7 +387,7 @@ const faqDataRU = [
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџ’»</span> РўРµС…РЅРёС‡РµСЃРєРёРµ Рё СЏР·С‹РєРѕРІС‹Рµ РЅР°РІС‹РєРё:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> РўРµС…РЅРёС‡РµСЃРєРёРµ Рё СЏР·С‹РєРѕРІС‹Рµ РЅР°РІС‹РєРё:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>РЈСЂРѕРІРµРЅСЊ Р°РЅРіР»РёР№СЃРєРѕРіРѕ СЏР·С‹РєР° (IELTS 5.5-6.5);</li>
             <li>РќР°РІС‹РєРё СЂР°Р·СЂР°Р±РѕС‚РєРё РџРћ (Web, Android, iOS);</li>
@@ -396,7 +396,7 @@ const faqDataRU = [
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџЊџ</span> РђРєС‚РёРІРЅРѕСЃС‚СЊ Рё Р»РёС‡РЅС‹Рµ РєР°С‡РµСЃС‚РІР°:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> РђРєС‚РёРІРЅРѕСЃС‚СЊ Рё Р»РёС‡РЅС‹Рµ РєР°С‡РµСЃС‚РІР°:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>РђРєС‚РёРІРЅРѕРµ СѓС‡Р°СЃС‚РёРµ РІ СЃРѕС†РёР°Р»СЊРЅРѕР№ Р¶РёР·РЅРё РІСѓР·Р° (РЅР° РѕСЃРЅРѕРІРµ СЂРµРєРѕРјРµРЅРґР°С†РёР№);</li>
             <li>Р’С‹СЃРѕРєР°СЏ РЅР°СѓС‡РЅР°СЏ Р°РєС‚РёРІРЅРѕСЃС‚СЊ (Р°РІС‚РѕСЂ СЃС‚Р°С‚РµР№, СѓС‡РµР±РЅРёРєРѕРІ, РџРћ, РёР·РѕР±СЂРµС‚РµРЅРёР№);</li>
@@ -425,7 +425,7 @@ const faqDataRU = [
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-            <div className="text-3xl mt-0.5">рџ’»</div>
+            <div className="text-3xl mt-0.5">💻</div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-slate-100">РќРѕСѓС‚Р±СѓРє</h4>
               <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">РЎРѕРІСЂРµРјРµРЅРЅС‹Р№ РЅРѕСѓС‚Р±СѓРє РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІРѕ РІСЂРµРјСЏ СѓС‡РµР±С‹</p>
@@ -439,7 +439,7 @@ const faqDataRU = [
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-            <div className="text-3xl mt-0.5">рџЋ“</div>
+            <div className="text-3xl mt-0.5">🎓</div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-slate-100">РђРєР°РґРµРјРёС‡РµСЃРєР°СЏ РјРѕР±РёР»СЊРЅРѕСЃС‚СЊ</h4>
               <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">РћР±РјРµРЅ РѕРїС‹С‚РѕРј РІ РІРµРґСѓС‰РёС… РІСѓР·Р°С… РўР°С€РєРµРЅС‚Р°</p>
@@ -459,11 +459,11 @@ const faqDataEN = [
         <p>There are two forms of study in the Data Science track:</p>
         <ul className="space-y-3 ml-2">
           <li className="flex items-start gap-3">
-            <span className="text-blue-600 font-black mt-1 text-xl">вЂў</span>
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
             <span><strong className="text-slate-700 dark:text-slate-300">Quota-based (160 seats):</strong> Opportunity to study completely free of charge under a state grant with special privileges.</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="text-blue-600 font-black mt-1 text-xl">вЂў</span>
+            <span className="text-blue-600 font-black mt-1 text-xl">•</span>
             <span><strong className="text-slate-700 dark:text-slate-300">Contract-based:</strong> Paid form of study without entrance exams for everyone interested.</span>
           </li>
         </ul>
@@ -477,7 +477,7 @@ const faqDataEN = [
       <div className="space-y-6">
         <p>To secure one of the 160 quota seats, candidates must meet all the following requirements:</p>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџ“љ</span> Core academic requirements:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">📚</span> Core academic requirements:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>Be a student of a state higher education institution;</li>
             <li>Have completed the 2nd year and moved to the 3rd year this current year;</li>
@@ -486,7 +486,7 @@ const faqDataEN = [
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџ’»</span> Technical and language skills:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">💻</span> Technical and language skills:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>English proficiency level (IELTS 5.5-6.5);</li>
             <li>Software development skills (Web, Android, iOS);</li>
@@ -495,7 +495,7 @@ const faqDataEN = [
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">рџЊџ</span> Activity and personal qualities:</h4>
+          <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3 dark:text-slate-200"><span className="text-xl">🌟</span> Activity and personal qualities:</h4>
           <ul className="space-y-2 ml-7 list-disc marker:text-slate-300">
             <li>Active participation in the university's social life (based on recommendations);</li>
             <li>High scientific activity (author of articles, textbooks, software, inventions);</li>
@@ -524,7 +524,7 @@ const faqDataEN = [
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-            <div className="text-3xl mt-0.5">рџ’»</div>
+            <div className="text-3xl mt-0.5">💻</div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-slate-100">Laptop</h4>
               <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Modern laptop for use during studies</p>
@@ -538,7 +538,7 @@ const faqDataEN = [
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-3xl border border-blue-100/50 bg-blue-50/50 transition-colors hover:bg-blue-50 dark:border-blue-900/30 dark:bg-blue-900/10 dark:hover:bg-blue-900/20">
-            <div className="text-3xl mt-0.5">рџЋ“</div>
+            <div className="text-3xl mt-0.5">🎓</div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-slate-100">Academic mobility</h4>
               <p className="text-sm mt-1 text-slate-500 dark:text-slate-400">Experience exchange in leading universities of Tashkent</p>
@@ -1374,6 +1374,7 @@ export default function Home({ lang }: { lang: Language }) {
         </section>
 
         
+<FaqSection t={t} lang={lang} />
 <section className="px-4 pt-4 sm:px-6 sm:pt-6 md:px-8 md:pt-10 bg-white">
           <div className="container mx-auto max-w-7xl">
             <motion.div
@@ -1420,7 +1421,7 @@ export default function Home({ lang }: { lang: Language }) {
         </section>
 
         
-        <FaqSection t={t} lang={lang} />
+        
       </main>
 
 
@@ -1576,25 +1577,25 @@ export default function Home({ lang }: { lang: Language }) {
               
               <div className="space-y-5 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
                 <div>
-                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">рџ“љ</span> Asosiy akademik talablar:</h4>
+                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">📚</span> Asosiy akademik talablar:</h4>
                   <ul className="space-y-1 ml-7 text-sm text-slate-500 dark:text-slate-400 list-disc">
                     <li>Davlat OTM talabasi bo'lishi;</li>
-                    <li>2-bosqichni tugatib, 3-bosqichga oвЂtgan bo'lishi;</li>
-                    <li>Akademik qarzdorligi boвЂlmasligi;</li>
+                    <li>2-bosqichni tugatib, 3-bosqichga o'tgan bo'lishi;</li>
+                    <li>Akademik qarzdorligi bo'lmasligi;</li>
                     <li>Matematika va informatikani mukammal bilishi.</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">рџ’»</span> Texnik va til ko'nikmalari:</h4>
+                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">💻</span> Texnik va til ko'nikmalari:</h4>
                   <ul className="space-y-1 ml-7 text-sm text-slate-500 dark:text-slate-400 list-disc">
                     <li>IELTS 5.5-6.5;</li>
-                    <li>Dasturiy taвЂ™minot yozish koвЂnikmalari;</li>
+                    <li>Dasturiy ta'minot yozish ko'nikmalari;</li>
                     <li>IQ test natijasi yuqori bo'lishi;</li>
                     <li>Xalqaro IT sertifikatga ega bo'lishi.</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">рџЊџ</span> Faollik va shaxsiy sifatlar:</h4>
+                  <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2"><span className="text-lg">🌟</span> Faollik va shaxsiy sifatlar:</h4>
                   <ul className="space-y-1 ml-7 text-sm text-slate-500 dark:text-slate-400 list-disc">
                     <li>OTM ijtimoiy hayotida faol ishtirok etuvchi;</li>
                     <li>Ilmiy faolligi yuqori;</li>
