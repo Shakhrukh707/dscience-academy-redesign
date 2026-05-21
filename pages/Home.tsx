@@ -1092,7 +1092,7 @@ export default function Home({ lang }: { lang: Language }) {
           </div>
         </section>
 
-        <section id="courses" className="py-20 sm:py-24 md:py-32 bg-[#F8FAFC] dark:bg-[linear-gradient(180deg,#020617_0%,#050816_100%)]">
+        <section id="courses" className="py-20 sm:py-24 md:py-32 bg-white dark:bg-[linear-gradient(180deg,#020617_0%,#050816_100%)]">
           <div className="container mx-auto px-4 sm:px-6 md:px-8">
             <motion.div
               initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
