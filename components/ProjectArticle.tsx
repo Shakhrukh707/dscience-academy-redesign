@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, User, BookOpen, Calendar, Tag, Lightbulb, Target } from 'lucide-react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import { mockProjects } from '../data/mockProjects';
 import { Language } from '../types';
 
@@ -50,13 +52,15 @@ export default function ProjectArticle({ lang }: { lang: Language }) {
           
           {/* Left Column: Poster/Image */}
           <div className="lg:w-1/2 shrink-0">
-            <div className="sticky top-32 w-full bg-slate-100 dark:bg-slate-900 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 dark:shadow-black/50 overflow-hidden border border-slate-200 dark:border-slate-800 p-2 sm:p-4">
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-auto rounded-[2rem] object-contain mx-auto"
-                style={{ maxHeight: 'calc(100vh - 200px)' }}
-              />
+            <div className="sticky top-32 w-full bg-slate-100 dark:bg-slate-900 rounded-[2.5rem] shadow-2xl shadow-slate-200/50 dark:shadow-black/50 overflow-hidden border border-slate-200 dark:border-slate-800 p-2 sm:p-4 cursor-zoom-in">
+              <Zoom zoomMargin={20}>
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-auto rounded-[2rem] object-contain mx-auto"
+                  style={{ maxHeight: 'calc(100vh - 200px)' }}
+                />
+              </Zoom>
             </div>
           </div>
 

@@ -821,38 +821,38 @@ export default function Home({ lang }: { lang: Language }) {
   const testimonialsContent = useMemo(() => {
     if (lang === 'RU') {
       return {
-        titleLead: 'РћС‚Р·С‹РІС‹',
-        titleAccent: 'СѓС‡РµРЅРёРєРѕРІ',
-        subtitle: 'РљРѕСЂРѕС‚РєРёРµ РёСЃС‚РѕСЂРёРё СЃС‚СѓРґРµРЅС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ РїСЂРёС€Р»Рё Р·Р° РЅР°РІС‹РєР°РјРё Рё РЅР°С‡Р°Р»Рё СѓРІРµСЂРµРЅРЅРѕ СЃС‚СЂРѕРёС‚СЊ СЃРІРѕР№ РїСѓС‚СЊ РІ РёРЅРґСѓСЃС‚СЂРёРё.',
+        titleLead: 'Отзывы',
+        titleAccent: 'учеников',
+        subtitle: 'Короткие истории студентов, которые пришли за навыками и начали уверенно строить свой путь в индустрии.',
         items: [
           {
-            quote: 'РљСѓСЂСЃ РїРѕРјРѕРі РјРЅРµ СЃРѕР±СЂР°С‚СЊ СЃРёР»СЊРЅСѓСЋ Р±Р°Р·Сѓ Рё РЅР°С‡Р°С‚СЊ СЂР°Р±РѕС‚Р°С‚СЊ СЃ СЂРµР°Р»СЊРЅС‹РјРё data-РєРµР№СЃР°РјРё СѓР¶Рµ РІРѕ РІСЂРµРјСЏ РѕР±СѓС‡РµРЅРёСЏ.',
+            quote: 'Курс помог мне собрать сильную базу и начать работать с реальными data-кейсами уже во время обучения.',
             name: 'Azizbek Rahmonov',
-            role: 'РќР°РїСЂР°РІР»РµРЅРёРµ Data Science',
+            role: 'Направление Data Science',
             avatarClass: 'from-sky-400 via-cyan-300 to-blue-500',
           },
           {
-            quote: 'РЎР°РјРѕРµ СЃРёР»СЊРЅРѕРµ РІ Р°РєР°РґРµРјРёРё, С‡С‚Рѕ РєР°Р¶РґР°СЏ С‚РµРјР° СЃСЂР°Р·Сѓ РїСЂРµРІСЂР°С‰Р°Р»Р°СЃСЊ РІ РїСЂР°РєС‚РёРєСѓ Рё РѕС‰СѓС‚РёРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚ РІ РїРѕСЂС‚С„РѕР»РёРѕ.',
+            quote: 'Самое сильное в академии, что каждая тема сразу превращалась в практику и ощутимый результат в портфолио.',
             name: 'Madina Yoqubova',
-            role: 'РќР°РїСЂР°РІР»РµРЅРёРµ Motion Design',
+            role: 'Направление Motion Design',
             avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
           },
           {
-            quote: 'Р—РґРµСЃСЊ С‡СѓРІСЃС‚РІСѓРµС€СЊ РЅРµ РїСЂРѕСЃС‚Рѕ СѓСЂРѕРєРё, Р° РЅР°СЃС‚РѕСЏС‰СѓСЋ СЃСЂРµРґСѓ, РіРґРµ С‚РµР±СЏ РІРµРґСѓС‚ Рє РїСЂРѕС„РµСЃСЃРёРё Рё СЃРёР»СЊРЅРѕРјСѓ СЂРµР·СѓР»СЊС‚Р°С‚Сѓ.',
+            quote: 'Здесь чувствуешь не просто уроки, а настоящую среду, где тебя ведут к профессии и сильному результату.',
             name: 'Javohir Hasanov',
-            role: 'РќР°РїСЂР°РІР»РµРЅРёРµ GameDev',
+            role: 'Направление GameDev',
             avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
           },
           {
-            quote: 'РњРµРЅС‚РѕСЂС‹ РІСЃРµРіРґР° РЅР° СЃРІСЏР·Рё Рё РїРѕРјРѕРіР°СЋС‚ СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ РґР°Р¶Рµ РІ СЃР°РјС‹С… СЃР»РѕР¶РЅС‹С… РєРѕРЅС†РµРїС†РёСЏС… РјР°С€РёРЅРЅРѕРіРѕ РѕР±СѓС‡РµРЅРёСЏ.',
+            quote: 'Менторы всегда на связи и помогают разобраться даже в самых сложных концепциях машинного обучения.',
             name: 'Dildora Alimova',
-            role: 'РќР°РїСЂР°РІР»РµРЅРёРµ Data Science',
+            role: 'Направление Data Science',
             avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
           },
           {
-            quote: 'РљСѓСЂСЃ Unreal Engine РїРµСЂРµРІРµСЂРЅСѓР» РјРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ Рѕ СЃРѕР·РґР°РЅРёРё РёРіСЂ. РўРµРїРµСЂСЊ СЏ СѓРІРµСЂРµРЅРЅРѕ СЂР°Р·СЂР°Р±Р°С‚С‹РІР°СЋ СЃРѕР±СЃС‚РІРµРЅРЅС‹Рµ РїСЂРѕРµРєС‚С‹.',
+            quote: 'Курс Unreal Engine перевернул мое представление о создании игр. Теперь я уверенно разрабатываю собственные проекты.',
             name: 'Timur Abdullaev',
-            role: 'РќР°РїСЂР°РІР»РµРЅРёРµ GameDev',
+            role: 'Направление GameDev',
             avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
           },
         ] satisfies TestimonialCard[],
@@ -1263,53 +1263,11 @@ export default function Home({ lang }: { lang: Language }) {
             </div>
           </div>
         </section>
+        <MediaSection t={t} />
+        
+        <ProjectsSection lang={lang} />
 
-        <section className="px-4 pt-4 sm:px-6 sm:pt-6 md:px-8 md:pt-10 bg-white">
-          <div className="container mx-auto max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              viewport={revealViewport}
-              transition={{ duration: 0.75, ease: revealEase }}
-              className="px-0 py-4 sm:py-6"
-            >
-              <div className="text-center mb-8 sm:mb-10 md:mb-12">
-                <div className="inline-flex items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">
-                  <Sparkles size={14} className="text-blue-600" />
-                  Hamkorlarimiz
-                </div>
-
-                <p className="mt-5 text-slate-400 text-sm sm:text-base md:text-lg font-medium">
-                  Biz bilan birga ishlayotgan va ta'lim yo'nalishlarini qo'llab-quvvatlayotgan tashkilotlar
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-6 lg:gap-6">
-                {partnerLogos.map((logo, index) => (
-                  <motion.div
-                    key={logo.alt}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={revealViewport}
-                    transition={{ duration: 0.65, delay: index * 0.06, ease: revealEase }}
-                    className="group flex min-h-[104px] sm:min-h-[120px] items-center justify-center rounded-[1.8rem] border border-slate-100 bg-white px-5 py-4 shadow-[0_24px_60px_-46px_rgba(15,23,42,0.18)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_28px_65px_-42px_rgba(37,99,235,0.18)]"
-                  >
-                    <div className="flex h-[4.4rem] sm:h-[4.9rem] w-full max-w-[164px] items-center justify-center">
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="h-full w-full object-contain opacity-85 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
-                        loading="lazy"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section id="apply" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-white">
+<section id="apply" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-white">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 32, filter: 'blur(12px)' }}
@@ -1415,9 +1373,54 @@ export default function Home({ lang }: { lang: Language }) {
           </div>
         </section>
 
-        <ProjectsSection lang={lang} />
+        
+<section className="px-4 pt-4 sm:px-6 sm:pt-6 md:px-8 md:pt-10 bg-white">
+          <div className="container mx-auto max-w-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={revealViewport}
+              transition={{ duration: 0.75, ease: revealEase }}
+              className="px-0 py-4 sm:py-6"
+            >
+              <div className="text-center mb-8 sm:mb-10 md:mb-12">
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-100 bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">
+                  <Sparkles size={14} className="text-blue-600" />
+                  Hamkorlarimiz
+                </div>
+
+                <p className="mt-5 text-slate-400 text-sm sm:text-base md:text-lg font-medium">
+                  Biz bilan birga ishlayotgan va ta'lim yo'nalishlarini qo'llab-quvvatlayotgan tashkilotlar
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-6 lg:gap-6">
+                {partnerLogos.map((logo, index) => (
+                  <motion.div
+                    key={logo.alt}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={revealViewport}
+                    transition={{ duration: 0.65, delay: index * 0.06, ease: revealEase }}
+                    className="group flex min-h-[104px] sm:min-h-[120px] items-center justify-center rounded-[1.8rem] border border-slate-100 bg-white px-5 py-4 shadow-[0_24px_60px_-46px_rgba(15,23,42,0.18)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_28px_65px_-42px_rgba(37,99,235,0.18)]"
+                  >
+                    <div className="flex h-[4.4rem] sm:h-[4.9rem] w-full max-w-[164px] items-center justify-center">
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-full w-full object-contain opacity-85 transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+                        loading="lazy"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        
         <FaqSection t={t} lang={lang} />
-        <MediaSection t={t} />
       </main>
 
 
