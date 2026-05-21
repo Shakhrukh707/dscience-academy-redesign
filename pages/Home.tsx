@@ -637,7 +637,7 @@ const FaqSection = ({ t, lang }: { t: any, lang: string }) => {
   const faqs = lang === 'UZ' ? faqDataUZ : lang === 'RU' ? faqDataRU : faqDataEN;
 
   return (
-    <section className="py-20 sm:py-24 md:py-32 bg-[#F8FAFC] dark:bg-[#030712]">
+    <section className="py-20 sm:py-24 md:py-32 bg-white dark:bg-[#030712]">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
@@ -1375,7 +1375,7 @@ export default function Home({ lang }: { lang: Language }) {
 
         
 <FaqSection t={t} lang={lang} />
-<section className="px-4 pt-4 sm:px-6 sm:pt-6 md:px-8 md:pt-10 bg-white">
+<section className="px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_40%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
