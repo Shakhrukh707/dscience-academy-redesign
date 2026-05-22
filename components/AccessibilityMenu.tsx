@@ -134,7 +134,7 @@ export default function AccessibilityMenu({ lang }: { lang: Language }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full right-0 mt-2 w-64 bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 p-4 z-50 dark:bg-slate-900 dark:border-slate-800 dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] text-slate-700 dark:text-slate-200"
+            className="absolute top-full right-[-10px] sm:right-0 mt-2 w-[240px] sm:w-64 bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100 p-4 z-50 dark:bg-slate-900 dark:border-slate-800 dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] text-slate-700 dark:text-slate-200"
           >
             <div className="flex items-center justify-between mb-4 border-b border-slate-100 dark:border-slate-800 pb-2">
               <span className="font-bold text-sm tracking-wide text-slate-900 dark:text-white">{t.title}</span>

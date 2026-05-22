@@ -148,7 +148,7 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
 
             <AccessibilityMenu lang={lang} />
 
-            <Button variant="outline" className="py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap flex items-center gap-2" onClick={() => window.open('https://dscience.uz/login', '_blank')}>
+            <Button variant="outline" className="hidden sm:flex py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap items-center gap-2" onClick={() => window.open('https://dscience.uz/login', '_blank')}>
               <User size={14} />
               {t.header.apply}
             </Button>
