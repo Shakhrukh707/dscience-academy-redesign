@@ -61,8 +61,11 @@ type TestimonialCard = {
   outcome?: string;
   role?: string;
   avatarClass?: string;
+  image?: string;
   featured?: boolean;
 };
+
+import { mockTestimonials } from '../data/mockTestimonials';
 
 import { BrandIcon, Button } from '../components/Navbar';
 
@@ -824,38 +827,7 @@ export default function Home({ lang }: { lang: Language }) {
         titleLead: 'Отзывы',
         titleAccent: 'учеников',
         subtitle: 'Короткие истории студентов, которые пришли за навыками и начали уверенно строить свой путь в индустрии.',
-        items: [
-          {
-            quote: 'Курс помог мне собрать сильную базу и начать работать с реальными data-кейсами уже во время обучения.',
-            name: 'Azizbek Rahmonov',
-            role: 'Направление Data Science',
-            avatarClass: 'from-sky-400 via-cyan-300 to-blue-500',
-          },
-          {
-            quote: 'Самое сильное в академии, что каждая тема сразу превращалась в практику и ощутимый результат в портфолио.',
-            name: 'Madina Yoqubova',
-            role: 'Направление Motion Design',
-            avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
-          },
-          {
-            quote: 'Здесь чувствуешь не просто уроки, а настоящую среду, где тебя ведут к профессии и сильному результату.',
-            name: 'Javohir Hasanov',
-            role: 'Направление GameDev',
-            avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
-          },
-          {
-            quote: 'Менторы всегда на связи и помогают разобраться даже в самых сложных концепциях машинного обучения.',
-            name: 'Dildora Alimova',
-            role: 'Направление Data Science',
-            avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
-          },
-          {
-            quote: 'Курс Unreal Engine перевернул мое представление о создании игр. Теперь я уверенно разрабатываю собственные проекты.',
-            name: 'Timur Abdullaev',
-            role: 'Направление GameDev',
-            avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
-          },
-        ] satisfies TestimonialCard[],
+        items: mockTestimonials,
       };
     }
 
@@ -864,38 +836,7 @@ export default function Home({ lang }: { lang: Language }) {
         titleLead: 'Student',
         titleAccent: 'Testimonials',
         subtitle: 'Short stories from students who came for skills and left with stronger portfolios, clearer direction, and real confidence.',
-        items: [
-          {
-            quote: 'The course gave me a strong base and helped me start working on real data cases while I was still studying.',
-            name: 'Azizbek Rahmonov',
-            role: 'Data Science Track',
-            avatarClass: 'from-sky-400 via-cyan-300 to-blue-500',
-          },
-          {
-            quote: 'What I loved most was the practical rhythm. Every topic quickly turned into visible work and a stronger portfolio.',
-            name: 'Madina Yoqubova',
-            role: 'Motion Design Track',
-            avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
-          },
-          {
-            quote: 'It feels like a real professional environment where you are guided toward a career, not just a set of lessons.',
-            name: 'Javohir Hasanov',
-            role: 'GameDev Track',
-            avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
-          },
-          {
-            quote: 'The mentors are always available and help break down even the most complex machine learning concepts.',
-            name: 'Dildora Alimova',
-            role: 'Data Science Track',
-            avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
-          },
-          {
-            quote: 'The Unreal Engine course changed how I view game creation. Now I confidently build my own projects.',
-            name: 'Timur Abdullaev',
-            role: 'GameDev Track',
-            avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
-          },
-        ] satisfies TestimonialCard[],
+        items: mockTestimonials,
       };
     }
 
@@ -903,38 +844,7 @@ export default function Home({ lang }: { lang: Language }) {
       titleLead: "O'quvchilar",
       titleAccent: 'fikri',
       subtitle: "Bu yerda o'quvchilar nafaqat kursni tugatadi, balki amaliy ko'nikma, kuchli portfolio va o'z yo'nalishiga ishonch bilan chiqadi.",
-      items: [
-        {
-          quote: "Kurs menga kuchli baza berdi va o'qishning o'zidayoq real data-case lar bilan ishlashni boshlashimga yordam berdi.",
-          name: 'Azizbek Rahmonov',
-          role: "Data Science yo'nalishi",
-          avatarClass: 'from-sky-400 via-cyan-300 to-blue-500',
-        },
-        {
-          quote: "Eng yoqqan tomoni shuki, har bir mavzu darrov amaliy ishga aylanib, portfolio uchun sezilarli natija berdi.",
-          name: 'Madina Yoqubova',
-          role: "Motion Design yo'nalishi",
-          avatarClass: 'from-rose-200 via-pink-200 to-orange-200',
-        },
-        {
-          quote: "Akademiyada oddiy dars emas, haqiqiy professional muhit bor. Senga kasb tomon aniq yo'l ko'rsatib boriladi.",
-          name: 'Javohir Hasanov',
-          role: "GameDev yo'nalishi",
-          avatarClass: 'from-stone-200 via-zinc-100 to-neutral-200',
-        },
-        {
-          quote: "Mentorlar doim aloqada va eng qiyin mashinani o'rganish tushunchalarini ham oson tushuntirib berishadi.",
-          name: 'Dildora Alimova',
-          role: "Data Science yo'nalishi",
-          avatarClass: 'from-violet-400 via-purple-300 to-indigo-500',
-        },
-        {
-          quote: "Unreal Engine kursi o'yin yaratishga bo'lgan qarashimni o'zgartirdi. Endi men o'z proyektlarimni ishonch bilan yaratyapman.",
-          name: 'Timur Abdullaev',
-          role: "GameDev yo'nalishi",
-          avatarClass: 'from-emerald-400 via-teal-300 to-green-500',
-        },
-      ] satisfies TestimonialCard[],
+      items: mockTestimonials,
     };
   }, [lang]);
 
@@ -1316,8 +1226,12 @@ export default function Home({ lang }: { lang: Language }) {
                         >
                           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
                             <div className={`flex h-28 w-28 items-center justify-center rounded-full border transition-colors duration-700 sm:h-32 sm:w-32 ${isActive ? 'border-blue-200/50 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.35)]' : 'border-blue-100 bg-white shadow-[0_20px_45px_-28px_rgba(15,23,42,0.2)] dark:border-slate-700 dark:bg-slate-900'}`}>
-                              <div className={`flex h-[82%] w-[82%] items-center justify-center rounded-full bg-gradient-to-br ${item.avatarClass} text-slate-900 text-2xl sm:text-3xl font-black tracking-tight transition-all duration-700`}>
-                                {item.name.split(' ').map(part => part[0]).join('').slice(0, 2)}
+                              <div className={`flex h-[82%] w-[82%] items-center justify-center rounded-full bg-gradient-to-br ${item.avatarClass || 'from-slate-100 to-slate-200'} text-slate-900 text-2xl sm:text-3xl font-black tracking-tight transition-all duration-700 overflow-hidden`}>
+                                {item.image ? (
+                                  <img src={item.image} alt={item.name} className="w-full h-full object-cover" loading="lazy" />
+                                ) : (
+                                  item.name.split(' ').map(part => part[0]).join('').slice(0, 2)
+                                )}
                               </div>
                             </div>
                           </div>
