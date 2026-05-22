@@ -53,7 +53,7 @@ export const mockTestimonials: TestimonialCard[] = [
     "quote": "Kursda men ilk bor real loyihalarda ishladim, bu esa o‘z kuchimga bo‘lgan ishonchni mustahkamladi. Har bir dars menga ilhom bag‘ishladi.",
     "name": "Jo‘raqulova Munisa",
     "role": "O‘zbekiston Milliy Universiteti (Jizzax filiali)",
-    "image": "/testimonials/optimized/Jo‘raqulova Munisa.webp"
+    "image": "/testimonials/optimized/Jo'raqulova Munisa.webp"
   },
   {
     "quote": "Men bu kursda kod yozishni emas, balki ma’lumotlar ortidagi mantiqni tushunishni o‘rgandim. Shu orqali muammolarga boshqacha qarashni o‘rgandim.",
@@ -65,7 +65,7 @@ export const mockTestimonials: TestimonialCard[] = [
     "quote": "Kursda o‘rgangan bilimlarimni hozirda startap loyihamda faol qo‘llayapman. Bu tajriba men uchun katta sakrash bo‘ldi.",
     "name": "O‘ktamov Diyorbek",
     "role": "Navoiy davlat konchilik va texnologiyalar universiteti",
-    "image": "/testimonials/optimized/O‘ktamov Diyorbek.webp"
+    "image": "/testimonials/optimized/O'ktamov Diyorbek.webp"
   },
   {
     "quote": "Mirzo Ulug‘bek vorislari’ kursi menga nafaqat bilim, balki do‘stlar, mentorlar va ilhom baxsh etdi. U yerda boshlagan yo‘lim hozirgi yutuqlarimning asosi bo‘ldi.",
