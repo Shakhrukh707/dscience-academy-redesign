@@ -92,6 +92,62 @@ export const mockNews: NewsItem[] = [
     views: 3120
   },
   {
+    id: "anti-corruption-2025",
+    title: {
+      UZ: "Open Data for Anti-Corruption = AI integrated solutions!",
+      RU: "Open Data for Anti-Corruption = AI интегрированные решения!",
+      EN: "Open Data for Anti-Corruption = AI integrated solutions!"
+    },
+    date: {
+      day: "02",
+      month: { UZ: "MAY", RU: "МАЙ", EN: "MAY" },
+      full: { UZ: "2-May, 2025", RU: "2 Мая 2025", EN: "May 02, 2025" },
+      weekday: { UZ: "JUM", RU: "ПТ", EN: "FRI" }
+    },
+    image: "/news/Anti-Corruption/Anti-Corruption.jpg",
+    categories: ["HACKATHON", "DATA SCIENCE"],
+    category: { UZ: "HAKATON", RU: "ХАКАТОН", EN: "HACKATHON" },
+    excerpt: {
+      UZ: "2–4-may kunlari o‘tkazilayotgan “Open Data for Anti-Corruption – 2025” xakatonida \"Mirzo Ulug‘bek vorislari\" ishtirok etmoqda!",
+      RU: "На хакатоне «Open Data for Anti-Corruption – 2025», проходящем 2-4 мая, принимают участие «Наследники Мирзо Улугбека»!",
+      EN: "The \"Mirzo Ulugbek Heirs\" are participating in the \"Open Data for Anti-Corruption - 2025\" hackathon held on May 2-4!"
+    },
+    summary: {
+      UZ: "2–4-may kunlari o‘tkazilayotgan “Open Data for Anti-Corruption – 2025” xakatonida \"Mirzo Ulug‘bek vorislari\" ishtirok etmoqda!",
+      RU: "На хакатоне «Open Data for Anti-Corruption – 2025», проходящем 2-4 мая, принимают участие «Наследники Мирзо Улугбека»!",
+      EN: "The \"Mirzo Ulugbek Heirs\" are participating in the \"Open Data for Anti-Corruption - 2025\" hackathon held on May 2-4!"
+    },
+    content: [
+      {
+        UZ: "🌐 2–4-may kunlari Yangi O‘zbekiston universitetida o‘tkazilayotgan “Open Data for Anti-Corruption – 2025” xakatonida \"Mirzo Ulug‘bek vorislari\" – Data analitiklari ishtirok etmoqda!",
+        RU: "🌐 На хакатоне «Open Data for Anti-Corruption – 2025», проходящем 2–4 мая в Университете Нового Узбекистана, принимают участие дата-аналитики «Наследников Мирзо Улугбека»!",
+        EN: "🌐 Data analysts of the \"Mirzo Ulugbek Heirs\" are participating in the \"Open Data for Anti-Corruption - 2025\" hackathon being held at New Uzbekistan University on May 2-4!"
+      },
+      {
+        UZ: "🎮 Ishtirokchilar ochiq ma’lumotlardan foydalangan holda korrupsiyaga qarshi kurashish bo‘yicha innovatsion yechimlar ishlab chiqmoqda. Loyihalar mentorlar tomonidan baholanadi va bosqichma-bosqich tekshiruvdan o‘tkaziladi.",
+        RU: "🎮 Участники разрабатывают инновационные решения для борьбы с коррупцией с использованием открытых данных. Проекты оцениваются менторами и проходят поэтапную проверку.",
+        EN: "🎮 Participants are developing innovative solutions to fight corruption using open data. Projects are evaluated by mentors and go through step-by-step verification."
+      },
+      {
+        UZ: "🏆 G‘olib jamoalar noyob imkoniyatga ega bo‘lishadi — O‘zbekiston sharafini Xitoy (Gonkong)da bo‘lib o‘tadigan “Coding4Integrity” Osiyo yoshlari uchun mo‘ljallangan antikorrupsion xakatonida himoya qilishadi!",
+        RU: "🏆 Команды-победители получат уникальную возможность — защищать честь Узбекистана на антикоррупционном хакатоне для азиатской молодежи «Coding4Integrity» в Китае (Гонконг)!",
+        EN: "🏆 Winning teams will have a unique opportunity — to represent Uzbekistan at the \"Coding4Integrity\" anti-corruption hackathon for Asian youth in China (Hong Kong)!"
+      },
+      {
+        UZ: "🎯 Maqsad: texnologiya, ochiq ma’lumot va yoshlar salohiyatini birlashtirib, jamiyatda shaffoflikni kuchaytirish!",
+        RU: "🎯 Цель: объединение технологий, открытых данных и потенциала молодежи для усиления прозрачности в обществе!",
+        EN: "🎯 Goal: combining technology, open data, and youth potential to strengthen transparency in society!"
+      }
+    ],
+    quote: {
+      UZ: "G‘olib jamoalar O‘zbekiston sharafini Xitoyda bo‘lib o‘tadigan Osiyo yoshlari xakatonida himoya qilishadi!",
+      RU: "Команды-победители будут защищать честь Узбекистана на азиатском молодежном хакатоне в Китае!",
+      EN: "Winning teams will represent Uzbekistan at the Asian youth hackathon in China!"
+    },
+    author: "O‘quv markaz.",
+    readTime: { UZ: "2 DAQIQA", RU: "2 МИНУТЫ", EN: "2 MIN READ" }
+  },
+  {
     id: "1",
     title: {
       UZ: "\"Kelajak muhandislari\" HAKATON tanlovida",
