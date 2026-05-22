@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -680,6 +680,7 @@ const FaqSection = ({ t, lang }: { t: any, lang: string }) => {
 
 export default function Home({ lang }: { lang: Language }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(() => sessionStorage.getItem('hasVisited') !== 'true');
   const [isPageVisible, setIsPageVisible] = useState(() => sessionStorage.getItem('hasVisited') === 'true');
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
@@ -692,6 +693,14 @@ export default function Home({ lang }: { lang: Language }) {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    if (location.state?.scrollTo && isPageVisible) {
+      setTimeout(() => {
+        scrollTo(location.state.scrollTo);
+      }, 100);
+    }
+  }, [location.state, isPageVisible]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;

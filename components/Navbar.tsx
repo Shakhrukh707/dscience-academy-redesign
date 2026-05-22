@@ -76,20 +76,18 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (path: string, hash?: string) => {
+    const handleNavClick = (path: string, hash?: string) => {
     setMobileMenuOpen(false);
     if (hash) {
       if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        // Pass the target hash in state so Home can scroll to it after mounting
+        navigate('/', { state: { scrollTo: hash } });
       } else {
         document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
       navigate(path);
-      window.scrollTo(0, 0);
+      // Removed instant window.scrollTo(0, 0) because AnimatePresence handles it via onExitComplete
     }
   };
 
