@@ -64,13 +64,13 @@ export default function ProjectList({ lang }: { lang: Language }) {
             />
           </div>
 
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0">
             <div className="flex items-center gap-2">
-              <Filter size={18} className="text-slate-400" />
+              <Filter size={18} className="text-slate-400 shrink-0" />
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value === 'all' ? 'all' : Number(e.target.value))}
-                className="bg-transparent border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 text-sm font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 outline-none focus:border-blue-500 transition-colors"
+                className="bg-transparent border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 text-sm font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 outline-none focus:border-blue-500 transition-colors w-full sm:w-auto"
               >
                 {years.map(year => (
                   <option key={year} value={year} className="bg-white dark:bg-slate-900">
@@ -83,7 +83,7 @@ export default function ProjectList({ lang }: { lang: Language }) {
             <select
               value={selectedCourse}
               onChange={(e) => setSelectedCourse(e.target.value)}
-              className="bg-transparent border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 text-sm font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 outline-none focus:border-blue-500 transition-colors"
+              className="bg-transparent border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 text-sm font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 outline-none focus:border-blue-500 transition-colors w-full sm:w-auto"
             >
               {courses.map(course => (
                 <option key={course} value={course} className="bg-white dark:bg-slate-900">
