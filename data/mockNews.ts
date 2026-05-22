@@ -87,7 +87,7 @@ export const mockNews: NewsItem[] = [
         EN: 'As emphasized, the new partnerships and investment interests that emerged during the festival will further expand the opportunities for local startups to enter international markets. "GameFest-2026" was recognized not only as a celebration of technology and creativity but also as an important platform that takes game development, animation, and creative industries in Uzbekistan to a new level.'
       }
     ],
-    author: 'DScience Academy',
+    author: 'O‘quv markaz.',
     readTime: { UZ: '4 DAQIQA', RU: '4 МИНУТЫ', EN: '4 MIN READ' },
     views: 3120
   },

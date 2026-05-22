@@ -7,6 +7,11 @@ import { Language } from '../types';
 
 export default function NewsList({ lang }: { lang: Language }) {
   const navigate = useNavigate();
+
+  const getViews = (newsId: string, defaultViews?: number) => {
+    const stored = localStorage.getItem(`views_${newsId}`);
+    return stored ? parseInt(stored, 10) : (defaultViews || 0);
+  };
   const [searchQuery, setSearchQuery] = React.useState('');
 
   useEffect(() => {
@@ -104,9 +109,9 @@ export default function NewsList({ lang }: { lang: Language }) {
                       {cat}
                     </span>
                   ))}
-                  {news.views && (
+                  {getViews(news.id, news.views) > 0 && (
                     <span className="px-3 py-1 ml-auto rounded-full border border-transparent text-[10px] font-bold tracking-widest uppercase text-slate-400 flex items-center gap-1.5">
-                      <Eye size={12} /> {news.views.toLocaleString()}
+                      <Eye size={12} /> {getViews(news.id, news.views).toLocaleString()}
                     </span>
                   )}
                 </div>

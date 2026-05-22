@@ -13,9 +13,22 @@ export default function NewsArticle({ lang }: { lang: Language }) {
   
   const article = mockNews.find(n => n.id === id);
 
+  const [views, setViews] = React.useState(article?.views || 0);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+    
+    if (article) {
+      const storageKey = `views_${article.id}`;
+      const stored = localStorage.getItem(storageKey);
+      let currentViews = stored ? parseInt(stored, 10) : (article.views || 0);
+      
+      // Increment view count on mount
+      currentViews += 1;
+      localStorage.setItem(storageKey, currentViews.toString());
+      setViews(currentViews);
+    }
+  }, [id, article]);
 
   if (!article) {
     return (
@@ -36,12 +49,12 @@ export default function NewsArticle({ lang }: { lang: Language }) {
   }
 
   return (
-    <article className="min-h-screen bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] text-slate-900 dark:text-slate-100 pt-32 sm:pt-40 pb-20">
+    <article className="min-h-screen bg-white dark:bg-[#030712] text-slate-900 dark:text-slate-100 pt-32 sm:pt-40 pb-20">
       <div className="container mx-auto px-4 max-w-4xl">
         
         {/* Header */}
         <header className="mb-12 text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-slate-900 dark:text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.1] mb-6 text-slate-900 dark:text-white">
             {article.title[lang]}
           </h1>
           <div className="flex flex-col items-center justify-center gap-1 text-sm font-bold tracking-wide">
@@ -50,11 +63,11 @@ export default function NewsArticle({ lang }: { lang: Language }) {
             </span>
             <span className="text-slate-500 dark:text-slate-400 font-medium text-xs tracking-widest uppercase flex items-center justify-center gap-2">
               {article.readTime[lang]} | {article.date.full[lang]}
-              {article.views && (
+              {views > 0 && (
                 <>
                   <span>|</span>
                   <span className="flex items-center gap-1">
-                    <Eye size={14} /> {article.views.toLocaleString()}
+                    <Eye size={14} /> {views.toLocaleString()}
                   </span>
                 </>
               )}

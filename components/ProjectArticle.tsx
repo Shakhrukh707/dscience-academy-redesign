@@ -36,7 +36,7 @@ export default function ProjectArticle({ lang }: { lang: Language }) {
   }
 
   return (
-    <article className="min-h-screen bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] text-slate-900 dark:text-slate-100 pt-32 sm:pt-40 pb-20">
+    <article className="min-h-screen bg-white dark:bg-[#030712] text-slate-900 dark:text-slate-100 pt-32 sm:pt-40 pb-20">
       <div className="container mx-auto px-4 max-w-7xl">
         
         {/* Back Button */}
