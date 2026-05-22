@@ -1233,7 +1233,7 @@ export default function Home({ lang }: { lang: Language }) {
                 {t.header.why}
               </div>
 
-              <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95]">
+              <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white">
                 {t.why.title}
               </h2>
 
@@ -1287,7 +1287,7 @@ export default function Home({ lang }: { lang: Language }) {
                 Fikrlar
               </div>
 
-              <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95]">
+              <h2 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.95] dark:text-white">
                 {testimonialsContent.titleLead}{' '}
                 <span className="gradient-text">{testimonialsContent.titleAccent}</span>
               </h2>

@@ -47,12 +47,19 @@ export const BrandIcon = ({ size = 'sm' }: { size?: 'sm' | 'lg' }) => {
   }
 
   return (
-    <img
-      src={sources[sourceIndex]}
-      alt="DScience Academy"
-      className={`${imageClass} object-contain select-none`}
-      onError={() => setSourceIndex(prev => prev + 1)}
-    />
+    <>
+      <img
+        src={sources[sourceIndex]}
+        alt="DScience Academy"
+        className={`${imageClass} object-contain select-none dark:hidden`}
+        onError={() => setSourceIndex(prev => prev + 1)}
+      />
+      <img
+        src="/logo-mark-white.png"
+        alt="DScience Academy"
+        className={`${imageClass} object-contain select-none hidden dark:block`}
+      />
+    </>
   );
 };
 
