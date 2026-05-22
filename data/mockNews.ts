@@ -104,7 +104,7 @@ export const mockNews: NewsItem[] = [
       full: { UZ: "2-May, 2025", RU: "2 Мая 2025", EN: "May 02, 2025" },
       weekday: { UZ: "JUM", RU: "ПТ", EN: "FRI" }
     },
-    image: "/news/Anti-Corruption/Anti-Corruption.jpg",
+    image: "/news/anti-corruption/1.jpg",
     categories: ["HACKATHON", "DATA SCIENCE"],
     category: { UZ: "HAKATON", RU: "ХАКАТОН", EN: "HACKATHON" },
     excerpt: {
