@@ -4,6 +4,7 @@ import { Menu, X, User } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { translations } from '../translations';
 import { Language } from '../types';
+import AccessibilityMenu from './AccessibilityMenu';
 
 export const Button = ({ children, variant = 'primary', className = '', ...props }: any) => {
   const variants: Record<string, string> = {
@@ -137,6 +138,8 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
                 </button>
               ))}
             </div>
+
+            <AccessibilityMenu lang={lang} />
 
             <Button variant="outline" className="py-3 px-4 sm:px-6 text-[10px] sm:text-xs uppercase tracking-widest !rounded-xl whitespace-nowrap flex items-center gap-2" onClick={() => window.open('https://dscience.uz/login', '_blank')}>
               <User size={14} />

@@ -8,11 +8,11 @@
     <script>
       (() => {
         try {
-          localStorage.removeItem('dscience-theme');
+          const savedTheme = localStorage.getItem('dscience-theme') || 'light';
+          document.documentElement.classList.remove('dark', 'light');
+          document.documentElement.classList.add(savedTheme);
+          document.documentElement.style.colorScheme = savedTheme;
         } catch (error) {}
-        document.documentElement.classList.remove('dark');
-        document.documentElement.classList.add('light');
-        document.documentElement.style.colorScheme = 'light';
       })();
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
