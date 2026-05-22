@@ -1090,6 +1090,9 @@ export default function Home({ lang }: { lang: Language }) {
               </Button>
             </motion.div>
           </div>
+
+          {/* Subtle glow transition between Hero and Courses */}
+          <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-slate-200/50 dark:bg-white/10 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
         </section>
 
         <section id="courses" className="py-20 sm:py-24 md:py-32 bg-white dark:bg-[linear-gradient(180deg,#020617_0%,#050816_100%)]">
