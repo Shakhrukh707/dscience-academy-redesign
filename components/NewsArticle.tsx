@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Twitter, Instagram, Facebook } from 'lucide-react';
+import { Twitter, Instagram, Facebook, Eye } from 'lucide-react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import { mockNews } from '../data/mockNews';
 import { Language } from '../types';
 
@@ -46,8 +48,16 @@ export default function NewsArticle({ lang }: { lang: Language }) {
             <span className="text-slate-900 dark:text-slate-200">
               {lang === 'UZ' ? 'Muallif' : lang === 'RU' ? 'Автор' : 'Author'}: {article.author}
             </span>
-            <span className="text-slate-500 dark:text-slate-400 font-medium text-xs tracking-widest uppercase">
+            <span className="text-slate-500 dark:text-slate-400 font-medium text-xs tracking-widest uppercase flex items-center justify-center gap-2">
               {article.readTime[lang]} | {article.date.full[lang]}
+              {article.views && (
+                <>
+                  <span>|</span>
+                  <span className="flex items-center gap-1">
+                    <Eye size={14} /> {article.views.toLocaleString()}
+                  </span>
+                </>
+              )}
             </span>
           </div>
         </header>
@@ -99,6 +109,28 @@ export default function NewsArticle({ lang }: { lang: Language }) {
             ))}
           </div>
         </div>
+
+        {/* Image Gallery */}
+        {article.gallery && article.gallery.length > 0 && (
+          <div className="mt-16 sm:mt-24">
+            <h3 className="text-2xl sm:text-3xl font-black mb-8 text-slate-900 dark:text-white text-center">
+              {lang === 'UZ' ? 'Fotogalereya' : lang === 'RU' ? 'Фотогалерея' : 'Photo Gallery'}
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              {article.gallery.map((img, idx) => (
+                <Zoom key={idx}>
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-md hover:shadow-xl transition-all cursor-zoom-in">
+                    <img 
+                      src={img} 
+                      alt={`Gallery ${idx + 1}`} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </Zoom>
+              ))}
+            </div>
+          </div>
+        )}
 
       </div>
     </article>

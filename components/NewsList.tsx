@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Search } from 'lucide-react';
+import { ArrowUpRight, Search, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { mockNews } from '../data/mockNews';
 import { Language } from '../types';
@@ -104,6 +104,11 @@ export default function NewsList({ lang }: { lang: Language }) {
                       {cat}
                     </span>
                   ))}
+                  {news.views && (
+                    <span className="px-3 py-1 ml-auto rounded-full border border-transparent text-[10px] font-bold tracking-widest uppercase text-slate-400 flex items-center gap-1.5">
+                      <Eye size={12} /> {news.views.toLocaleString()}
+                    </span>
+                  )}
                 </div>
               </div>
 
