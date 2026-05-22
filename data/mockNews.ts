@@ -92,6 +92,72 @@ export const mockNews: NewsItem[] = [
     views: 3120
   },
   {
+    id: "ecology-hackathon-2025",
+    title: {
+      UZ: "“Ekologiya, san’at, texnologiya” xakatonida faxrli natija!",
+      RU: "Почетный результат на хакатоне «Экология, искусство, технология»!",
+      EN: "Honorable Result at the 'Ecology, Art, Technology' Hackathon!"
+    },
+    date: {
+      day: "24",
+      month: { UZ: "IYUN", RU: "ИЮН", EN: "JUN" },
+      full: { UZ: "24-Iyun, 2025", RU: "24 Июня 2025", EN: "June 24, 2025" },
+      weekday: { UZ: "SESH", RU: "ВТ", EN: "TUE" }
+    },
+    image: "/news/eco/1.jpg",
+    gallery: [
+      "/news/eco/1.jpg",
+      "/news/eco/2.jpg",
+      "/news/eco/3.jpg"
+    ],
+    categories: ["HACKATHON", "ECOLOGY"],
+    category: { UZ: "YUTUQ", RU: "ДОСТИЖЕНИЕ", EN: "ACHIEVEMENT" },
+    excerpt: {
+      UZ: "GreenCode jamoasi – “EcoHabit” loyihasi bilan “Tech for Ecology” yo‘nalishida faxrli uchinchi o‘rinni egalladi!",
+      RU: "Команда GreenCode с проектом «EcoHabit» заняла почетное третье место в направлении «Tech for Ecology»!",
+      EN: "The GreenCode team with the 'EcoHabit' project took an honorable third place in the 'Tech for Ecology' direction!"
+    },
+    summary: {
+      UZ: "GreenCode jamoasi – “EcoHabit” loyihasi bilan “Tech for Ecology” yo‘nalishida faxrli uchinchi o‘rinni egalladi!",
+      RU: "Команда GreenCode с проектом «EcoHabit» заняла почетное третье место в направлении «Tech for Ecology»!",
+      EN: "The GreenCode team with the 'EcoHabit' project took an honorable third place in the 'Tech for Ecology' direction!"
+    },
+    content: [
+      {
+        UZ: "“Mirzo Ulug‘bek vorislari” o‘quv kurslari tinglovchilari navbatdagi yutuqqa erishishdi! 🥉 GreenCode jamoasi – “EcoHabit” loyihasi bilan “Tech for Ecology” yo‘nalishida uchinchi o‘rinni egalladi!",
+        RU: "Слушатели учебных курсов «Наследники Мирзо Улугбека» добились очередного успеха! 🥉 Команда GreenCode с проектом «EcoHabit» заняла третье место в направлении «Tech for Ecology»!",
+        EN: "The students of the \"Mirzo Ulugbek Heirs\" training courses have achieved another success! 🥉 The GreenCode team with the \"EcoHabit\" project took third place in the \"Tech for Ecology\" direction!"
+      },
+      {
+        UZ: "👨‍💻 Jamoa a’zolari:\n🔹 Kudratullayev Ulug‘bek\n🔹 Temirova Sabina\n🔹 Xudoyberdiyev Xumoyun\n🔹 Xasanova Moxichehra\n— barchasi bizning iste’dodli va faol tinglovchilarimiz!",
+        RU: "👨‍💻 Члены команды:\n🔹 Кудратуллаев Улугбек\n🔹 Темирова Сабина\n🔹 Худойбердиев Хумоюн\n🔹 Хасанова Мохичехра\n— все они наши талантливые и активные слушатели!",
+        EN: "👨‍💻 Team members:\n🔹 Kudratullayev Ulugbek\n🔹 Temirova Sabina\n🔹 Xudoyberdiyev Xumoyun\n🔹 Xasanova Moxichehra\n— all of them are our talented and active students!"
+      },
+      {
+        UZ: "📱 EcoHabit — foydalanuvchilarga kundalik ekologik foydali odatlarni shakllantirishga yordam beruvchi, karbon izi, suv sarfi, chiqindi hajmi kabi ko‘rsatkichlarni kamaytirishga qaratilgan shaxsiy yo‘naltirilgan va gamifikatsiyalashgan mobil ilova.",
+        RU: "📱 EcoHabit — это персонализированное геймифицированное мобильное приложение, помогающее пользователям формировать полезные экологические привычки и направленное на снижение углеродного следа, расхода воды и объема отходов.",
+        EN: "📱 EcoHabit is a personalized, gamified mobile application that helps users form useful daily eco-habits aimed at reducing carbon footprint, water consumption, and waste volume."
+      },
+      {
+        UZ: "Yoshlarga xos kreativlik, texnologiya va ekologik ong uyg‘unligining yorqin namunasi! 📚 Xakaton doirasida 10 ta jamoa o‘quv adabiyotlari bilan taqdirlandi, StartUp Garage esa ishtirokchilarga 100 million so‘mlik grant ajratdi.",
+        RU: "Яркий пример сочетания молодежного креатива, технологий и экологического сознания! 📚 В рамках хакатона 10 команд были награждены учебной литературой, а StartUp Garage выделил участникам грант в размере 100 миллионов сум.",
+        EN: "A bright example of the combination of youth creativity, technology, and ecological consciousness! 📚 During the hackathon, 10 teams were awarded educational literature, and StartUp Garage allocated a grant of 100 million UZS to the participants."
+      },
+      {
+        UZ: "👏 G‘olib jamoamizni va barcha ishtirokchilarni chin yurakdan tabriklaymiz! Sizlar – “Mirzo Ulug‘bek vorislari”ning faxri va ilhom manbaisiz!",
+        RU: "👏 От всей души поздравляем нашу команду-победителя и всех участников! Вы — гордость и источник вдохновения «Наследников Мирзо Улугбека»!",
+        EN: "👏 We sincerely congratulate our winning team and all participants! You are the pride and source of inspiration of the \"Mirzo Ulugbek Heirs\"!"
+      }
+    ],
+    quote: {
+      UZ: "Sizlar – “Mirzo Ulug‘bek vorislari”ning faxri va ilhom manbaisiz!",
+      RU: "Вы — гордость и источник вдохновения «Наследников Мирзо Улугбека»!",
+      EN: "You are the pride and source of inspiration of the \"Mirzo Ulugbek Heirs\"!"
+    },
+    author: "O‘quv markaz.",
+    readTime: { UZ: "3 DAQIQA", RU: "3 МИНУТЫ", EN: "3 MIN READ" }
+  },
+  {
     id: "ai-girls-bootcamp-2025",
     title: {
       UZ: "AI Girls Bootcamp’da bizning qizlarimiz!",
