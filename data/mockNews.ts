@@ -92,6 +92,62 @@ export const mockNews: NewsItem[] = [
     views: 3120
   },
   {
+    id: "it-career-event-2025",
+    title: {
+      UZ: "“IT Career Event – 2025”",
+      RU: "«IT Career Event – 2025»",
+      EN: "\"IT Career Event – 2025\""
+    },
+    date: {
+      day: "07",
+      month: { UZ: "MAY", RU: "МАЙ", EN: "MAY" },
+      full: { UZ: "7-May, 2025", RU: "7 Мая 2025", EN: "May 07, 2025" },
+      weekday: { UZ: "CHOR", RU: "СР", EN: "WED" }
+    },
+    image: "/news/it-2025/1.jpg",
+    categories: ["CAREER", "COMPETITION"],
+    category: { UZ: "TANLOV", RU: "КОНКУРС", EN: "COMPETITION" },
+    excerpt: {
+      UZ: "“IT Career Event – 2025” tanlovida kursimiz tinglovchilari 1- va 3-o‘rinlarni egallashdi!",
+      RU: "На конкурсе «IT Career Event – 2025» слушатели нашего курса заняли 1-е и 3-е места!",
+      EN: "At the \"IT Career Event - 2025\" competition, our course attendees took 1st and 3rd places!"
+    },
+    summary: {
+      UZ: "“IT Career Event – 2025” tanlovida kursimiz tinglovchilari 1- va 3-o‘rinlarni egallashdi!",
+      RU: "На конкурсе «IT Career Event – 2025» слушатели нашего курса заняли 1-е и 3-е места!",
+      EN: "At the \"IT Career Event - 2025\" competition, our course attendees took 1st and 3rd places!"
+    },
+    content: [
+      {
+        UZ: "2025-yil 7-may kuni bo‘lib o‘tgan “IT Career Event – 2025” tanlovida faxr bilan e’lon qilamiz: Mannabboyev Yahyobek 1-o‘rinni, Rustamov Ibroxim esa 3-o‘rinni egalladi!",
+        RU: "С гордостью сообщаем о результатах конкурса «IT Career Event – 2025», прошедшего 7 мая 2025 года: Маннаббоев Яхёбек занял 1-е место, а Рустамов Иброхим — 3-е место!",
+        EN: "We are proud to announce the results of the \"IT Career Event – 2025\" competition held on May 7, 2025: Mannabboyev Yahyobek took 1st place, and Rustamov Ibroxim took 3rd place!"
+      },
+      {
+        UZ: "Tanlovda IT sohasidagi uchta yo‘nalish — Software, Hardware, va Analytic bo‘yicha test sinovlari o‘tkazildi. G‘oliblar noutbuk, smartfon va aqlli soat kabi sovg‘alar bilan taqdirlandi.",
+        RU: "В рамках конкурса проводились тестирования по трем IT-направлениям: Software, Hardware и Analytic. Победители были награждены такими призами, как ноутбуки, смартфоны и смарт-часы.",
+        EN: "The competition included testing in three IT directions: Software, Hardware, and Analytic. The winners were awarded prizes such as laptops, smartphones, and smartwatches."
+      },
+      {
+        UZ: "Bu yutuq — “Mirzo Ulug‘bek vorislari” tayyorlov kursining amaliy bilim va kuchli tayyorgarligi natijasi. Barcha g‘oliblarni tabriklaymiz va IT yo‘lida ulkan muvaffaqiyatlar tilaymiz!",
+        RU: "Это достижение — результат практических знаний и сильной подготовки на курсе «Наследники Мирзо Улугбека». Поздравляем всех победителей и желаем им огромных успехов на пути IT!",
+        EN: "This achievement is the result of practical knowledge and strong preparation at the \"Mirzo Ulugbek Heirs\" course. We congratulate all the winners and wish them great success in their IT journey!"
+      },
+      {
+        UZ: "IT — bu kelajak, biz esa bu kelajakni birga quramiz!",
+        RU: "IT — это будущее, и мы строим это будущее вместе!",
+        EN: "IT is the future, and we are building this future together!"
+      }
+    ],
+    quote: {
+      UZ: "IT — bu kelajak, biz esa bu kelajakni birga quramiz!",
+      RU: "IT — это будущее, и мы строим это будущее вместе!",
+      EN: "IT is the future, and we are building this future together!"
+    },
+    author: "O‘quv markaz.",
+    readTime: { UZ: "3 DAQIQA", RU: "3 МИНУТЫ", EN: "3 MIN READ" }
+  },
+  {
     id: "anti-corruption-2025",
     title: {
       UZ: "Open Data for Anti-Corruption = AI integrated solutions!",
