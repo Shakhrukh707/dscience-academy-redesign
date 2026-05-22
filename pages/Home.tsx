@@ -677,8 +677,8 @@ const FaqSection = ({ t, lang }: { t: any, lang: string }) => {
 
 export default function Home({ lang }: { lang: Language }) {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isPageVisible, setIsPageVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(() => sessionStorage.getItem('hasVisited') !== 'true');
+  const [isPageVisible, setIsPageVisible] = useState(() => sessionStorage.getItem('hasVisited') === 'true');
   const [activeCourseId, setActiveCourseId] = useState<CourseId | null>(null);
   const [showPricingModal, setShowPricingModal] = useState(false);
   const [admissionType, setAdmissionType] = useState<'kvota' | 'kontrakt' | null>(null);
@@ -1017,7 +1017,10 @@ export default function Home({ lang }: { lang: Language }) {
   return (
     <>
       <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+        {isLoading && <LoadingScreen onComplete={() => {
+          setIsLoading(false);
+          sessionStorage.setItem('hasVisited', 'true');
+        }} />}
       </AnimatePresence>
 
       <div
