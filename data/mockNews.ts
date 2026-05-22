@@ -94,53 +94,64 @@ export const mockNews: NewsItem[] = [
   {
     id: "1",
     title: {
-      UZ: "DScience Academy Tech Horizon sammitida eng yaxshi IT ta'lim mukofotini qo'lga kiritdi",
-      RU: "DScience Academy получила награду за лучшее IT-образование на саммите Tech Horizon",
-      EN: "DScience Academy wins Top IT Education Award at Tech Horizon Summit"
+      UZ: "\"Kelajak muhandislari\" HAKATON tanlovida 1-, 2-, 3-o'rinlar!",
+      RU: "1, 2 и 3 места на ХАКАТОНЕ «Инженеры будущего»!",
+      EN: "1st, 2nd, and 3rd Places at the 'Future Engineers' HACKATHON!"
     },
     date: {
-      day: "12",
-      month: { UZ: "MAY", RU: "МАЙ", EN: "MAY" },
-      full: { UZ: "12-may, 2026", RU: "12 мая, 2026", EN: "May 12, 2026" },
-      weekday: { UZ: "SESH", RU: "ВТ", EN: "TUE" }
+      day: "20",
+      month: { UZ: "APR", RU: "АПР", EN: "APR" },
+      full: { UZ: "20-Aprel, 2025", RU: "20 Апреля 2025", EN: "April 20, 2025" },
+      weekday: { UZ: "YAK", RU: "ВС", EN: "SUN" }
     },
-    image: "/media/hackathon.jpg",
-    categories: ["AWARDS", "EDUCATION", "TECH"],
-    category: { UZ: "MUKOFOT", RU: "НАГРАДА", EN: "AWARD" },
+    image: "/news/hakaton/photo_2025-04-20_23-02-22.jpg",
+    gallery: [
+      "/news/hakaton/photo_2025-04-20_23-02-22.jpg",
+      "/news/hakaton/photo_2025-04-20_23-02-24.jpg",
+      "/news/hakaton/photo_2025-04-20_23-02-26.jpg",
+      "/news/hakaton/photo_2025-04-20_23-02-26 (2).jpg",
+      "/news/hakaton/photo_2025-04-20_23-02-28.jpg",
+      "/news/hakaton/photo_2025-04-20_23-02-29.jpg",
+      "/news/hakaton/photo_2025-04-20_23-02-30.jpg",
+      "/news/hakaton/photo_2025-04-20_23-08-14.jpg",
+      "/news/hakaton/photo_2026-05-22_15-49-41.jpg"
+    ],
+    categories: ["HACKATHON", "ACHIEVEMENTS"],
+    category: { UZ: "YUTUQ", RU: "ДОСТИЖЕНИЕ", EN: "ACHIEVEMENT" },
     excerpt: {
-      UZ: "Akademiyamiz IT ta'limga qo'shgan ulkan hissasi uchun tan olindi — amaliy, real portfolio yaratishga yo'naltirilgan yondashuvimiz yuqori baholandi.",
-      RU: "Наша академия получила признание за выдающийся вклад в IT-образование, подчёркивающее наш фокус на практическом построении портфолио.",
-      EN: "Our academy has been recognized for outstanding contributions to IT education, emphasizing our focus on practical, real-world portfolio building."
+      UZ: "“Kelajak muhandislari” xalqaro festivalidagi HAKATON tanlovida “Mirzo Ulug‘bek vorislari” jamoalari barcha sovrinli o‘rinlarni egallashdi!",
+      RU: "На ХАКАТОНЕ в рамках международного фестиваля «Инженеры будущего» команды «Наследники Мирзо Улугбека» заняли все призовые места!",
+      EN: "At the HACKATHON of the 'Future Engineers' international festival, the 'Mirzo Ulugbek Heirs' teams took all the prize-winning places!"
     },
     summary: {
-      UZ: "Akademiyamiz IT ta'limga qo'shgan ulkan hissasi uchun tan olindi — amaliy, real portfolio yaratishga yo'naltirilgan yondashuvimiz yuqori baholandi.",
-      RU: "Наша академия получила признание за выдающийся вклад в IT-образование, подчёркивающее наш фокус на практическом построении портфолио.",
-      EN: "Our academy has been recognized for outstanding contributions to IT education, emphasizing our focus on practical, real-world portfolio building."
+      UZ: "“Kelajak muhandislari” xalqaro festivalidagi HAKATON tanlovida “Mirzo Ulug‘bek vorislari” jamoalari barcha sovrinli o‘rinlarni egallashdi!",
+      RU: "На ХАКАТОНЕ в рамках международного фестиваля «Инженеры будущего» команды «Наследники Мирзо Улугбека» заняли все призовые места!",
+      EN: "At the HACKATHON of the 'Future Engineers' international festival, the 'Mirzo Ulugbek Heirs' teams took all the prize-winning places!"
     },
     content: [
       {
-        UZ: "Nufuzli Tech Horizon sammitida DScience Academy 'Eng yaxshi IT ta'lim' mukofoti bilan taqdirlandi. Bu mukofot ustozlarimizning tinimsiz fidoyiligi va shijoatli talabalarimizning mehnati e'tirofidir.",
-        RU: "На престижном саммите Tech Horizon академия DScience была удостоена награды «Лучшее IT-образование». Эта честь подчёркивает неустанную преданность наших наставников и упорный труд наших амбициозных студентов.",
-        EN: "The prestigious Tech Horizon Summit recently recognized DScience Academy with the 'Top IT Education Award'. This honor highlights the relentless dedication of our mentors and the hard work of our ambitious students."
+        UZ: "“Kelajak muhandislari” xalqaro festivalida o‘tkazilgan “Sanoat korxonalarining muammolariga qaratilgan HAKATON” tanlovida “Mirzo Ulug‘bek vorislari” Data Science o‘quv kursi talabalaridan tuzilgan jamoalar 1-, 2- va 3-o‘rinlarni egallab, festivalda munosib ishtirok etishdi!",
+        RU: "На ХАКАТОНЕ, посвященном проблемам промышленных предприятий и проведенном в рамках международного фестиваля «Инженеры будущего», команды из числа студентов курса Data Science «Наследники Мирзо Улугбека» заняли 1, 2 и 3 места, достойно представив академию!",
+        EN: "At the HACKATHON focused on the problems of industrial enterprises, held as part of the 'Future Engineers' international festival, teams made up of students from the 'Mirzo Ulugbek Heirs' Data Science course took 1st, 2nd, and 3rd places, participating worthily in the festival!"
       },
       {
-        UZ: "O'tgan yil davomida biz o'quv dasturimizni, ayniqsa Data Science va Game Development yo'nalishlarida sezilarli kengaytirdik. Bu strategik qadam ajoyib natijalarga olib keldi — talabalarimiz bitirmasdan oldin ishlab chiqarishga tayyor loyihalar yaratmoqda.",
-        RU: "В прошлом году мы активно расширяли учебную программу, особенно в области Data Science и GameDev. Этот стратегический рывок принёс потрясающие результаты — наши студенты создают проекты уровня production ещё до выпуска.",
-        EN: "Over the past year, we have heavily invested in expanding our curriculum, particularly in the fields of Data Science and Game Development. This strategic push has yielded tremendous results, enabling our students to build production-ready projects before they even graduate."
+        UZ: "🥇 1-o‘rin — “Vetwatch” jamoasi: Narzullayev Dilshod, Oʻktamov Diyorbek, Hotamov Adham, Xudoyberdiyev Xumoyunbek.\n\n🥈 2-o‘rin — “Tahlilchi” jamoasi: Quldoshev Otabek, Musurmonov Behruz, Xafizadinov Usnatdin, Hojiakbar Abdulhakimov.\n\n🥉 3-o‘rin — “Agro Helper” jamoasi: Nazirov A‘zamjon, Dexqonov Muxammadro‘zi, Jo‘raqulova Munisa.",
+        RU: "🥇 1-е место — команда «Vetwatch»: Нарзуллаев Дилшод, Уктамов Диёрбек, Хотамов Адхам, Худойбердиев Хумоюнбек.\n\n🥈 2-е место — команда «Tahlilchi»: Кулдошев Отабек, Мусурмонов Бехруз, Хафизадинов Уснатдин, Хожиакбар Абдулхакимов.\n\n🥉 3-е место — команда «Agro Helper»: Назиров Аъзамжон, Дехконов Мухаммадрози, Журакулова Муниса.",
+        EN: "🥇 1st place — 'Vetwatch' team: Narzullayev Dilshod, Oʻktamov Diyorbek, Hotamov Adham, Xudoyberdiyev Xumoyunbek.\n\n🥈 2nd place — 'Tahlilchi' team: Quldoshev Otabek, Musurmonov Behruz, Xafizadinov Usnatdin, Hojiakbar Abdulhakimov.\n\n🥉 3rd place — 'Agro Helper' team: Nazirov A‘zamjon, Dexqonov Muxammadro‘zi, Jo‘raqulova Munisa."
       },
       {
-        UZ: "Hakamlar hay'ati bizning 'amaliy ta'limga murosasiz yondashuvimiz' va 'talabalar portfoliolarining yuqori sifati'ni alohida ta'kidladi. Keyingi bosqichda biz sanoat hamkorliklari sonini ikki baravar oshirishni maqsad qildik.",
-        RU: "Жюри особо отметило наш «бескомпромиссный подход к практическому образованию» и «высокий уровень студенческих портфолио». В дальнейшем мы планируем удвоить число индустриальных партнёрств.",
-        EN: "The judging panel specifically noted our 'uncompromising approach to practical education' and the 'high caliber of student portfolios'. Moving forward, we aim to double down on our industry partnerships, ensuring our graduates always meet the latest market demands."
+        UZ: "Ushbu yutuqlar — sizlarning mehnat, bilim va jamoaviy ishlash qobiliyatingiz mahsuli. “Mirzo Ulug‘bek vorislari” Data Science o‘quv kursi barchangizni chin qalbdan tabriklaydi! Siz bilan faxrlanamiz! Oldinda yana katta yutuqlar kutmoqda!",
+        RU: "Эти достижения — результат вашего труда, знаний и умения работать в команде. Учебный курс Data Science «Наследники Мирзо Улугбека» от всей души поздравляет вас всех! Мы гордимся вами! Впереди вас ждут новые большие победы!",
+        EN: "These achievements are the product of your hard work, knowledge, and teamwork skills. The 'Mirzo Ulugbek Heirs' Data Science training course sincerely congratulates you all! We are proud of you! Even greater achievements lie ahead!"
       }
     ],
     quote: {
-      UZ: "Bu investitsiya texnologik ta'lim sohasidagi ulkan bozor imkoniyatlarini, ayniqsa Markaziy Osiyo mintaqasidagi salohiyatni aks ettiradi.",
-      RU: "Эта инвестиция отражает значительные рыночные возможности в сфере технологического образования, особенно в Центральноазиатском регионе.",
-      EN: "This investment is a reflection of the significant market opportunity for tech education, particularly in the Central Asian region."
+      UZ: "Siz bilan faxrlanamiz! Oldinda yana katta yutuqlar kutmoqda!",
+      RU: "Мы гордимся вами! Впереди вас ждут новые большие победы!",
+      EN: "We are proud of you! Even greater achievements lie ahead!"
     },
-    author: "Kamronbek Rustamov",
-    readTime: { UZ: "4 DAQ O'QISH", RU: "4 МИН ЧТЕНИЯ", EN: "4 MIN READ" }
+    author: "O‘quv markaz.",
+    readTime: { UZ: "3 DAQIQA", RU: "3 МИНУТЫ", EN: "3 MIN READ" }
   },
   {
     id: "2",
