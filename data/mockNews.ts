@@ -94,9 +94,9 @@ export const mockNews: NewsItem[] = [
   {
     id: "1",
     title: {
-      UZ: "\"Kelajak muhandislari\" HAKATON tanlovida 1-, 2-, 3-o'rinlar!",
-      RU: "1, 2 и 3 места на ХАКАТОНЕ «Инженеры будущего»!",
-      EN: "1st, 2nd, and 3rd Places at the 'Future Engineers' HACKATHON!"
+      UZ: "\"Kelajak muhandislari\" HAKATON tanlovida",
+      RU: "На ХАКАТОНЕ «Инженеры будущего»",
+      EN: "At the 'Future Engineers' HACKATHON"
     },
     date: {
       day: "20",
@@ -104,17 +104,17 @@ export const mockNews: NewsItem[] = [
       full: { UZ: "20-Aprel, 2025", RU: "20 Апреля 2025", EN: "April 20, 2025" },
       weekday: { UZ: "YAK", RU: "ВС", EN: "SUN" }
     },
-    image: "/news/hakaton/photo_2025-04-20_23-02-22.jpg",
+    image: "/news/hakaton/1.jpg",
     gallery: [
-      "/news/hakaton/photo_2025-04-20_23-02-22.jpg",
-      "/news/hakaton/photo_2025-04-20_23-02-24.jpg",
-      "/news/hakaton/photo_2025-04-20_23-02-26.jpg",
-      "/news/hakaton/photo_2025-04-20_23-02-26 (2).jpg",
-      "/news/hakaton/photo_2025-04-20_23-02-28.jpg",
-      "/news/hakaton/photo_2025-04-20_23-02-29.jpg",
-      "/news/hakaton/photo_2025-04-20_23-02-30.jpg",
-      "/news/hakaton/photo_2025-04-20_23-08-14.jpg",
-      "/news/hakaton/photo_2026-05-22_15-49-41.jpg"
+      "/news/hakaton/1.jpg",
+      "/news/hakaton/2.jpg",
+      "/news/hakaton/3.jpg",
+      "/news/hakaton/4.jpg",
+      "/news/hakaton/5.jpg",
+      "/news/hakaton/6.jpg",
+      "/news/hakaton/7.jpg",
+      "/news/hakaton/8.jpg",
+      "/news/hakaton/9.jpg"
     ],
     categories: ["HACKATHON", "ACHIEVEMENTS"],
     category: { UZ: "YUTUQ", RU: "ДОСТИЖЕНИЕ", EN: "ACHIEVEMENT" },
