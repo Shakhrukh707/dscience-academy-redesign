@@ -124,7 +124,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] overflow-hidden bg-[#F8FAFC]"
+      className="fixed inset-0 z-[9999] overflow-hidden bg-white"
       exit={{ opacity: 0, scale: 1.015, filter: 'blur(10px)' }}
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
@@ -556,7 +556,7 @@ const ProjectsSection = ({ lang }: { lang: string }) => {
   const featuredProjects = mockProjects.slice(0, 3);
   
   return (
-    <section className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_40%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
+    <section className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-white dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_40%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 32, filter: 'blur(12px)' }}
@@ -1021,7 +1021,7 @@ export default function Home({ lang }: { lang: Language }) {
       </AnimatePresence>
 
       <div
-        className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-blue-100 selection:text-blue-600 dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] dark:text-slate-100 dark:selection:bg-blue-500/30 dark:selection:text-blue-100"
+        className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-600 dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_30%),linear-gradient(180deg,#030712_0%,#020617_58%,#050816_100%)] dark:text-slate-100 dark:selection:bg-blue-500/30 dark:selection:text-blue-100"
         style={{
           opacity: isPageVisible ? 1 : 0,
           filter: isPageVisible ? 'none' : 'blur(14px)',
@@ -1213,7 +1213,7 @@ export default function Home({ lang }: { lang: Language }) {
           </div>
         </section>
 
-        <section id="why" className="pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-8 bg-[#F8FAFC]">
+        <section id="why" className="pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-8 bg-white">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
@@ -1375,7 +1375,7 @@ export default function Home({ lang }: { lang: Language }) {
 
         
 <FaqSection t={t} lang={lang} />
-<section className="px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 bg-[#F8FAFC] dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_40%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
+<section className="px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32 bg-white dark:bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_40%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
