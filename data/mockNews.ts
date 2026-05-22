@@ -92,6 +92,67 @@ export const mockNews: NewsItem[] = [
     views: 3120
   },
   {
+    id: "ai-girls-bootcamp-2025",
+    title: {
+      UZ: "AI Girls Bootcamp’da bizning qizlarimiz!",
+      RU: "Наши девочки на AI Girls Bootcamp!",
+      EN: "Our Girls at AI Girls Bootcamp!"
+    },
+    date: {
+      day: "08",
+      month: { UZ: "MAY", RU: "МАЙ", EN: "MAY" },
+      full: { UZ: "8-May, 2025", RU: "8 Мая 2025", EN: "May 08, 2025" },
+      weekday: { UZ: "PAY", RU: "ЧТ", EN: "THU" }
+    },
+    image: "/news/ai-girls/1.jpg",
+    gallery: [
+      "/news/ai-girls/1.jpg",
+      "/news/ai-girls/2.jpg",
+      "/news/ai-girls/3.jpg"
+    ],
+    categories: ["BOOTCAMP", "ACHIEVEMENTS"],
+    category: { UZ: "YUTUQ", RU: "ДОСТИЖЕНИЕ", EN: "ACHIEVEMENT" },
+    excerpt: {
+      UZ: "“Yoshlar oromgohi”da o‘tkazilgan AI GIRLS BOOTCAMP dasturida kursimizning 4 nafar iqtidorli talaba qizi ishtirok etdi!",
+      RU: "4 талантливые студентки нашего курса приняли участие в программе AI GIRLS BOOTCAMP в молодежном лагере «Ёшлар оромгохи»!",
+      EN: "4 talented female students of our course participated in the AI GIRLS BOOTCAMP program at the \"Yoshlar Oromgohi\" youth camp!"
+    },
+    summary: {
+      UZ: "“Yoshlar oromgohi”da o‘tkazilgan AI GIRLS BOOTCAMP dasturida kursimizning 4 nafar iqtidorli talaba qizi ishtirok etdi!",
+      RU: "4 талантливые студентки нашего курса приняли участие в программе AI GIRLS BOOTCAMP в молодежном лагере «Ёшлар оромгохи»!",
+      EN: "4 talented female students of our course participated in the AI GIRLS BOOTCAMP program at the \"Yoshlar Oromgohi\" youth camp!"
+    },
+    content: [
+      {
+        UZ: "28-apreldan 3-maygacha Bo‘stonliqdagi “Yoshlar oromgohi”da o‘tkazilgan AI GIRLS BOOTCAMP dasturida “Mirzo Ulug‘bek vorislari” Data Science kursining 4 nafar iqtidorli talaba qizi ishtirok etdi:",
+        RU: "С 28 апреля по 3 мая в молодежном лагере «Ёшлар оромгохи» в Бостанлыке прошла программа AI GIRLS BOOTCAMP, в которой приняли участие 4 талантливые студентки курса Data Science «Наследники Мирзо Улугбека»:",
+        EN: "From April 28 to May 3, the AI GIRLS BOOTCAMP program was held at the \"Yoshlar Oromgohi\" youth camp in Bostanliq, featuring 4 talented female students from the \"Mirzo Ulugbek Heirs\" Data Science course:"
+      },
+      {
+        UZ: "👩‍💻 Munisa Berdiqulova\n👩‍💻 Gulhayo Panjiyeva\n👩‍💻 Mohichehra Xasanova\n👩‍💻 Marjona Xolmamatova",
+        RU: "👩‍💻 Муниса Бердикулова\n👩‍💻 Гулхаё Панжиева\n👩‍💻 Мохичехра Хасанова\n👩‍💻 Маржона Холмаматова",
+        EN: "👩‍💻 Munisa Berdiqulova\n👩‍💻 Gulhayo Panjiyeva\n👩‍💻 Mohichehra Xasanova\n👩‍💻 Marjona Xolmamatova"
+      },
+      {
+        UZ: "Ular marketing, dizayn va dasturlash bo‘yicha amaliy bilimlarini chuqurlashtirib, Mohirdev platformasidan Full Stack va Frontend kurslarini bepul yutib olishdi.",
+        RU: "Они углубили свои практические знания в области маркетинга, дизайна и программирования, а также выиграли бесплатные курсы Full Stack и Frontend от платформы Mohirdev.",
+        EN: "They deepened their practical knowledge in marketing, design, and programming, and also won free Full Stack and Frontend courses from the Mohirdev platform."
+      },
+      {
+        UZ: "Mentorlar, real loyihalar, hakatonlar va networking — barchasi bir joyda! Qizlarimizni tabriklaymiz va ulardan faxrlanamiz!",
+        RU: "Менторы, реальные проекты, хакатоны и нетворкинг — всё в одном месте! Поздравляем наших девочек и гордимся ими!",
+        EN: "Mentors, real projects, hackathons, and networking — all in one place! We congratulate our girls and are very proud of them!"
+      }
+    ],
+    quote: {
+      UZ: "Mentorlar, real loyihalar, hakatonlar va networking — barchasi bir joyda!",
+      RU: "Менторы, реальные проекты, хакатоны и нетворкинг — всё в одном месте!",
+      EN: "Mentors, real projects, hackathons, and networking — all in one place!"
+    },
+    author: "O‘quv markaz.",
+    readTime: { UZ: "3 DAQIQA", RU: "3 МИНУТЫ", EN: "3 MIN READ" }
+  },
+  {
     id: "it-career-event-2025",
     title: {
       UZ: "“IT Career Event – 2025”",
