@@ -198,8 +198,8 @@ const AnimatedHeroBackground = () => {
         </video>
       )}
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.56)_0%,rgba(248,250,252,0.34)_28%,rgba(248,250,252,0.54)_62%,rgba(248,250,252,0.88)_100%)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(248,250,252,0.5)_28%,rgba(248,250,252,0.66)_62%,rgba(248,250,252,0.94)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(147,197,253,0.18),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.96),rgba(255,255,255,0)_65%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.56)_0%,rgba(248,250,252,0.34)_28%,rgba(248,250,252,0.54)_62%,rgba(248,250,252,0.88)_100%)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(248,250,252,0.5)_28%,rgba(248,250,252,0.66)_62%,rgba(248,250,252,0.94)_100%)] dark:bg-[linear-gradient(180deg,rgba(3,7,18,0.75)_0%,rgba(3,7,18,0.6)_28%,rgba(3,7,18,0.85)_62%,rgba(3,7,18,1)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(147,197,253,0.18),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.96),rgba(255,255,255,0)_65%)] dark:bg-[radial-gradient(circle_at_50%_50%,transparent,transparent)]" />
       <div className="absolute inset-x-0 bottom-[-8%] h-[36%] opacity-45 [background-image:linear-gradient(rgba(148,163,184,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.14)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:linear-gradient(to_top,rgba(0,0,0,0.86),transparent_80%)] [-webkit-mask-image:linear-gradient(to_top,rgba(0,0,0,0.86),transparent_80%)]" />
       <div className="absolute left-[8%] top-[20%] h-24 w-24 rounded-full bg-blue-200/40 blur-[55px] sm:h-32 sm:w-32 md:h-40 md:w-40" />
       <div className="absolute right-[10%] top-[42%] h-20 w-20 rounded-full bg-sky-200/40 blur-[48px] sm:h-28 sm:w-28 md:h-32 md:w-32" />
@@ -1219,7 +1219,7 @@ export default function Home({ lang }: { lang: Language }) {
           </div>
         </section>
 
-        <section id="why" className="pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-8 bg-white">
+        <section id="why" className="pt-20 sm:pt-24 md:pt-32 pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 md:px-8 bg-white dark:bg-[#030712]">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
@@ -1251,13 +1251,13 @@ export default function Home({ lang }: { lang: Language }) {
                   viewport={{ once: true, amount: 0.16 }}
                   transition={{ duration: 0.78, delay: index * 0.07, ease: revealEase }}
                   whileHover={{ y: -8, scale: 1.01 }}
-                  className="group rounded-[2.2rem] border border-slate-100 bg-white p-7 sm:p-8 md:p-9 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.18)] transition-all duration-500 hover:border-blue-200 hover:shadow-[0_30px_75px_-40px_rgba(37,99,235,0.18)]"
+                  className="group rounded-[2.2rem] border border-slate-100 bg-white p-7 sm:p-8 md:p-9 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.18)] transition-all duration-500 hover:border-blue-200 hover:shadow-[0_30px_75px_-40px_rgba(37,99,235,0.18)] dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(2,6,23,0.98))] dark:border-slate-800 dark:hover:border-blue-500/30"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-[1.5rem] border border-slate-100 bg-slate-50 text-blue-600 shadow-sm transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-[1.5rem] border border-slate-100 bg-slate-50 text-blue-600 shadow-sm transition-all duration-500 group-hover:bg-blue-600 group-hover:text-white dark:bg-slate-900 dark:border-slate-800 dark:text-blue-500 dark:group-hover:text-white">
                     {card.icon}
                   </div>
 
-                  <h3 className="mt-7 text-2xl sm:text-[1.75rem] font-black tracking-tight text-slate-900 leading-tight">
+                  <h3 className="mt-7 text-2xl sm:text-[1.75rem] font-black tracking-tight text-slate-900 leading-tight dark:text-white">
                     {card.title}
                   </h3>
 
@@ -1273,7 +1273,7 @@ export default function Home({ lang }: { lang: Language }) {
         
         <ProjectsSection lang={lang} />
 
-<section id="apply" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-white">
+<section id="apply" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 bg-white dark:bg-[#030712]">
           <div className="container mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 32, filter: 'blur(12px)' }}
