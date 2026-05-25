@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X, User, ChevronDown, Monitor, BookOpen, ShieldCheck } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { translations } from '../translations';
 import { Language } from '../types';
@@ -66,6 +66,7 @@ export const BrandIcon = ({ size = 'sm' }: { size?: 'sm' | 'lg' }) => {
 export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l: Language) => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const t = translations[lang];
@@ -95,9 +96,33 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
     { label: lang === 'UZ' ? 'Yangiliklar' : lang === 'RU' ? 'Новости' : 'News', onClick: () => handleNavClick('/news') },
     { label: t.header.projects, onClick: () => handleNavClick('/projects') },
     { label: t.header.courses, onClick: () => handleNavClick('/', 'courses') },
-    { label: 'E-campus', onClick: () => window.open('https://dscience.uz/e-campus', '_blank') },
-    { label: lang === 'UZ' ? 'Platforma' : lang === 'RU' ? 'Платформа' : 'Platform', onClick: () => window.open('https://lmsf.dscience.uz/login', '_blank') },
-    { label: lang === 'UZ' ? 'Kutubxona' : lang === 'RU' ? 'Библиотека' : 'Library', onClick: () => window.open('https://dscience.uz/login', '_blank') },
+  ];
+
+  const dropdownItems = [
+    { 
+      label: 'LMS Platforma', 
+      sub: lang === 'UZ' ? "O'quv platformasi" : lang === 'RU' ? 'Учебная платформа' : 'Learning Platform',
+      icon: <Monitor size={16} />,
+      colorClass: 'text-blue-600 dark:text-blue-400',
+      bgClass: 'bg-blue-50 dark:bg-blue-900/30',
+      onClick: () => window.open('https://lmsf.dscience.uz/login', '_blank')
+    },
+    { 
+      label: 'Kutubxona', 
+      sub: lang === 'UZ' ? 'Kitoblar va taqdimotlar' : lang === 'RU' ? 'Книги и презентации' : 'Books & Presentations',
+      icon: <BookOpen size={16} />,
+      colorClass: 'text-emerald-600 dark:text-emerald-400',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-900/30',
+      onClick: () => window.open('https://dscience.uz/login', '_blank')
+    },
+    { 
+      label: 'Sertifikatni tekshirish', 
+      sub: lang === 'UZ' ? 'Haqqoniylikni tekshirish' : lang === 'RU' ? 'Проверка подлинности' : 'Verify Certificate',
+      icon: <ShieldCheck size={16} />,
+      colorClass: 'text-purple-600 dark:text-purple-400',
+      bgClass: 'bg-purple-50 dark:bg-purple-900/30',
+      onClick: () => window.open('https://dscience.uz/e-campus', '_blank')
+    }
   ];
 
   return (
@@ -125,6 +150,40 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
                 {item.label}
               </button>
             ))}
+
+            <div className="relative" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+              <button
+                type="button"
+                className="text-xs font-black uppercase tracking-widest text-slate-500 hover:text-blue-600 transition-colors whitespace-nowrap dark:text-slate-300/90 dark:hover:text-blue-200 flex items-center gap-1.5 py-4"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                E-Campus <ChevronDown size={14} className={`transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-2xl shadow-xl overflow-hidden flex flex-col p-2"
+                  >
+                    {dropdownItems.map((item, i) => (
+                      <button key={i} onClick={item.onClick} className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left group">
+                        <div className={`${item.bgClass} p-2 rounded-lg ${item.colorClass} group-hover:scale-110 transition-transform`}>
+                          {item.icon}
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-bold text-slate-900 dark:text-white leading-tight">{item.label}</span>
+                          <span className="text-[10px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400">{item.sub}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
@@ -203,17 +262,38 @@ export default function Navbar({ lang, setLang }: { lang: Language, setLang: (l:
                 ))}
               </div>
 
-              <div className="grid gap-3">
+              <div className="grid gap-2">
                 {navItems.map(item => (
                   <button
                     key={item.label}
                     type="button"
                     onClick={item.onClick}
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-left text-xs sm:text-sm font-black uppercase tracking-[0.2em] text-slate-500 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200"
+                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-left text-xs sm:text-sm font-black uppercase tracking-[0.2em] text-slate-500 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200"
                   >
                     {item.label}
                   </button>
                 ))}
+
+                <div className="w-full rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
+                  <div className="px-3 pt-1 pb-3 text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+                    E-Campus
+                  </div>
+                  <div className="grid gap-1">
+                    {dropdownItems.map((item, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => { item.onClick(); setMobileMenuOpen(false); }}
+                        className="flex items-center gap-3 w-full rounded-xl px-3 py-2.5 text-left text-sm font-bold text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/50 transition-colors"
+                      >
+                        <div className={`${item.bgClass} p-1.5 rounded-lg ${item.colorClass}`}>
+                          {item.icon}
+                        </div>
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <Button variant="outline" className="w-full mt-4 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] !rounded-2xl flex items-center justify-center gap-2" onClick={() => { window.open('https://dscience.uz/login', '_blank'); setMobileMenuOpen(false); }}>
