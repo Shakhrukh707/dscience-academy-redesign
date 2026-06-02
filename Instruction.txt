@@ -1,0 +1,39 @@
+Привет! Передаю архив с новым лендингом DScience Academy.
+
+Файл: dscience-build.zip
+
+Технические детали для деплоя:
+
+Это статичная сборка фронтенда (Single Page Application), написанная на React + Vite.
+В архиве dscience-build.zip лежит уже готовая к продакшену папка dist. Никакого Node.js запускать не нужно, достаточно просто отдавать статику через Nginx или Apache.
+Распакуй содержимое архива в корневую директорию сайта (например, /var/www/dscience).
+⚠️ ВАЖНО (Настройка роутинга): Так как сайт использует клиентский роутинг (React Router), нужно настроить веб-сервер так, чтобы все запросы перенаправлялись на index.html. Иначе при обновлении страницы по прямым ссылкам (например, dscience.uz/news) будет выдавать ошибку 404.
+
+Пример конфигурации для Nginx:
+
+nginx
+
+
+server {
+    listen 80;
+    server_name dscience.uz www.dscience.uz;
+    root /var/www/dscience;
+    index index.html;
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+Пример конфигурации для Apache (.htaccess):
+
+apache
+
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+По возможности убедись, что настроен кэшинг для статики (папка /assets) и установлен актуальный SSL-сертификат.

@@ -4,31 +4,51 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Twitter, Instagram, Facebook, Eye } from 'lucide-react';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
-import { mockNews } from '../data/mockNews';
 import { Language } from '../types';
+import parse from 'html-react-parser';
 
 export default function NewsArticle({ lang }: { lang: Language }) {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
-  const article = mockNews.find(n => n.id === id);
-
-  const [views, setViews] = React.useState(article?.views || 0);
+  const [article, setArticle] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [views, setViews] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    if (article) {
-      const storageKey = `views_${article.id}`;
-      const stored = localStorage.getItem(storageKey);
-      let currentViews = stored ? parseInt(stored, 10) : (article.views || 0);
-      
-      // Increment view count on mount
-      currentViews += 1;
-      localStorage.setItem(storageKey, currentViews.toString());
-      setViews(currentViews);
-    }
-  }, [id, article]);
+    fetch('/data/news.json')
+      .then(res => res.json())
+      .then(data => {
+        const found = data.find((n: any) => n.id === id);
+        if (found) {
+          setArticle(found);
+          const storageKey = `views_${found.id}`;
+          const stored = localStorage.getItem(storageKey);
+          let currentViews = stored ? parseInt(stored, 10) : (found.views || 0);
+          
+          currentViews += 1;
+          localStorage.setItem(storageKey, currentViews.toString());
+          setViews(currentViews);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load news', err);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#030712] text-slate-900 dark:text-white">
+        <div className="text-center font-bold text-slate-500">
+          {lang === 'UZ' ? 'Yuklanmoqda...' : lang === 'RU' ? 'Загрузка...' : 'Loading...'}
+        </div>
+      </div>
+    );
+  }
 
   if (!article) {
     return (
@@ -110,25 +130,32 @@ export default function NewsArticle({ lang }: { lang: Language }) {
           </div>
 
           {/* Text Content */}
-          <div className="flex-1">
-            <p className="text-xl sm:text-2xl font-bold leading-snug mb-8 text-slate-800 dark:text-slate-200">
-              {article.excerpt[lang]}
-            </p>
-
-            {article.content.map((paragraph, idx) => (
-              <React.Fragment key={idx}>
-                <p className="mb-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed font-medium">
-                  {paragraph[lang]}
+          <div className="flex-1 news-content">
+            {article.htmlContent && article.htmlContent[lang] ? (
+              <div className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed font-medium editor-content">
+                {parse(article.htmlContent[lang])}
+              </div>
+            ) : (
+              <>
+                <p className="text-xl sm:text-2xl font-bold leading-snug mb-8 text-slate-800 dark:text-slate-200">
+                  {article.excerpt?.[lang] || article.summary?.[lang]}
                 </p>
-                
-                {/* Insert quote in the middle of content */}
-                {idx === 0 && article.quote && (
-                  <blockquote className="my-10 pl-6 border-l-4 border-blue-600 dark:border-blue-500 bg-white dark:bg-slate-900/60 py-6 pr-6 italic font-bold text-xl sm:text-2xl text-slate-900 dark:text-white rounded-r-2xl shadow-sm">
-                    "{article.quote[lang]}"
-                  </blockquote>
-                )}
-              </React.Fragment>
-            ))}
+
+                {article.content?.map((paragraph: any, idx: number) => (
+                  <React.Fragment key={idx}>
+                    <p className="mb-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed font-medium">
+                      {paragraph[lang]}
+                    </p>
+                    
+                    {idx === 0 && article.quote && (
+                      <blockquote className="my-10 pl-6 border-l-4 border-blue-600 dark:border-blue-500 bg-white dark:bg-slate-900/60 py-6 pr-6 italic font-bold text-xl sm:text-2xl text-slate-900 dark:text-white rounded-r-2xl shadow-sm">
+                        "{article.quote[lang]}"
+                      </blockquote>
+                    )}
+                  </React.Fragment>
+                ))}
+              </>
+            )}
           </div>
         </div>
 

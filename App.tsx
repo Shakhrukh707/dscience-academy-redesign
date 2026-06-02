@@ -6,6 +6,7 @@ import NewsList from './components/NewsList';
 import NewsArticle from './components/NewsArticle';
 import ProjectList from './components/ProjectList';
 import ProjectArticle from './components/ProjectArticle';
+import AdminNews from './pages/AdminNews';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Language } from './types';
@@ -33,7 +34,16 @@ const AnimatedRoutes = ({ lang }: { lang: Language }) => {
         <Route path="/news" element={<PageWrapper><NewsList lang={lang} /></PageWrapper>} />
         <Route path="/news/:id" element={<PageWrapper><NewsArticle lang={lang} /></PageWrapper>} />
         <Route path="/projects" element={<PageWrapper><ProjectList lang={lang} /></PageWrapper>} />
-        <Route path="/projects/:id" element={<PageWrapper><ProjectArticle lang={lang} /></PageWrapper>} />
+        <Route path="/projects/:id" element={
+          <PageWrapper>
+            <ProjectArticle lang={lang} />
+          </PageWrapper>
+        } />
+        <Route path="/admin-news" element={
+          <PageWrapper>
+            <AdminNews />
+          </PageWrapper>
+        } />
       </Routes>
     </AnimatePresence>
   );

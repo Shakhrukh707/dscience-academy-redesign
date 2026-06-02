@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Search, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { mockNews } from '../data/mockNews';
 import { Language } from '../types';
 
 export default function NewsList({ lang }: { lang: Language }) {
@@ -12,10 +11,22 @@ export default function NewsList({ lang }: { lang: Language }) {
     const stored = localStorage.getItem(`views_${newsId}`);
     return stored ? parseInt(stored, 10) : (defaultViews || 0);
   };
+  const [newsList, setNewsList] = React.useState<any[]>([]);
+  const [loading, setLoading] = React.useState(true);
   const [searchQuery, setSearchQuery] = React.useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    fetch('/data/news.json')
+      .then(res => res.json())
+      .then(data => {
+        setNewsList(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch news:', err);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -52,12 +63,16 @@ export default function NewsList({ lang }: { lang: Language }) {
 
         {/* News List */}
         <div className="flex flex-col">
-          {mockNews.filter(news => news.title[lang].toLowerCase().includes(searchQuery.toLowerCase())).length === 0 ? (
+          {loading ? (
+            <div className="py-12 text-center text-slate-500 font-medium">
+              {lang === 'UZ' ? 'Yuklanmoqda...' : lang === 'RU' ? 'Загрузка...' : 'Loading...'}
+            </div>
+          ) : newsList.filter(news => news.title[lang].toLowerCase().includes(searchQuery.toLowerCase())).length === 0 ? (
             <div className="py-12 text-center text-slate-500 font-medium">
               {lang === 'UZ' ? 'Hech narsa topilmadi...' : lang === 'RU' ? 'Ничего не найдено...' : 'Nothing found...'}
             </div>
           ) : (
-            mockNews
+            newsList
               .filter(news => news.title[lang].toLowerCase().includes(searchQuery.toLowerCase()))
               .map((news, index) => (
                 <motion.div
